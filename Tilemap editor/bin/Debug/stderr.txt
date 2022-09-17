@@ -1,0 +1,69 @@
+&Controls
+&Configure Controls...
+Controller On/Off
+Joypad #&1
+Joypad #&2
+Joypad #&3
+Joypad #&4
+Joypad #&5
+
+Allow Left+Right / Up+Down
+
+Use SNES Joypad(s)
+Use SNES Mouse
+Use Super Scope
+Use Super Multitap (5-player)
+Use Konami Justifier
+Use Mouse in alternate port
+Use Multitaps (8-player)
+Use Dual Justifiers
+Speed
+&Frame Skip
+&Automatic
+
+skip &0
+skip &1
+skip &2
+skip &3
+skip &4
+skip &5
+skip &6
+skip &7
+skip &8
+skip &9
+
+Detailed &Settings...
+Set Speed
+6% (very slow)
+25%
+50% (half speed)
+75%
+100% (normal speed)
+150%
+200% (double speed)
+400%
+Other...
+
+Increase
+Decrease
+
+Process &Priority
+&Highest
+&Above Normal
+&Normal
+&Below Normal
+&Hotkeys...
+
+&Video
+Render Method
+DirectDraw
+Direct3D
+
+DDraw Use &Video Memory
+DDraw Use Local Video Memory
+
+DDraw/D3D Triple Buffering
+
+D3D Nearest
+D3D Bilinear
+F&ilter

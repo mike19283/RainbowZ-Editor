@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E9E9683-6562-4E1A-9C70-949BBDEAD009}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Rainbow_editor</RootNamespace>
+    <AssemblyName>Rainbow editor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>portrait_qTR_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animation.cs" />
+    <Compile Include="AnimationViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimationViewer.Designer.cs">
+      <DependentUpon>AnimationViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Banana.cs" />
+    <Compile Include="BananaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BananaEdit.Designer.cs">
+      <DependentUpon>BananaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Camera.cs" />
+    <Compile Include="CameraEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CameraEdit.Designer.cs">
+      <DependentUpon>CameraEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CameraVertical.cs" />
+    <Compile Include="ColumnLinks.cs" />
+    <Compile Include="DixieSpritePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DixieSpritePlace.Designer.cs">
+      <DependentUpon>DixieSpritePlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DKCLevel.Bananas.cs" />
+    <Compile Include="DKCLevel.cs" />
+    <Compile Include="DKCLevel.Entity.cs" />
+    <Compile Include="DKCLevel.Entrance.cs" />
+    <Compile Include="DKCLevel.Tile.cs" />
+    <Compile Include="Entity.Animation.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="EntityEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityEdit.Designer.cs">
+      <DependentUpon>EntityEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityEditor.Designer.cs">
+      <DependentUpon>EntityEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityEditVertical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityEditVertical.Designer.cs">
+      <DependentUpon>EntityEditVertical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entrance.cs" />
+    <Compile Include="Entrances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entrances.Designer.cs">
+      <DependentUpon>Entrances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.Autofill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.EntityMouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.RadioBoxes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Sandbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="HexEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HexEditor.Designer.cs">
+      <DependentUpon>HexEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageToSNES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageToSNES.Designer.cs">
+      <DependentUpon>ImageToSNES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageToSNES.Dkc1 .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageToSNES.Palette.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageToSNES.Variables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Image.cs" />
+    <Compile Include="Image_MasterPalette.cs" />
+    <Compile Include="Image_Palette.cs" />
+    <Compile Include="Image_SNESChar.cs" />
+    <Compile Include="Image_SNESColor.cs" />
+    <Compile Include="Init Script Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init Script Editor.Designer.cs">
+      <DependentUpon>Init Script Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Array Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Array Editor.Designer.cs">
+      <DependentUpon>Array Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="K Rool Edit.CBalls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="K Rool Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="K Rool Edit.Designer.cs">
+      <DependentUpon>K Rool Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LayerControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LayerControl.Designer.cs">
+      <DependentUpon>LayerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectFunctions.Designer.cs">
+      <DependentUpon>ObjectFunctions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OverworldEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OverworldEditor.Designer.cs">
+      <DependentUpon>OverworldEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Palette_AddToBookmarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Palette_AddToBookmarks.Designer.cs">
+      <DependentUpon>Palette_AddToBookmarks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Palette_Bookmarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Palette_Bookmarks.Designer.cs">
+      <DependentUpon>Palette_Bookmarks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Palette_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Palette_Editor.Designer.cs">
+      <DependentUpon>Palette_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Palette_HSLEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Palette_HSLEdit.Designer.cs">
+      <DependentUpon>Palette_HSLEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PathEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PathEdit.Designer.cs">
+      <DependentUpon>PathEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PerilsRandomTerrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerilsRandomTerrain.Designer.cs">
+      <DependentUpon>PerilsRandomTerrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlatformPath.cs" />
+    <Compile Include="Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopupImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopupImage.Designer.cs">
+      <DependentUpon>PopupImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RainbowSerialize.cs" />
+    <Compile Include="Restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restore.Designer.cs">
+      <DependentUpon>Restore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ROM.ApplyBins.cs" />
+    <Compile Include="ROM.Autofill.cs" />
+    <Compile Include="ROM.cs" />
+    <Compile Include="ROM.Level.cs" />
+    <Compile Include="ROM.NewObjectMapPointers.cs" />
+    <Compile Include="ROM.Objects.cs" />
+    <Compile Include="ROM.Palette.cs" />
+    <Compile Include="ROM.Sprites.cs" />
+    <Compile Include="ROM.Tilemap.cs" />
+    <Compile Include="ROM.Tiles.cs" />
+    <Compile Include="SNESChar.cs" />
+    <Compile Include="StageSections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StageSections.Designer.cs">
+      <DependentUpon>StageSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StampCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StampCollection.Designer.cs">
+      <DependentUpon>StampCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StoredData.cs" />
+    <Compile Include="Tile_display.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tile_display.Designer.cs">
+      <DependentUpon>Tile_display.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerticalCamera.cs" />
+    <Compile Include="VerticalCamera.Type.cs" />
+    <Compile Include="VerticalCameraEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerticalCameraEdit.Designer.cs">
+      <DependentUpon>VerticalCameraEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerticalLayer.cs" />
+    <EmbeddedResource Include="AnimationViewer.resx">
+      <DependentUpon>AnimationViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BananaEdit.resx">
+      <DependentUpon>BananaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CameraEdit.resx">
+      <DependentUpon>CameraEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DixieSpritePlace.resx">
+      <DependentUpon>DixieSpritePlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityEdit.resx">
+      <DependentUpon>EntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityEditor.resx">
+      <DependentUpon>EntityEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntityEditVertical.resx">
+      <DependentUpon>EntityEditVertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entrances.resx">
+      <DependentUpon>Entrances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HexEditor.resx">
+      <DependentUpon>HexEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageToSNES.resx">
+      <DependentUpon>ImageToSNES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init Script Editor.resx">
+      <DependentUpon>Init Script Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Array Editor.resx">
+      <DependentUpon>Array Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="K Rool Edit.resx">
+      <DependentUpon>K Rool Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LayerControl.resx">
+      <DependentUpon>LayerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjectFunctions.resx">
+      <DependentUpon>ObjectFunctions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverworldEditor.resx">
+      <DependentUpon>OverworldEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Palette_Editor.resx">
+      <DependentUpon>Palette_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PathEdit.resx">
+      <DependentUpon>PathEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PerilsRandomTerrain.resx">
+      <DependentUpon>PerilsRandomTerrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupImage.resx">
+      <DependentUpon>PopupImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Restore.resx">
+      <DependentUpon>Restore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageSections.resx">
+      <DependentUpon>StageSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StampCollection.resx">
+      <DependentUpon>StampCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tile_display.resx">
+      <DependentUpon>Tile_display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerticalCameraEdit.resx">
+      <DependentUpon>VerticalCameraEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="portrait_qTR_icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

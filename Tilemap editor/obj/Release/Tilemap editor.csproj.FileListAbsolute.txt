@@ -1,0 +1,45 @@
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap editor.csprojAssemblyReference.cache
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Form1.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Properties.Resources.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Tile_display.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap editor.csproj.GenerateResource.cache
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap editor.csproj.CoreCompileInputs.cache
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.EntityEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.EntityEditor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Entrances.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Popup.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Restore.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\bin\Release\RainbowZ Editor.exe.config
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\bin\Release\RainbowZ Editor.exe
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\bin\Release\RainbowZ Editor.pdb
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.BananaEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.BossEditorr.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.CameraEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.CopyrightEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Custom_Percent.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.DixieSpritePlace.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.EntityEditVertical.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.HexEditor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Init_Script_Editor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Array_Editor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.K_Rool_Edit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.KongAttributes.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.LayerControl.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.LevelAttributes.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Music_Picker.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.ObjectFunctions.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.OverworldEditor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Palette_Editor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.Palette_HSLEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.PathEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.PerilsRandomTerrain.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.PopupImage.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.RestoreBackup.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.StageSections.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.StampCollection.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.TextEditor.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.VerticalCameraEdit.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.WorldStartersSelect.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\Tilemap_editor.WorldTerminator.resources
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\RainbowZ Editor.exe
+C:\Users\mikem\OneDrive\Documents\Visual Studio 2017\DKC Projects++\Tilemap editor\Tilemap editor\obj\Release\RainbowZ Editor.pdb
