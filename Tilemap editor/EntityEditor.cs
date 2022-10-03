@@ -211,8 +211,20 @@ namespace Tilemap_editor
                     pEdit.ClickGetPalette();
                     pEdit.ShowDialog();
                     break;
-                default:
+                case 0x8200:
                     pointer = (int)numericUpDown_pointer.Value;
+                    numericUpDown_pointer.Value = selected.values[0];
+                    button_search_Click(0, new EventArgs());
+                    break;
+                default:
+                    if (selected.values[0] >= 0x8000)
+                    {
+                        MessageBox.Show("Error. Invalid");
+                        return;
+                    }
+
+                    pointer = (int)numericUpDown_pointer.Value;
+                    
                     numericUpDown_pointer.Value = selected.values[0];
                     button_search_Click(0, new EventArgs());
                     break;
@@ -279,15 +291,17 @@ namespace Tilemap_editor
         }
         public override string ToString()
         {
-            string local = key.ToString("X");
+            string local = key.ToString("X4");
             string @return = $"[{local}]";
+            if (key >= 0x8000)
+                @return += "*";
             if (keyNames.ContainsKey(key))
             {
                 //@return = $"[{keyNames[key]}/{local}]";
             }
             foreach (var value in values)
             {
-                @return += $", {value.ToString("X")}";
+                @return += $", {value.ToString("X4")}";
             }
             return @return;
         }

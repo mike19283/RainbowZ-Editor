@@ -33,6 +33,7 @@
             this.textBox_nintendo = new System.Windows.Forms.TextBox();
             this.textBox_custom1 = new System.Windows.Forms.TextBox();
             this.button_apply = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_preview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,15 +77,26 @@
             this.button_apply.Name = "button_apply";
             this.button_apply.Size = new System.Drawing.Size(75, 23);
             this.button_apply.TabIndex = 2;
-            this.button_apply.Text = "Apply + write";
+            this.button_apply.Text = "Apply";
             this.button_apply.UseVisualStyleBackColor = true;
             this.button_apply.Click += new System.EventHandler(this.button_apply_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(295, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 65);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "After hittiing apply, each\r\nline of the text you entered\r\nand the current system\'" +
+    "s\r\nyear is written to ROM and\r\npreviewed for you";
             // 
             // CopyrightEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 179);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button_apply);
             this.Controls.Add(this.textBox_custom1);
             this.Controls.Add(this.textBox_nintendo);
@@ -106,5 +118,6 @@
         private System.Windows.Forms.TextBox textBox_nintendo;
         private System.Windows.Forms.TextBox textBox_custom1;
         private System.Windows.Forms.Button button_apply;
+        private System.Windows.Forms.Label label2;
     }
 }

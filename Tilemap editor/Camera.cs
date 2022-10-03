@@ -62,7 +62,7 @@ namespace Tilemap_editor
                 x_displacement = xLeft - xLvlStart;
                 g.FillRectangle(new SolidBrush(Color.FromArgb(0x20,40,255,0)), x_displacement, yTop, xSize, ySize);
                 g.DrawRectangle(new Pen(Color.Yellow, 3), x_displacement, yTop, xSize, ySize);
-                g.DrawString(index.ToString("X"), form.Font, Brushes.Black, x_displacement + 10, yTop + 10);
+                g.DrawString(index.ToString("X"), form.Font, Brushes.White, x_displacement + 10, yTop + 10);
 
             }
             return bmp;

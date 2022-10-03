@@ -136,8 +136,9 @@ namespace Tilemap_editor
         {
             if (rom.IsVertical(levelCode))
             {
-                foreach (var layer in verticalLayers)
+                for (int i = 0; i < verticalLayers.Count; i++)
                 {
+                    var layer = verticalLayers[i];
                     layer.entities = layer.entities.OrderBy(e => e.x).ToList();
                 }
             }
@@ -145,44 +146,13 @@ namespace Tilemap_editor
             {
                 entities = entities.OrderBy(e => e.x).ToList();
             }
+            return;
+        }
+        public void OrderBananaList ()
+        {
+            bananas = bananas.OrderBy(e => e.x).ToList();
             form.CloseAll();
             return;
-
-            List<Entity> ordered = new List<Entity>();
-            if (!rom.IsVertical(levelCode) || (new List<byte>() { 0xca, 0xc5, 0xc6 }).Contains((byte)levelCode))
-            {
-                var address = entities[0].address;
-                while (entities.Count > 0)
-                {
-                    var lowest = FindLowest(entities);
-                    lowest.address = address;
-                    ordered.Add(lowest);
-
-                    address += 8;
-                }
-
-                entities = ordered;
-            } 
-            else
-            {
-                for (int i = 0; i < verticalLayers.Count; i++)
-                {
-                    var layer = verticalLayers[i];
-                    var address = layer.entities[0].address;
-                    while (layer.entities.Count > 0)
-                    {
-                        var lowest = FindLowest(layer.entities);
-                        lowest.address = address;
-                        ordered.Add(lowest);
-
-                        address += 8;
-                    }
-
-                    entities = ordered;
-
-                }
-            }
-            //form.OrderReload();
         }
         private Entity FindLowest(List<Entity> given)
         {

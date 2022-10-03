@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox_entities = new System.Windows.Forms.ListBox();
             this.numericUpDown_entityType = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_entityPointer = new System.Windows.Forms.NumericUpDown();
@@ -42,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button_getAddress = new System.Windows.Forms.Button();
             this.button_openPalette = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityPointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityY)).BeginInit();
@@ -181,11 +183,12 @@
             // 
             // button_getAddress
             // 
-            this.button_getAddress.Location = new System.Drawing.Point(343, 363);
+            this.button_getAddress.Location = new System.Drawing.Point(339, 34);
             this.button_getAddress.Name = "button_getAddress";
-            this.button_getAddress.Size = new System.Drawing.Size(128, 23);
+            this.button_getAddress.Size = new System.Drawing.Size(33, 23);
             this.button_getAddress.TabIndex = 12;
             this.button_getAddress.Text = "Get This Address";
+            this.toolTip1.SetToolTip(this.button_getAddress, "Get hex offset of entity");
             this.button_getAddress.UseVisualStyleBackColor = true;
             this.button_getAddress.Click += new System.EventHandler(this.button_getAddress_Click);
             // 
@@ -196,6 +199,7 @@
             this.button_openPalette.Size = new System.Drawing.Size(21, 23);
             this.button_openPalette.TabIndex = 25;
             this.button_openPalette.Text = "P";
+            this.toolTip1.SetToolTip(this.button_openPalette, "Open (P)alette");
             this.button_openPalette.UseVisualStyleBackColor = true;
             this.button_openPalette.Click += new System.EventHandler(this.button_openPalette_Click);
             // 
@@ -249,5 +253,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_getAddress;
         private System.Windows.Forms.Button button_openPalette;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox_entities = new System.Windows.Forms.ListBox();
             this.numericUpDown_X = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_speed = new System.Windows.Forms.NumericUpDown();
@@ -48,6 +49,7 @@
             this.button_delete = new System.Windows.Forms.Button();
             this.button_moveUp = new System.Windows.Forms.Button();
             this.button_moveDown = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_X)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Y)).BeginInit();
@@ -150,6 +152,7 @@
             this.button_multiple.Size = new System.Drawing.Size(93, 23);
             this.button_multiple.TabIndex = 9;
             this.button_multiple.Text = "Set [Start, end)";
+            this.toolTip1.SetToolTip(this.button_multiple, "Set the attribute chosen above\r\nover multiple indices");
             this.button_multiple.UseVisualStyleBackColor = true;
             this.button_multiple.Click += new System.EventHandler(this.button_multiple_Click);
             // 
@@ -237,6 +240,7 @@
             this.button_add.Size = new System.Drawing.Size(23, 23);
             this.button_add.TabIndex = 14;
             this.button_add.Text = "A";
+            this.toolTip1.SetToolTip(this.button_add, "Add track index");
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
@@ -247,6 +251,7 @@
             this.button_delete.Size = new System.Drawing.Size(23, 23);
             this.button_delete.TabIndex = 15;
             this.button_delete.Text = "D";
+            this.toolTip1.SetToolTip(this.button_delete, "Delete track index");
             this.button_delete.UseVisualStyleBackColor = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
@@ -257,6 +262,7 @@
             this.button_moveUp.Size = new System.Drawing.Size(23, 23);
             this.button_moveUp.TabIndex = 16;
             this.button_moveUp.Text = "^";
+            this.toolTip1.SetToolTip(this.button_moveUp, "Move index up 1");
             this.button_moveUp.UseVisualStyleBackColor = true;
             this.button_moveUp.Click += new System.EventHandler(this.button_moveUp_Click);
             // 
@@ -267,6 +273,7 @@
             this.button_moveDown.Size = new System.Drawing.Size(23, 23);
             this.button_moveDown.TabIndex = 17;
             this.button_moveDown.Text = "V";
+            this.toolTip1.SetToolTip(this.button_moveDown, "Move index down 1");
             this.button_moveDown.UseVisualStyleBackColor = true;
             this.button_moveDown.Click += new System.EventHandler(this.button_moveDown_Click);
             // 
@@ -332,5 +339,6 @@
         private System.Windows.Forms.Button button_delete;
         private System.Windows.Forms.Button button_moveUp;
         private System.Windows.Forms.Button button_moveDown;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

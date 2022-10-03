@@ -145,6 +145,7 @@ namespace Tilemap_editor
             this.button_selectEntity.Name = "button_selectEntity";
             this.button_selectEntity.Size = new System.Drawing.Size(23, 23);
             this.button_selectEntity.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button_selectEntity, "Open Entity Picker");
             this.button_selectEntity.UseVisualStyleBackColor = true;
             this.button_selectEntity.Click += new System.EventHandler(this.button_selectEntity_Click);
             // 
@@ -155,6 +156,7 @@ namespace Tilemap_editor
             this.button_editor.Size = new System.Drawing.Size(128, 38);
             this.button_editor.TabIndex = 7;
             this.button_editor.Text = "Open in entity editor";
+            this.toolTip1.SetToolTip(this.button_editor, "Open current pointer in the entity editor");
             this.button_editor.UseVisualStyleBackColor = true;
             this.button_editor.Click += new System.EventHandler(this.button_editor_Click);
             // 
@@ -210,6 +212,8 @@ namespace Tilemap_editor
             this.listBox_common.Name = "listBox_common";
             this.listBox_common.Size = new System.Drawing.Size(120, 95);
             this.listBox_common.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.listBox_common, "Hold a list of used entities.\r\nLeft-clicking puts that pointer in the pointer box" +
+        ".\r\nRight-clicking removes the selected item from the list");
             this.listBox_common.SelectedIndexChanged += new System.EventHandler(this.listBox_common_SelectedIndexChanged);
             this.listBox_common.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox_common_MouseDown);
             // 
@@ -220,6 +224,7 @@ namespace Tilemap_editor
             this.button_addLevelToCommon.Size = new System.Drawing.Size(128, 23);
             this.button_addLevelToCommon.TabIndex = 18;
             this.button_addLevelToCommon.Text = "Add level to common";
+            this.toolTip1.SetToolTip(this.button_addLevelToCommon, "Adds every entity in level to common");
             this.button_addLevelToCommon.UseVisualStyleBackColor = true;
             this.button_addLevelToCommon.Click += new System.EventHandler(this.button_addLevelToCommon_Click);
             // 
@@ -230,7 +235,7 @@ namespace Tilemap_editor
             this.button_maxX.Size = new System.Drawing.Size(21, 23);
             this.button_maxX.TabIndex = 19;
             this.button_maxX.Text = "M";
-            this.toolTip1.SetToolTip(this.button_maxX, "(M)ove to the end of the tilemap (only in x position)");
+            this.toolTip1.SetToolTip(this.button_maxX, "(M)ove to the end of the level (only in x position)");
             this.button_maxX.UseVisualStyleBackColor = true;
             this.button_maxX.Click += new System.EventHandler(this.button_maxX_Click);
             // 

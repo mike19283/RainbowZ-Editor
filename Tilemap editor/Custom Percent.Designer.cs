@@ -33,6 +33,7 @@
             this.button_apply = new System.Windows.Forms.Button();
             this.button_zeroAndApply = new System.Windows.Forms.Button();
             this.button_zeroAll = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_value)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             this.numericUpDown_value.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_value.Hexadecimal = true;
-            this.numericUpDown_value.Location = new System.Drawing.Point(475, 62);
+            this.numericUpDown_value.Location = new System.Drawing.Point(391, 62);
             this.numericUpDown_value.Maximum = new decimal(new int[] {
             255,
             0,
@@ -63,7 +64,7 @@
             // 
             // button_apply
             // 
-            this.button_apply.Location = new System.Drawing.Point(488, 116);
+            this.button_apply.Location = new System.Drawing.Point(404, 116);
             this.button_apply.Name = "button_apply";
             this.button_apply.Size = new System.Drawing.Size(75, 23);
             this.button_apply.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             // button_zeroAndApply
             // 
-            this.button_zeroAndApply.Location = new System.Drawing.Point(475, 145);
+            this.button_zeroAndApply.Location = new System.Drawing.Point(391, 145);
             this.button_zeroAndApply.Name = "button_zeroAndApply";
             this.button_zeroAndApply.Size = new System.Drawing.Size(100, 23);
             this.button_zeroAndApply.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             // button_zeroAll
             // 
-            this.button_zeroAll.Location = new System.Drawing.Point(475, 184);
+            this.button_zeroAll.Location = new System.Drawing.Point(391, 184);
             this.button_zeroAll.Name = "button_zeroAll";
             this.button_zeroAll.Size = new System.Drawing.Size(100, 23);
             this.button_zeroAll.TabIndex = 4;
@@ -91,12 +92,22 @@
             this.button_zeroAll.UseVisualStyleBackColor = true;
             this.button_zeroAll.Click += new System.EventHandler(this.button_zeroAll_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(401, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Secrets";
+            // 
             // Custom_Percent
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 229);
+            this.ClientSize = new System.Drawing.Size(535, 229);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_zeroAll);
             this.Controls.Add(this.button_zeroAndApply);
             this.Controls.Add(this.button_apply);
@@ -106,6 +117,7 @@
             this.Text = "Custom_Percent";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_value)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Button button_apply;
         private System.Windows.Forms.Button button_zeroAndApply;
         private System.Windows.Forms.Button button_zeroAll;
+        private System.Windows.Forms.Label label1;
     }
 }

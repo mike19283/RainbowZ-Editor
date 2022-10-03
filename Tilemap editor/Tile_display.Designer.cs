@@ -75,6 +75,7 @@ namespace Tilemap_editor
             this.radioButton_paste = new System.Windows.Forms.RadioButton();
             this.radioButton_highlight = new System.Windows.Forms.RadioButton();
             this.tabPage_autofill = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton_autoRight = new System.Windows.Forms.RadioButton();
             this.radioButton_autoLeft = new System.Windows.Forms.RadioButton();
@@ -83,7 +84,12 @@ namespace Tilemap_editor
             this.button_getLinks = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_previewTimer = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl_modes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel_tiles.SuspendLayout();
@@ -119,6 +125,7 @@ namespace Tilemap_editor
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.button_exportMapchip);
             this.tabPage1.Controls.Add(this.checkBox_yFlip);
             this.tabPage1.Controls.Add(this.checkBox_xFlip);
@@ -138,6 +145,7 @@ namespace Tilemap_editor
             this.button_exportMapchip.Size = new System.Drawing.Size(98, 23);
             this.button_exportMapchip.TabIndex = 6;
             this.button_exportMapchip.Text = "Export Mapchip";
+            this.toolTip1.SetToolTip(this.button_exportMapchip, "For use with Platinum");
             this.button_exportMapchip.UseVisualStyleBackColor = true;
             this.button_exportMapchip.Click += new System.EventHandler(this.button_exportMapchip_Click);
             // 
@@ -186,6 +194,7 @@ namespace Tilemap_editor
             // 
             // tabPage_trail
             // 
+            this.tabPage_trail.Controls.Add(this.label4);
             this.tabPage_trail.Controls.Add(this.button_r);
             this.tabPage_trail.Controls.Add(this.button_clear);
             this.tabPage_trail.Controls.Add(this.button_l);
@@ -204,7 +213,7 @@ namespace Tilemap_editor
             // 
             // button_r
             // 
-            this.button_r.Location = new System.Drawing.Point(190, 33);
+            this.button_r.Location = new System.Drawing.Point(190, 57);
             this.button_r.Name = "button_r";
             this.button_r.Size = new System.Drawing.Size(75, 23);
             this.button_r.TabIndex = 12;
@@ -224,7 +233,7 @@ namespace Tilemap_editor
             // 
             // button_l
             // 
-            this.button_l.Location = new System.Drawing.Point(10, 33);
+            this.button_l.Location = new System.Drawing.Point(10, 57);
             this.button_l.Name = "button_l";
             this.button_l.Size = new System.Drawing.Size(75, 23);
             this.button_l.TabIndex = 9;
@@ -234,7 +243,7 @@ namespace Tilemap_editor
             // 
             // button_m
             // 
-            this.button_m.Location = new System.Drawing.Point(102, 33);
+            this.button_m.Location = new System.Drawing.Point(102, 57);
             this.button_m.Name = "button_m";
             this.button_m.Size = new System.Drawing.Size(75, 23);
             this.button_m.TabIndex = 8;
@@ -293,6 +302,7 @@ namespace Tilemap_editor
             // 
             // tabPage_stamp
             // 
+            this.tabPage_stamp.Controls.Add(this.label6);
             this.tabPage_stamp.Controls.Add(this.button_mirrorY);
             this.tabPage_stamp.Controls.Add(this.button_mirrorX);
             this.tabPage_stamp.Controls.Add(this.button_stampClipboard);
@@ -347,6 +357,7 @@ namespace Tilemap_editor
             this.button_saveStamp.Size = new System.Drawing.Size(75, 23);
             this.button_saveStamp.TabIndex = 21;
             this.button_saveStamp.Text = "Save Stamp";
+            this.toolTip1.SetToolTip(this.button_saveStamp, "All stamps are saved beyond\r\nthe life of this program");
             this.button_saveStamp.UseVisualStyleBackColor = true;
             this.button_saveStamp.Click += new System.EventHandler(this.button_saveStamp_Click);
             // 
@@ -406,9 +417,9 @@ namespace Tilemap_editor
             // 
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.pictureBox_tiles2);
-            this.panel1.Location = new System.Drawing.Point(6, 176);
+            this.panel1.Location = new System.Drawing.Point(6, 217);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 274);
+            this.panel1.Size = new System.Drawing.Size(295, 233);
             this.panel1.TabIndex = 13;
             // 
             // pictureBox_tiles2
@@ -422,6 +433,8 @@ namespace Tilemap_editor
             // 
             // tabPage_highlight
             // 
+            this.tabPage_highlight.Controls.Add(this.label8);
+            this.tabPage_highlight.Controls.Add(this.label7);
             this.tabPage_highlight.Controls.Add(this.label2);
             this.tabPage_highlight.Controls.Add(this.listBox_copyHistory);
             this.tabPage_highlight.Controls.Add(this.checkBox_highlightY);
@@ -481,15 +494,15 @@ namespace Tilemap_editor
             this.groupBox1.Controls.Add(this.button_copy);
             this.groupBox1.Controls.Add(this.radioButton_paste);
             this.groupBox1.Controls.Add(this.radioButton_highlight);
-            this.groupBox1.Location = new System.Drawing.Point(51, 33);
+            this.groupBox1.Location = new System.Drawing.Point(51, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 275);
+            this.groupBox1.Size = new System.Drawing.Size(200, 231);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // button_yFlipPaste
             // 
-            this.button_yFlipPaste.Location = new System.Drawing.Point(155, 103);
+            this.button_yFlipPaste.Location = new System.Drawing.Point(155, 72);
             this.button_yFlipPaste.Name = "button_yFlipPaste";
             this.button_yFlipPaste.Size = new System.Drawing.Size(45, 23);
             this.button_yFlipPaste.TabIndex = 6;
@@ -499,7 +512,7 @@ namespace Tilemap_editor
             // 
             // button_xFlipPaste
             // 
-            this.button_xFlipPaste.Location = new System.Drawing.Point(155, 52);
+            this.button_xFlipPaste.Location = new System.Drawing.Point(155, 21);
             this.button_xFlipPaste.Name = "button_xFlipPaste";
             this.button_xFlipPaste.Size = new System.Drawing.Size(45, 23);
             this.button_xFlipPaste.TabIndex = 5;
@@ -509,7 +522,7 @@ namespace Tilemap_editor
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(51, 176);
+            this.button_delete.Location = new System.Drawing.Point(51, 160);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(75, 23);
             this.button_delete.TabIndex = 4;
@@ -519,7 +532,7 @@ namespace Tilemap_editor
             // 
             // button_cut
             // 
-            this.button_cut.Location = new System.Drawing.Point(51, 78);
+            this.button_cut.Location = new System.Drawing.Point(51, 62);
             this.button_cut.Name = "button_cut";
             this.button_cut.Size = new System.Drawing.Size(75, 23);
             this.button_cut.TabIndex = 3;
@@ -529,7 +542,7 @@ namespace Tilemap_editor
             // 
             // button_copy
             // 
-            this.button_copy.Location = new System.Drawing.Point(51, 126);
+            this.button_copy.Location = new System.Drawing.Point(51, 110);
             this.button_copy.Name = "button_copy";
             this.button_copy.Size = new System.Drawing.Size(75, 23);
             this.button_copy.TabIndex = 2;
@@ -540,7 +553,7 @@ namespace Tilemap_editor
             // radioButton_paste
             // 
             this.radioButton_paste.AutoSize = true;
-            this.radioButton_paste.Location = new System.Drawing.Point(51, 231);
+            this.radioButton_paste.Location = new System.Drawing.Point(51, 195);
             this.radioButton_paste.Name = "radioButton_paste";
             this.radioButton_paste.Size = new System.Drawing.Size(52, 17);
             this.radioButton_paste.TabIndex = 1;
@@ -552,7 +565,7 @@ namespace Tilemap_editor
             // 
             this.radioButton_highlight.AutoSize = true;
             this.radioButton_highlight.Checked = true;
-            this.radioButton_highlight.Location = new System.Drawing.Point(51, 20);
+            this.radioButton_highlight.Location = new System.Drawing.Point(51, 25);
             this.radioButton_highlight.Name = "radioButton_highlight";
             this.radioButton_highlight.Size = new System.Drawing.Size(66, 17);
             this.radioButton_highlight.TabIndex = 0;
@@ -573,6 +586,16 @@ namespace Tilemap_editor
             this.tabPage_autofill.TabIndex = 4;
             this.tabPage_autofill.Text = "Autofill";
             this.tabPage_autofill.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(69, 282);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 52);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "This is a beta feature. Some\r\nconnections are not right.\r\nThere are currently no " +
+    "plans\r\nto update this feature\r\n";
             // 
             // groupBox2
             // 
@@ -658,15 +681,51 @@ namespace Tilemap_editor
             this.timer_previewTimer.Interval = 1000;
             this.timer_previewTimer.Tick += new System.EventHandler(this.timer_previewTimer_Tick);
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(69, 282);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 52);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "This is a beta feature. Some\r\nconnections are not right.\r\nThere are currently no " +
-    "plans\r\nto update this feature\r\n";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(231, 26);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Select a pattern you want to repeat. Then, drag\r\nin the main window to place";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(71, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 26);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Press Ctrl+Z to undo\r\nany tilemap changes";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(292, 39);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Click a stamp spot, then click a tile and assemble your stamp\r\nLeft-click = Previ" +
+    "ew stamp in that location\r\nRight-click = Place stamp";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(48, 303);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Holds your past copies by index";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(45, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(201, 26);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Left-click = Preview paste in that location\r\nRight-click = Place paste";
             // 
             // Tile_display
             // 
@@ -764,5 +823,11 @@ namespace Tilemap_editor
         private Timer timer_previewTimer;
         private Button button_exportMapchip;
         private Label label3;
+        private Label label5;
+        private ToolTip toolTip1;
+        private Label label4;
+        private Label label6;
+        private Label label8;
+        private Label label7;
     }
 }

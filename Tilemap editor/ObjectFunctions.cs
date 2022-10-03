@@ -108,6 +108,7 @@ namespace Tilemap_editor
                 return;
             string str = listBox_functions.SelectedItem.ToString();
             str = str.Split('-')[0].Trim();
+            Clipboard.Clear();
             Clipboard.SetText(str);
             button_copy.Text += "!";
         }

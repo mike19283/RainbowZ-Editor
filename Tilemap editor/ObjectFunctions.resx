@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>'Get' adds the requested d45 script
+start address to the list on the right.
+'Get All' adds every d45 script start
+address to that list.
+'Copy' just copies the address of the
+selected index to clipboard</value>
+  </data>
 </root>

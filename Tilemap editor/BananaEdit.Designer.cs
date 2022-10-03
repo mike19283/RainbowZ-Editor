@@ -40,6 +40,7 @@
             this.pictureBox_varieties = new System.Windows.Forms.PictureBox();
             this.comboBox_variety = new System.Windows.Forms.ComboBox();
             this.label_address = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityX)).BeginInit();
@@ -125,7 +126,7 @@
             // pictureBox_banana
             // 
             this.pictureBox_banana.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_banana.Location = new System.Drawing.Point(347, 199);
+            this.pictureBox_banana.Location = new System.Drawing.Point(347, 245);
             this.pictureBox_banana.Name = "pictureBox_banana";
             this.pictureBox_banana.Size = new System.Drawing.Size(135, 151);
             this.pictureBox_banana.TabIndex = 6;
@@ -172,7 +173,7 @@
             this.comboBox_variety.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_variety.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_variety.FormattingEnabled = true;
-            this.comboBox_variety.Location = new System.Drawing.Point(361, 388);
+            this.comboBox_variety.Location = new System.Drawing.Point(361, 408);
             this.comboBox_variety.Name = "comboBox_variety";
             this.comboBox_variety.Size = new System.Drawing.Size(121, 33);
             this.comboBox_variety.TabIndex = 19;
@@ -187,12 +188,22 @@
             this.label_address.TabIndex = 20;
             this.label_address.Text = "label3";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(360, 196);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 26);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Uses computer values\r\ne.g. (0,0) is top left";
+            // 
             // BananaEdit
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.comboBox_variety);
             this.Controls.Add(this.pictureBox_varieties);
@@ -234,5 +245,6 @@
         private System.Windows.Forms.PictureBox pictureBox_varieties;
         private System.Windows.Forms.ComboBox comboBox_variety;
         private System.Windows.Forms.Label label_address;
+        private System.Windows.Forms.Label label3;
     }
 }

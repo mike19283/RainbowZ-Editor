@@ -190,12 +190,12 @@ namespace Tilemap_editor
                 {
                     g.FillRectangle(new SolidBrush(Color.Black), x_displacement, y_displacement, 50, 50);
                     g.DrawRectangle(new Pen(Color.Red, 3), x_displacement, y_displacement, 50, 50);
-                    g.DrawString(local.ToString("X"), form.Font, Brushes.Red, x_displacement, y_displacement);
+                    g.DrawString(local.ToString("X"), form.Font, Brushes.White, x_displacement, y_displacement);
                     g.DrawString(pointer.ToString("X"), form.Font, Brushes.Red, x_displacement + 10, y_displacement + 10);
                 }
                 else
                 {
-                    g.DrawString(local.ToString("X"), form.Font, Brushes.Red, x_displacement, y_displacement);
+                    g.DrawString(local.ToString("X"), form.Font, Brushes.White, x_displacement, y_displacement);
 
                     g.DrawImage(sprite, x_displacement - 0x80, y_displacement - 0x80);
                 }

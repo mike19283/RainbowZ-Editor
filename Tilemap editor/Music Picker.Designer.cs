@@ -117,7 +117,7 @@
             this.button_applySanity.Size = new System.Drawing.Size(75, 42);
             this.button_applySanity.TabIndex = 6;
             this.button_applySanity.Text = "Apply (Sanity)";
-            this.toolTip1.SetToolTip(this.button_applySanity, "Apply from checkpoints and bonuses too");
+            this.toolTip1.SetToolTip(this.button_applySanity, "Apply from checkpoints and bonuses too\r\n(all related levels)");
             this.button_applySanity.UseVisualStyleBackColor = true;
             this.button_applySanity.Click += new System.EventHandler(this.button_applySanity_Click);
             // 

@@ -9,6 +9,7 @@ namespace Tilemap_editor
 {
     partial class K_Rool_Edit
     {
+        // Hacked crown speed 93eeef
         // fce3 cannonballs
         // fc93 crown
         Dictionary<int, EntityKeyValue> crown = new Dictionary<int, EntityKeyValue>();
@@ -20,28 +21,50 @@ namespace Tilemap_editor
             cball = rom.GetEntityKeyValue(0xfce3);
             numericUpDown_kkrCrownPal.Value = crown[0x8800].values[0];
             numericUpDown_kkrCrownAnim.Value = crown[0x8100].values[0];
+            numericUpDown_kkrCrownY.Value = crown[0x8f00].values[1];
             numericUpDown_kkrCballPal.Value = cball[0x8800].values[0];
             numericUpDown_kkrCballAniim.Value = cball[0x8100].values[0];
+            numericUpDown_kkrCannonballY.Value = cball[0x8f00].values[1];
+
 
             numericUpDown_miscKkrStartX.Value = rom.Read16(0xb5fc69);
             numericUpDown_miscKkrStartY.Value = rom.Read16(0xb5fc6b);
             numericUpDown_miscKkrLeap.Value = rom.Read16(0xb5fc63);
+
+            const int kkrLeftBounds = 0xb6c9eb;
+            const int kkrRightBounds = 0xb6c9f5;
+            ushort leftBoundsROM = rom.Read16LDA(kkrLeftBounds);
+            ushort rightBoundsROM = rom.Read16LDA(kkrRightBounds);
+            if (leftBoundsROM != 0x13e9 && rightBoundsROM != 0x1375)
+            {
+                numericUpDown_miscLeftBounds.Value = leftBoundsROM;
+                numericUpDown_miscRightBounds.Value = rightBoundsROM;
+            }
+
+            numericUpDown_miscKkrCrownTurnaround.Value = crown[0xdb9].values[0];
+
         }
 
         private void button_applyMisc_Click(object sender, EventArgs e)
         {
             int crownPalAddress = crown[0x8800].address;
             int crownAnimAddress = crown[0x8100].address;
+            int crownYAddress = crown[0x8f00].address;
             int cballPalAddress = cball[0x8800].address;
             int cballAnimAddress = cball[0x8100].address;
+            int cballYAddress = cball[0x8f00].address;
             rom.Write16(crownPalAddress + 2, (int)numericUpDown_kkrCrownPal.Value);
             rom.Write16(crownAnimAddress + 2, (int)numericUpDown_kkrCrownAnim.Value);
+            rom.Write16(crownYAddress + 4, (int)numericUpDown_kkrCrownY.Value);
             rom.Write16(cballPalAddress + 2, (int)numericUpDown_kkrCballPal.Value);
             rom.Write16(cballAnimAddress + 2, (int)numericUpDown_kkrCballAniim.Value);
+            rom.Write16(cballYAddress + 4, (int)numericUpDown_kkrCannonballY.Value);
 
             const int kkrLeftBounds = 0xb6c9eb;
-            rom.Write8(kkrLeftBounds, 0xa9);
             const int kkrRightBounds = 0xb6c9f5;
+            ushort leftBoundsROM = rom.Read16LDA(kkrLeftBounds);
+            ushort rightBoundsROM = rom.Read16LDA(kkrRightBounds);
+            rom.Write8(kkrLeftBounds, 0xa9);
             rom.Write8(kkrRightBounds, 0xa9);
             rom.Write16LDA(kkrLeftBounds, (int)numericUpDown_miscLeftBounds.Value);
             rom.Write16LDA(kkrRightBounds, (int)numericUpDown_miscRightBounds.Value);
@@ -50,14 +73,7 @@ namespace Tilemap_editor
             rom.Write16(0xb5fc6b, (int)numericUpDown_miscKkrStartY.Value);
             rom.Write16(0xb5fc63, (int)numericUpDown_miscKkrLeap.Value);
             var crownDistanceAddress = crown[0xdb9].address;
-            if (numericUpDown_miscKkrStartX.Value > 0x8000)
-            {
-                rom.Write16(crownDistanceAddress + 2, 0x84);
-            }
-            else
-            {
-                rom.Write16(crownDistanceAddress + 2, 0x184);
-            }
+            rom.Write16(crownDistanceAddress + 2, (int)numericUpDown_miscKkrCrownTurnaround.Value);
             MessageBox.Show("Applied!");
         }
 
@@ -123,17 +139,20 @@ namespace Tilemap_editor
         {
             // 8800 - 8314
             // 8100 - 1ab
+            // 14
             numericUpDown_kkrCrownPal.Value = 0x8314;
             numericUpDown_kkrCrownAnim.Value = 0x1ab;
+            numericUpDown_kkrCrownY.Value = 0x14;
         }
 
         private void button_restoreCball_Click(object sender, EventArgs e)
         {
             // 8800 - 829e
             // 8100 - 1b1
+            // c0
             numericUpDown_kkrCballPal.Value = 0x829e;
             numericUpDown_kkrCballAniim.Value = 0x1b1;
-
+            numericUpDown_kkrCannonballY.Value = 0xc0;
 
         }
 

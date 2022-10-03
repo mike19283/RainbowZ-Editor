@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObjectFunctions));
             this.panel_main = new System.Windows.Forms.Panel();
             this.button_copy = new System.Windows.Forms.Button();
             this.listBox_functions = new System.Windows.Forms.ListBox();
@@ -35,12 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_get = new System.Windows.Forms.Button();
             this.numericUpDown_d45 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_d45)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_main
             // 
+            this.panel_main.Controls.Add(this.label2);
             this.panel_main.Controls.Add(this.button_copy);
             this.panel_main.Controls.Add(this.listBox_functions);
             this.panel_main.Controls.Add(this.button_getAll);
@@ -50,13 +53,13 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(583, 425);
+            this.panel_main.Size = new System.Drawing.Size(488, 425);
             this.panel_main.TabIndex = 1;
             this.panel_main.Visible = false;
             // 
             // button_copy
             // 
-            this.button_copy.Location = new System.Drawing.Point(98, 154);
+            this.button_copy.Location = new System.Drawing.Point(41, 305);
             this.button_copy.Name = "button_copy";
             this.button_copy.Size = new System.Drawing.Size(75, 23);
             this.button_copy.TabIndex = 6;
@@ -67,16 +70,16 @@
             // listBox_functions
             // 
             this.listBox_functions.FormattingEnabled = true;
-            this.listBox_functions.Location = new System.Drawing.Point(235, 3);
+            this.listBox_functions.Location = new System.Drawing.Point(179, 0);
             this.listBox_functions.Name = "listBox_functions";
-            this.listBox_functions.Size = new System.Drawing.Size(348, 407);
+            this.listBox_functions.Size = new System.Drawing.Size(308, 407);
             this.listBox_functions.TabIndex = 5;
             this.listBox_functions.Click += new System.EventHandler(this.listBox_functions_MouseClick);
             this.listBox_functions.SelectedIndexChanged += new System.EventHandler(this.listBox_functions_SelectedIndexChanged);
             // 
             // button_getAll
             // 
-            this.button_getAll.Location = new System.Drawing.Point(98, 220);
+            this.button_getAll.Location = new System.Drawing.Point(41, 106);
             this.button_getAll.Name = "button_getAll";
             this.button_getAll.Size = new System.Drawing.Size(75, 23);
             this.button_getAll.TabIndex = 4;
@@ -87,7 +90,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 85);
+            this.label1.Location = new System.Drawing.Point(66, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 3;
@@ -95,7 +98,7 @@
             // 
             // button_get
             // 
-            this.button_get.Location = new System.Drawing.Point(98, 52);
+            this.button_get.Location = new System.Drawing.Point(41, 65);
             this.button_get.Name = "button_get";
             this.button_get.Size = new System.Drawing.Size(75, 23);
             this.button_get.TabIndex = 1;
@@ -106,18 +109,27 @@
             // numericUpDown_d45
             // 
             this.numericUpDown_d45.Hexadecimal = true;
-            this.numericUpDown_d45.Location = new System.Drawing.Point(83, 101);
+            this.numericUpDown_d45.Location = new System.Drawing.Point(41, 39);
             this.numericUpDown_d45.Name = "numericUpDown_d45";
-            this.numericUpDown_d45.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown_d45.Size = new System.Drawing.Size(75, 20);
             this.numericUpDown_d45.TabIndex = 0;
             this.numericUpDown_d45.ValueChanged += new System.EventHandler(this.numericUpDown_d45_ValueChanged);
             this.numericUpDown_d45.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown_d45_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 187);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 78);
+            this.label2.TabIndex = 7;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // ObjectFunctions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 425);
+            this.ClientSize = new System.Drawing.Size(488, 425);
             this.Controls.Add(this.panel_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ObjectFunctions";
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button button_getAll;
         private System.Windows.Forms.ListBox listBox_functions;
         private System.Windows.Forms.Button button_copy;
+        private System.Windows.Forms.Label label2;
     }
 }

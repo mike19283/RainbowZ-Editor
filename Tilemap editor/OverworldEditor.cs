@@ -717,7 +717,7 @@ namespace Tilemap_editor
                 // assuming g is the Graphics object on which you want to draw the text
                 GraphicsPath p = new GraphicsPath();
                 p.AddString(
-                    Global.HexToString(levelCode),             // text to draw
+                    levelCode.ToString("X"),             // text to draw
                     FontFamily.GenericSansSerif,  // or any other font family
                     (int)FontStyle.Regular,      // font style (bold, italic, etc.)
                     g.DpiY * 10f / 72,       // em size
@@ -734,7 +734,7 @@ namespace Tilemap_editor
         }
         public override string ToString()
         {
-            return $"{Global.HexToString(levelCode)} - ({Global.HexToString(zPos)},{Global.HexToString(xPos)},{Global.HexToString(yPos)})";
+            return $"{levelCode.ToString("X")} - ({zPos.ToString("X")},{xPos.ToString("X")},{yPos.ToString("X")})";
         }
         public void WriteToRom ()
         {

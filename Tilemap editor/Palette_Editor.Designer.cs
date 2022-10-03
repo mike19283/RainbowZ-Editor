@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Palette_Editor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importbmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,6 +58,7 @@
             this.timer_saveAs = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer_hsl = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel_workZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_palette)).BeginInit();
@@ -139,6 +141,7 @@
             // 
             // panel_workZone
             // 
+            this.panel_workZone.Controls.Add(this.label5);
             this.panel_workZone.Controls.Add(this.label4);
             this.panel_workZone.Controls.Add(this.button_AddToBookmarks);
             this.panel_workZone.Controls.Add(this.button_modifyAll);
@@ -339,6 +342,15 @@
             // 
             this.timer_hsl.Tick += new System.EventHandler(this.timer_hsl_Tick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(643, 120);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 91);
+            this.label5.TabIndex = 13;
+            this.label5.Text = resources.GetString("label5.Text");
+            // 
             // Palette_Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +403,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timer_hsl;
+        private System.Windows.Forms.Label label5;
     }
 }
 

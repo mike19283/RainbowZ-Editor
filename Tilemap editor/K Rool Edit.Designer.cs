@@ -45,11 +45,21 @@
             this.dKBarrelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkpointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enemiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enemiesBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.winningFanfareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kreditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lockScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unlockScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neckyTokensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyAToBToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fakeCreditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox_selectedIndex = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_apply = new System.Windows.Forms.Button();
@@ -113,6 +123,11 @@
             this.label28 = new System.Windows.Forms.Label();
             this.numericUpDown_enemyGroupA = new System.Windows.Forms.NumericUpDown();
             this.tabPage_miscGFX = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.numericUpDown_kkrCannonballY = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_kkrCrownY = new System.Windows.Forms.NumericUpDown();
+            this.label31 = new System.Windows.Forms.Label();
+            this.numericUpDown_miscKkrCrownTurnaround = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.numericUpDown_miscKkrLeap = new System.Windows.Forms.NumericUpDown();
             this.label24 = new System.Windows.Forms.Label();
@@ -138,6 +153,9 @@
             this.numericUpDown_kkrCrownPal = new System.Windows.Forms.NumericUpDown();
             this.button_kkrCball = new System.Windows.Forms.Button();
             this.button_kkrCrown = new System.Windows.Forms.Button();
+            this.button_enemyGroupC = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.numericUpDown_enemyGroupC = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_key)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_value)).BeginInit();
@@ -160,6 +178,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupA)).BeginInit();
             this.tabPage_miscGFX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCannonballY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrCrownTurnaround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrLeap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrStartY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrStartX)).BeginInit();
@@ -169,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownAnim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCballPal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownPal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -176,7 +198,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.insertToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.aSMToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(505, 24);
@@ -252,7 +275,15 @@
             this.stallToolStripMenuItem,
             this.dKBarrelToolStripMenuItem,
             this.checkpointToolStripMenuItem,
-            this.enemiesToolStripMenuItem});
+            this.enemiesToolStripMenuItem,
+            this.enemiesBToolStripMenuItem,
+            this.winningFanfareToolStripMenuItem,
+            this.kreditsToolStripMenuItem,
+            this.getUpToolStripMenuItem,
+            this.lockScreenToolStripMenuItem,
+            this.unlockScreenToolStripMenuItem,
+            this.creditsToolStripMenuItem,
+            this.neckyTokensToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.insertToolStripMenuItem.Text = "Insert";
@@ -260,58 +291,115 @@
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // throwCrownToolStripMenuItem
             // 
             this.throwCrownToolStripMenuItem.Name = "throwCrownToolStripMenuItem";
-            this.throwCrownToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.throwCrownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.throwCrownToolStripMenuItem.Text = "Throw crown";
             this.throwCrownToolStripMenuItem.Click += new System.EventHandler(this.throwCrownToolStripMenuItem_Click);
             // 
             // jumpUpToolStripMenuItem
             // 
             this.jumpUpToolStripMenuItem.Name = "jumpUpToolStripMenuItem";
-            this.jumpUpToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.jumpUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jumpUpToolStripMenuItem.Text = "Jump up";
             this.jumpUpToolStripMenuItem.Click += new System.EventHandler(this.jumpUpToolStripMenuItem_Click);
             // 
             // cannonballToolStripMenuItem
             // 
             this.cannonballToolStripMenuItem.Name = "cannonballToolStripMenuItem";
-            this.cannonballToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cannonballToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cannonballToolStripMenuItem.Text = "Cannonball";
             this.cannonballToolStripMenuItem.Click += new System.EventHandler(this.cannonballToolStripMenuItem_Click);
             // 
             // stallToolStripMenuItem
             // 
             this.stallToolStripMenuItem.Name = "stallToolStripMenuItem";
-            this.stallToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.stallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stallToolStripMenuItem.Text = "Stall";
             this.stallToolStripMenuItem.Click += new System.EventHandler(this.stallToolStripMenuItem_Click);
             // 
             // dKBarrelToolStripMenuItem
             // 
             this.dKBarrelToolStripMenuItem.Name = "dKBarrelToolStripMenuItem";
-            this.dKBarrelToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.dKBarrelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dKBarrelToolStripMenuItem.Text = "DK Barrel";
             this.dKBarrelToolStripMenuItem.Click += new System.EventHandler(this.dKBarrelToolStripMenuItem_Click);
             // 
             // checkpointToolStripMenuItem
             // 
             this.checkpointToolStripMenuItem.Name = "checkpointToolStripMenuItem";
-            this.checkpointToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.checkpointToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.checkpointToolStripMenuItem.Text = "Checkpoint";
             this.checkpointToolStripMenuItem.Click += new System.EventHandler(this.checkpointToolStripMenuItem_Click);
             // 
             // enemiesToolStripMenuItem
             // 
             this.enemiesToolStripMenuItem.Name = "enemiesToolStripMenuItem";
-            this.enemiesToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.enemiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enemiesToolStripMenuItem.Text = "Enemies";
             this.enemiesToolStripMenuItem.Click += new System.EventHandler(this.enemiesToolStripMenuItem_Click);
+            // 
+            // enemiesBToolStripMenuItem
+            // 
+            this.enemiesBToolStripMenuItem.Name = "enemiesBToolStripMenuItem";
+            this.enemiesBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enemiesBToolStripMenuItem.Text = "Enemies (Lower)";
+            this.enemiesBToolStripMenuItem.Click += new System.EventHandler(this.enemiesBToolStripMenuItem_Click);
+            // 
+            // winningFanfareToolStripMenuItem
+            // 
+            this.winningFanfareToolStripMenuItem.Name = "winningFanfareToolStripMenuItem";
+            this.winningFanfareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.winningFanfareToolStripMenuItem.Text = "Winning Fanfare";
+            this.winningFanfareToolStripMenuItem.Click += new System.EventHandler(this.winningFanfareToolStripMenuItem_Click);
+            // 
+            // kreditsToolStripMenuItem
+            // 
+            this.kreditsToolStripMenuItem.Name = "kreditsToolStripMenuItem";
+            this.kreditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kreditsToolStripMenuItem.Text = "Kredits";
+            this.kreditsToolStripMenuItem.Click += new System.EventHandler(this.kreditsToolStripMenuItem_Click);
+            // 
+            // getUpToolStripMenuItem
+            // 
+            this.getUpToolStripMenuItem.Name = "getUpToolStripMenuItem";
+            this.getUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getUpToolStripMenuItem.Text = "Get Up";
+            this.getUpToolStripMenuItem.Click += new System.EventHandler(this.getUpToolStripMenuItem_Click);
+            // 
+            // lockScreenToolStripMenuItem
+            // 
+            this.lockScreenToolStripMenuItem.Name = "lockScreenToolStripMenuItem";
+            this.lockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lockScreenToolStripMenuItem.Text = "Lock screen";
+            this.lockScreenToolStripMenuItem.Click += new System.EventHandler(this.lockScreenToolStripMenuItem_Click);
+            // 
+            // unlockScreenToolStripMenuItem
+            // 
+            this.unlockScreenToolStripMenuItem.Name = "unlockScreenToolStripMenuItem";
+            this.unlockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unlockScreenToolStripMenuItem.Text = "Unlock screen";
+            this.unlockScreenToolStripMenuItem.DoubleClick += new System.EventHandler(this.unlockScreenToolStripMenuItem_DoubleClick);
+            // 
+            // creditsToolStripMenuItem
+            // 
+            this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.creditsToolStripMenuItem.Text = "Credits";
+            this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
+            // 
+            // neckyTokensToolStripMenuItem
+            // 
+            this.neckyTokensToolStripMenuItem.Name = "neckyTokensToolStripMenuItem";
+            this.neckyTokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neckyTokensToolStripMenuItem.Text = "Necky Tokens";
+            this.neckyTokensToolStripMenuItem.Visible = false;
+            this.neckyTokensToolStripMenuItem.Click += new System.EventHandler(this.neckyTokensToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -327,34 +415,50 @@
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.copyToolStripMenuItem.Text = "Copy (Ctrl+C)";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.pasteToolStripMenuItem.Text = "Paste (Ctrl+V)";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // copyAToBToolStripMenuItem1
             // 
             this.copyAToBToolStripMenuItem1.Name = "copyAToBToolStripMenuItem1";
-            this.copyAToBToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.copyAToBToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.copyAToBToolStripMenuItem1.Text = "Copy A to B";
             this.copyAToBToolStripMenuItem1.Click += new System.EventHandler(this.copyAToBToolStripMenuItem_Click);
             // 
             // fakeCreditsToolStripMenuItem
             // 
             this.fakeCreditsToolStripMenuItem.Name = "fakeCreditsToolStripMenuItem";
-            this.fakeCreditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fakeCreditsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.fakeCreditsToolStripMenuItem.Text = "Fake credits skip";
             this.fakeCreditsToolStripMenuItem.Click += new System.EventHandler(this.fakeCreditsToolStripMenuItem_Click);
+            // 
+            // aSMToolStripMenuItem
+            // 
+            this.aSMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enableToolStripMenuItem});
+            this.aSMToolStripMenuItem.Name = "aSMToolStripMenuItem";
+            this.aSMToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aSMToolStripMenuItem.Text = "ASM";
+            // 
+            // enableToolStripMenuItem
+            // 
+            this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
+            this.enableToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.enableToolStripMenuItem.Text = "Enable";
+            this.enableToolStripMenuItem.Click += new System.EventHandler(this.enableToolStripMenuItem_Click);
             // 
             // comboBox_selectedIndex
             // 
             this.comboBox_selectedIndex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_selectedIndex.DropDownWidth = 180;
             this.comboBox_selectedIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_selectedIndex.FormattingEnabled = true;
             this.comboBox_selectedIndex.Location = new System.Drawing.Point(386, 38);
@@ -991,6 +1095,9 @@
             // 
             // tabPag_enemy
             // 
+            this.tabPag_enemy.Controls.Add(this.button_enemyGroupC);
+            this.tabPag_enemy.Controls.Add(this.label33);
+            this.tabPag_enemy.Controls.Add(this.numericUpDown_enemyGroupC);
             this.tabPag_enemy.Controls.Add(this.button_enemyGroupApply);
             this.tabPag_enemy.Controls.Add(this.button_enemyGroupB);
             this.tabPag_enemy.Controls.Add(this.label30);
@@ -1114,6 +1221,11 @@
             // 
             // tabPage_miscGFX
             // 
+            this.tabPage_miscGFX.Controls.Add(this.label32);
+            this.tabPage_miscGFX.Controls.Add(this.numericUpDown_kkrCannonballY);
+            this.tabPage_miscGFX.Controls.Add(this.numericUpDown_kkrCrownY);
+            this.tabPage_miscGFX.Controls.Add(this.label31);
+            this.tabPage_miscGFX.Controls.Add(this.numericUpDown_miscKkrCrownTurnaround);
             this.tabPage_miscGFX.Controls.Add(this.label27);
             this.tabPage_miscGFX.Controls.Add(this.numericUpDown_miscKkrLeap);
             this.tabPage_miscGFX.Controls.Add(this.label24);
@@ -1146,10 +1258,70 @@
             this.tabPage_miscGFX.Text = "Misc";
             this.tabPage_miscGFX.UseVisualStyleBackColor = true;
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(187, 155);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(74, 13);
+            this.label32.TabIndex = 56;
+            this.label32.Text = "Spawn Height";
+            // 
+            // numericUpDown_kkrCannonballY
+            // 
+            this.numericUpDown_kkrCannonballY.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_kkrCannonballY.Hexadecimal = true;
+            this.numericUpDown_kkrCannonballY.Location = new System.Drawing.Point(303, 145);
+            this.numericUpDown_kkrCannonballY.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_kkrCannonballY.Name = "numericUpDown_kkrCannonballY";
+            this.numericUpDown_kkrCannonballY.Size = new System.Drawing.Size(95, 29);
+            this.numericUpDown_kkrCannonballY.TabIndex = 55;
+            // 
+            // numericUpDown_kkrCrownY
+            // 
+            this.numericUpDown_kkrCrownY.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_kkrCrownY.Hexadecimal = true;
+            this.numericUpDown_kkrCrownY.Location = new System.Drawing.Point(44, 145);
+            this.numericUpDown_kkrCrownY.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_kkrCrownY.Name = "numericUpDown_kkrCrownY";
+            this.numericUpDown_kkrCrownY.Size = new System.Drawing.Size(95, 29);
+            this.numericUpDown_kkrCrownY.TabIndex = 54;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(300, 336);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(91, 13);
+            this.label31.TabIndex = 53;
+            this.label31.Text = "Crown turnaround";
+            // 
+            // numericUpDown_miscKkrCrownTurnaround
+            // 
+            this.numericUpDown_miscKkrCrownTurnaround.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_miscKkrCrownTurnaround.Hexadecimal = true;
+            this.numericUpDown_miscKkrCrownTurnaround.Location = new System.Drawing.Point(303, 352);
+            this.numericUpDown_miscKkrCrownTurnaround.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_miscKkrCrownTurnaround.Name = "numericUpDown_miscKkrCrownTurnaround";
+            this.numericUpDown_miscKkrCrownTurnaround.Size = new System.Drawing.Size(95, 29);
+            this.numericUpDown_miscKkrCrownTurnaround.TabIndex = 52;
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(41, 292);
+            this.label27.Location = new System.Drawing.Point(41, 336);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(140, 13);
             this.label27.TabIndex = 51;
@@ -1159,7 +1331,7 @@
             // 
             this.numericUpDown_miscKkrLeap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_miscKkrLeap.Hexadecimal = true;
-            this.numericUpDown_miscKkrLeap.Location = new System.Drawing.Point(44, 308);
+            this.numericUpDown_miscKkrLeap.Location = new System.Drawing.Point(44, 352);
             this.numericUpDown_miscKkrLeap.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1173,7 +1345,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(403, 261);
+            this.label24.Location = new System.Drawing.Point(403, 305);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(14, 13);
             this.label24.TabIndex = 49;
@@ -1182,7 +1354,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(405, 225);
+            this.label25.Location = new System.Drawing.Point(405, 269);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(14, 13);
             this.label25.TabIndex = 48;
@@ -1191,7 +1363,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(300, 182);
+            this.label26.Location = new System.Drawing.Point(300, 226);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(134, 26);
             this.label26.TabIndex = 47;
@@ -1201,7 +1373,7 @@
             // 
             this.numericUpDown_miscKkrStartY.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_miscKkrStartY.Hexadecimal = true;
-            this.numericUpDown_miscKkrStartY.Location = new System.Drawing.Point(303, 245);
+            this.numericUpDown_miscKkrStartY.Location = new System.Drawing.Point(303, 289);
             this.numericUpDown_miscKkrStartY.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1216,7 +1388,7 @@
             // 
             this.numericUpDown_miscKkrStartX.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_miscKkrStartX.Hexadecimal = true;
-            this.numericUpDown_miscKkrStartX.Location = new System.Drawing.Point(303, 210);
+            this.numericUpDown_miscKkrStartX.Location = new System.Drawing.Point(303, 254);
             this.numericUpDown_miscKkrStartX.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1230,7 +1402,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(144, 255);
+            this.label23.Location = new System.Drawing.Point(144, 299);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 13);
             this.label23.TabIndex = 44;
@@ -1239,7 +1411,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(146, 219);
+            this.label22.Location = new System.Drawing.Point(146, 263);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(13, 13);
             this.label22.TabIndex = 43;
@@ -1248,7 +1420,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(41, 188);
+            this.label21.Location = new System.Drawing.Point(41, 232);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(115, 13);
             this.label21.TabIndex = 42;
@@ -1258,7 +1430,7 @@
             // 
             this.numericUpDown_miscRightBounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_miscRightBounds.Hexadecimal = true;
-            this.numericUpDown_miscRightBounds.Location = new System.Drawing.Point(44, 239);
+            this.numericUpDown_miscRightBounds.Location = new System.Drawing.Point(44, 283);
             this.numericUpDown_miscRightBounds.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1278,7 +1450,7 @@
             // 
             this.numericUpDown_miscLeftBounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_miscLeftBounds.Hexadecimal = true;
-            this.numericUpDown_miscLeftBounds.Location = new System.Drawing.Point(44, 204);
+            this.numericUpDown_miscLeftBounds.Location = new System.Drawing.Point(44, 248);
             this.numericUpDown_miscLeftBounds.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1362,7 +1534,7 @@
             // 
             // button_restoreCball
             // 
-            this.button_restoreCball.Location = new System.Drawing.Point(303, 146);
+            this.button_restoreCball.Location = new System.Drawing.Point(303, 190);
             this.button_restoreCball.Name = "button_restoreCball";
             this.button_restoreCball.Size = new System.Drawing.Size(95, 23);
             this.button_restoreCball.TabIndex = 33;
@@ -1372,7 +1544,7 @@
             // 
             // button_restoreCrown
             // 
-            this.button_restoreCrown.Location = new System.Drawing.Point(44, 146);
+            this.button_restoreCrown.Location = new System.Drawing.Point(44, 190);
             this.button_restoreCrown.Name = "button_restoreCrown";
             this.button_restoreCrown.Size = new System.Drawing.Size(95, 23);
             this.button_restoreCrown.TabIndex = 32;
@@ -1438,6 +1610,38 @@
             this.button_kkrCrown.UseVisualStyleBackColor = true;
             this.button_kkrCrown.Click += new System.EventHandler(this.button_kkrCrown_Click);
             // 
+            // button_enemyGroupC
+            // 
+            this.button_enemyGroupC.Location = new System.Drawing.Point(204, 131);
+            this.button_enemyGroupC.Name = "button_enemyGroupC";
+            this.button_enemyGroupC.Size = new System.Drawing.Size(23, 23);
+            this.button_enemyGroupC.TabIndex = 27;
+            this.button_enemyGroupC.UseVisualStyleBackColor = true;
+            this.button_enemyGroupC.Click += new System.EventHandler(this.button_enemyGroupC_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(105, 112);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(81, 13);
+            this.label33.TabIndex = 26;
+            this.label33.Text = "Enemy Group C";
+            // 
+            // numericUpDown_enemyGroupC
+            // 
+            this.numericUpDown_enemyGroupC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_enemyGroupC.Hexadecimal = true;
+            this.numericUpDown_enemyGroupC.Location = new System.Drawing.Point(108, 128);
+            this.numericUpDown_enemyGroupC.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_enemyGroupC.Name = "numericUpDown_enemyGroupC";
+            this.numericUpDown_enemyGroupC.Size = new System.Drawing.Size(85, 26);
+            this.numericUpDown_enemyGroupC.TabIndex = 25;
+            // 
             // K_Rool_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1478,6 +1682,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupA)).EndInit();
             this.tabPage_miscGFX.ResumeLayout(false);
             this.tabPage_miscGFX.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCannonballY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrCrownTurnaround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrLeap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrStartY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miscKkrStartX)).EndInit();
@@ -1487,6 +1694,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownAnim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCballPal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownPal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1604,5 +1812,23 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_enemyGroupA;
         private System.Windows.Forms.Button button_enemyGroupApply;
         private System.Windows.Forms.ToolStripMenuItem fakeCreditsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem winningFanfareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kreditsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lockScreenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getUpToolStripMenuItem;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.NumericUpDown numericUpDown_miscKkrCrownTurnaround;
+        private System.Windows.Forms.ToolStripMenuItem aSMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unlockScreenToolStripMenuItem;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.NumericUpDown numericUpDown_kkrCannonballY;
+        private System.Windows.Forms.NumericUpDown numericUpDown_kkrCrownY;
+        private System.Windows.Forms.ToolStripMenuItem neckyTokensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enemiesBToolStripMenuItem;
+        private System.Windows.Forms.Button button_enemyGroupC;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.NumericUpDown numericUpDown_enemyGroupC;
     }
 }

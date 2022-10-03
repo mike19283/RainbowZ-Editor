@@ -60,6 +60,18 @@ namespace Tilemap_editor
             AddGlobalHotkeyToAll(this);
             Cursor.Current = Cursors.Default;
 
+            //a2, f0
+            if (rom.Read8(0x80eecf) == 0xf0)
+            {
+                button_testThis.BackColor = Color.Transparent;
+            }
+            else
+            {
+                button_testThis.BackColor = Color.Violet;
+                int p = rom.Read16(0x80eecf + 1);
+                button_testThis.Text = p.ToString("X4");
+
+            }
 
         }
 
@@ -171,6 +183,7 @@ namespace Tilemap_editor
             rom.WriteArrToROM(arr, tb.address);
             tb.str = str;
             MessageBox.Show("Done");
+            KFTextInit();
 
         }
 
@@ -191,6 +204,23 @@ namespace Tilemap_editor
             }
         }
 
+        private void button_resetTest_Click(object sender, EventArgs e)
+        {
+            byte[] og = new byte[] { 0xf0, 0x07, 0xaa };
+            rom.WriteArrToROM(og, 0x80eecf);
+            button_testThis.BackColor = Color.Transparent;
+            button_testThis.Text = "Test Text";
+        }
+
+        private void button_testThis_Click(object sender, EventArgs e)
+        {
+            rom.Write8(0x80eecf + 0, 0xa2);
+            var tb = (TextBlock)listBox_textPointers.SelectedItem;
+            rom.Write16(0x80eecf + 1, tb.pointer);
+            button_testThis.BackColor = Color.Violet;
+            button_testThis.Text = tb.pointer.ToString("X4");
+
+        }
     }
 
     #endregion

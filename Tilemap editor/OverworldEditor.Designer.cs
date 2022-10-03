@@ -53,6 +53,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.numericUpDown_dRight = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_mapPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_level)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_x)).BeginInit();
@@ -322,12 +323,22 @@
             this.label15.TabIndex = 33;
             this.label15.Text = "Right";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(264, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Currently, only offers the ability to ochange coordinates";
+            // 
             // OverworldEditor
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 286);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown_dRight);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.numericUpDown_dLeft);
@@ -393,5 +404,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericUpDown_dRight;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label5;
     }
 }

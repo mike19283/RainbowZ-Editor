@@ -59,7 +59,7 @@ namespace Tilemap_editor
                 g.DrawImage(Entrance.bmp, x_displacement, y_displacement);
                 //g.FillRectangle(new SolidBrush(Color.Black), x_displacement, y_displacement, 50, 50);
                 //g.DrawRectangle(new Pen(Color.Blue, 3), x_displacement, y_displacement, 50, 50);
-                g.DrawString(local.ToString("X") + " " + entranceCode.ToString("X"), form.Font, Brushes.Blue, x_displacement, y_displacement);                
+                g.DrawString(local.ToString("X") + " " + entranceCode.ToString("X"), form.Font, Brushes.White, x_displacement, y_displacement);                
                 //g.DrawString("x - " + x.ToString("X"), form.Font, Brushes.Blue, x_displacement + 5, y_displacement + 10);
                 //g.DrawString("y - " + y.ToString("X"), form.Font, Brushes.Blue, x_displacement + 5, y_displacement + 20);
 
