@@ -33,6 +33,16 @@ namespace Tilemap_editor
             ["The Credits Concerto"] = 0x901c,
 
         };
+        public int[] WORLDCODES = new int[] 
+        {
+            0xeb,
+            0xed,
+            0xe9,
+            0xe8,
+            0xe7,
+            0xe6,
+            0x68,
+        };
 
         // OFFSETS
         public int ATTRIBUTES = 0x81d102;

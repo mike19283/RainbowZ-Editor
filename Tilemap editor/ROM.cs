@@ -725,6 +725,12 @@ namespace Tilemap_editor
             var str = ReadString(0x3AE09F, 7);
             return str == "Rainbow";
         }
+        public bool CheckSignatureNonASM()
+        {
+            var str = ReadString(0x3AE09F, 7);
+            return str == "Rainbow";
+        }
+
         public void CreateTryCatchBackup()
         {
             List<byte> temp = new List<byte>();
@@ -791,37 +797,28 @@ namespace Tilemap_editor
             {
                 var c = text[i];
                 var next = text[i + 1];
-                if (next == 0xa && c != 0xa)
+                if (c > 0xa && next != 0xa)
+                {
+                    @return.Add((byte)c);
+                }
+                else if (c > 0xa && next == 0xa)
                 {
                     byte l = (byte)(((byte)c) | 0x80);
                     @return.Add(l);
                 }
-                else if (c == 0xa && next == 0xa)
+                else if (c == 0xa &&next == 0xa)
                 {
-                    @return.Add(0);
+                    @return.Add(0xa0);
                 }
-                else if (c == 0xa && next != 0xa)
+                else 
                 {
                     continue;
-                }
-                else
-                {
-                    @return.Add((byte)c);
                 }
 
 
                 last = text[i];
             }
-            int count = @return.Count;
-            if (@return[count - 1] != 0x00)
-            {
-                @return.Add(0);
-                //@return.Add(0);
-            }
-            if (@return[count - 2] != 0x00)
-            {
-                //@return.Add(0);
-            }
+            @return.Add(0);
             @return.Add(0);
 
             return @return.ToArray();
