@@ -392,6 +392,7 @@ namespace Tilemap_editor
             {
 
                 thisLevel.OrderEntityList();
+                thisLevel.OrderBananaList();
                 //OrderReload();
 
             }
@@ -532,6 +533,10 @@ namespace Tilemap_editor
             if (radioButton_editPaths.Checked)
             {
                 radioButton_editPaths_CheckedChanged(0, new EventArgs());
+            }
+            if (radioButton_editCameras.Checked)
+            {
+                radioButton_editCameras_CheckedChanged(0, new EventArgs());
             }
         }
 
@@ -2644,6 +2649,7 @@ namespace Tilemap_editor
         {
             if (rom.CheckSignature())
             {
+                aSMModsToolStripMenuItem.Checked = true;
                 MessageBox.Show("Already applied");
                 if (MessageBox.Show("Refresh?", "WARNING!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
@@ -2931,6 +2937,12 @@ namespace Tilemap_editor
         {
             rom.Write16(thisLevel.bananaMapOffset, 2);
             Level_select_Click(0, new EventArgs());
+        }
+
+        private void startingWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartingWorld sw = new StartingWorld(rom);
+            sw.ShowDialog();
         }
     }
 }

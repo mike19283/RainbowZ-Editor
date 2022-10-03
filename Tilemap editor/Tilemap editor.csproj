@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>portrait_qTR_icon - Copy.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -191,6 +194,12 @@
     <Compile Include="K Rool Edit.ExportImport.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="K Rool Throw Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="K Rool Throw Options.Designer.cs">
+      <DependentUpon>K Rool Throw Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="KongAttributes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +326,12 @@
     <Compile Include="StampCollection.Designer.cs">
       <DependentUpon>StampCollection.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartingWorld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartingWorld.Designer.cs">
+      <DependentUpon>StartingWorld.cs</DependentUpon>
+    </Compile>
     <Compile Include="StoredData.cs" />
     <Compile Include="StringParsing.cs" />
     <Compile Include="TextEditor.Credits.cs">
@@ -404,6 +419,9 @@
     <EmbeddedResource Include="K Rool Edit.resx">
       <DependentUpon>K Rool Edit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="K Rool Throw Options.resx">
+      <DependentUpon>K Rool Throw Options.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KongAttributes.resx">
       <DependentUpon>KongAttributes.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +479,9 @@
     <EmbeddedResource Include="StampCollection.resx">
       <DependentUpon>StampCollection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartingWorld.resx">
+      <DependentUpon>StartingWorld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,7 +511,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="case_GCr_icon.ico" />
     <Content Include="grab-cursor2.cur" />
+    <Content Include="portrait_qTR_icon - Copy.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolderStuff\" />

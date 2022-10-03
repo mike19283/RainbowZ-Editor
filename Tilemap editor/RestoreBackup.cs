@@ -22,6 +22,12 @@ namespace Tilemap_editor
             this.rom = rom;
             InitializeComponent();
 
+            Populate(sd, rom);
+        }
+
+        private void Populate(StoredData sd, ROM rom)
+        {
+            listBox_backups.Items.Clear();
             string catName = "ROM Backups - " + rom.backupFileName;
             backups = sd.ReadCategory(catName);
             listBox_backups.Items.AddRange(backups.Values.ToArray());
@@ -53,6 +59,7 @@ namespace Tilemap_editor
                 string backPath = $"Backup Version\\" + rom.backupFileName + $"\\{rom.backupIndex}.bac";
                 System.IO.File.WriteAllBytes(backPath, rom.rom.ToArray());
 
+                Populate(sd, rom);
             }
         }
 

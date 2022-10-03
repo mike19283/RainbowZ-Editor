@@ -36,6 +36,7 @@ namespace Tilemap_editor
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label_address = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entranceX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entranceY)).BeginInit();
             this.SuspendLayout();
@@ -48,14 +49,14 @@ namespace Tilemap_editor
             this.listBox_entities.ItemHeight = 20;
             this.listBox_entities.Location = new System.Drawing.Point(0, 0);
             this.listBox_entities.Name = "listBox_entities";
-            this.listBox_entities.Size = new System.Drawing.Size(382, 450);
+            this.listBox_entities.Size = new System.Drawing.Size(352, 450);
             this.listBox_entities.TabIndex = 0;
             this.listBox_entities.SelectedIndexChanged += new System.EventHandler(this.listBox_entities_SelectedIndexChanged);
             // 
             // numericUpDown_entranceX
             // 
             this.numericUpDown_entranceX.Hexadecimal = true;
-            this.numericUpDown_entranceX.Location = new System.Drawing.Point(388, 60);
+            this.numericUpDown_entranceX.Location = new System.Drawing.Point(369, 60);
             this.numericUpDown_entranceX.Maximum = new decimal(new int[] {
             65836,
             0,
@@ -68,7 +69,7 @@ namespace Tilemap_editor
             // numericUpDown_entranceY
             // 
             this.numericUpDown_entranceY.Hexadecimal = true;
-            this.numericUpDown_entranceY.Location = new System.Drawing.Point(388, 110);
+            this.numericUpDown_entranceY.Location = new System.Drawing.Point(369, 110);
             this.numericUpDown_entranceY.Maximum = new decimal(new int[] {
             65836,
             0,
@@ -80,7 +81,7 @@ namespace Tilemap_editor
             // 
             // button_apply
             // 
-            this.button_apply.Location = new System.Drawing.Point(406, 159);
+            this.button_apply.Location = new System.Drawing.Point(387, 159);
             this.button_apply.Name = "button_apply";
             this.button_apply.Size = new System.Drawing.Size(75, 23);
             this.button_apply.TabIndex = 5;
@@ -91,7 +92,7 @@ namespace Tilemap_editor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(423, 41);
+            this.label1.Location = new System.Drawing.Point(404, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 6;
@@ -100,7 +101,7 @@ namespace Tilemap_editor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(426, 91);
+            this.label2.Location = new System.Drawing.Point(407, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 7;
@@ -115,12 +116,22 @@ namespace Tilemap_editor
             this.label_address.TabIndex = 8;
             this.label_address.Text = "label3";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(370, 205);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 26);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Uses intuitive values\r\ne.g. (0,0) is bottom left";
+            // 
             // Entrances
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -149,5 +160,6 @@ namespace Tilemap_editor
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_address;
+        private System.Windows.Forms.Label label3;
     }
 }

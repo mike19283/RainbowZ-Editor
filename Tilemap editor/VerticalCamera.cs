@@ -76,7 +76,7 @@ namespace Tilemap_editor
 
                 g.DrawRectangle(new Pen(Color.FromArgb(0x80, 0xf0, 0xf0,0), 3), x_displacement, GetVerticalDisplacement(yStart), xSize, ySize);
 
-                g.DrawString(index.ToString("X"), form.Font, Brushes.Black, x_displacement + 10, GetVerticalDisplacement(yStart) + 10);
+                g.DrawString(index.ToString("X"), form.Font, Brushes.White, x_displacement + 10, GetVerticalDisplacement(yStart) + 10);
 
             }
             return bmp;

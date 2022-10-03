@@ -120,6 +120,16 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label5.Text" xml:space="preserve">
+    <value>A very basic palette editor that
+allows you to edit 1 color at a
+time by clicking on a color or 
+the ability to modify all at once. 
+Alternatively, you can export a 
+bmp, edit it externally, then 
+import the bmp back in
+</value>
+  </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>377, 17</value>
   </metadata>

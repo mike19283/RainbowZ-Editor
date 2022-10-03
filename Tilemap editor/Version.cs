@@ -8,7 +8,7 @@ namespace Tilemap_editor
 {
     static class Version
     {
-        private static string versionString = "Version 0.380";
+        private static string versionString = "Version 0.391";
         public static string downloadLink;
         public static bool difVersion;
         private static string pasteLink = "https://pastebin.com/Mumr1Un7";

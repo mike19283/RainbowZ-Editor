@@ -1120,6 +1120,12 @@ namespace Tilemap_editor
         }
 		public void WriteBananasToROM()
         {
+            // Reorganize address order
+            for (int i = 0; i < bananas.Count; i++)
+            {
+                int newBanAddress = bananaMapOffset + i * 4;
+                bananas[i].address = newBanAddress;
+            }
 			foreach (var b in bananas)
             {
                 b.WriteAllToROM();

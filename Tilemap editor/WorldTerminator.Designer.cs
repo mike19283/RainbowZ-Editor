@@ -34,6 +34,8 @@
             this.numericUpDown_levelCode = new System.Windows.Forms.NumericUpDown();
             this.button_apply = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_levelCode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             // 
             this.numericUpDown_levelCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_levelCode.Hexadecimal = true;
-            this.numericUpDown_levelCode.Location = new System.Drawing.Point(162, 37);
+            this.numericUpDown_levelCode.Location = new System.Drawing.Point(165, 29);
             this.numericUpDown_levelCode.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -84,13 +86,31 @@
             // 
             // button_apply
             // 
-            this.button_apply.Location = new System.Drawing.Point(156, 97);
+            this.button_apply.Location = new System.Drawing.Point(165, 64);
             this.button_apply.Name = "button_apply";
-            this.button_apply.Size = new System.Drawing.Size(75, 23);
+            this.button_apply.Size = new System.Drawing.Size(66, 23);
             this.button_apply.TabIndex = 3;
             this.button_apply.Text = "Apply";
             this.button_apply.UseVisualStyleBackColor = true;
             this.button_apply.Click += new System.EventHandler(this.button_apply_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(162, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Level code";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(162, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 39);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Still a bit buggy.\r\nUse at your own\r\nrisk.";
             // 
             // WorldTerminator
             // 
@@ -98,6 +118,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 150);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_apply);
             this.Controls.Add(this.numericUpDown_levelCode);
             this.Controls.Add(this.listBox_levelNames);
@@ -106,6 +128,7 @@
             this.Text = "WorldTerminator";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_levelCode)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,5 +139,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_levelCode;
         private System.Windows.Forms.Button button_apply;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

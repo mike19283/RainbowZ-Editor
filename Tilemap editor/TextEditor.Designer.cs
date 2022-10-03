@@ -30,6 +30,8 @@
         {
             this.tabControl_text = new System.Windows.Forms.TabControl();
             this.tabPage_kf = new System.Windows.Forms.TabPage();
+            this.button_resetTest = new System.Windows.Forms.Button();
+            this.button_testThis = new System.Windows.Forms.Button();
             this.button_import_kfText = new System.Windows.Forms.Button();
             this.button_export_kfText = new System.Windows.Forms.Button();
             this.button_kfTextApply = new System.Windows.Forms.Button();
@@ -47,14 +49,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox_stageBase = new System.Windows.Forms.ListBox();
             this.tabPage_credits = new System.Windows.Forms.TabPage();
+            this.button_import_credits = new System.Windows.Forms.Button();
+            this.button_export_credits = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton_real = new System.Windows.Forms.RadioButton();
             this.radioButton_fake = new System.Windows.Forms.RadioButton();
             this.button_creditsApply = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox_credits = new System.Windows.Forms.RichTextBox();
-            this.button_export_credits = new System.Windows.Forms.Button();
-            this.button_import_credits = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl_text.SuspendLayout();
             this.tabPage_kf.SuspendLayout();
             this.tabPage_stage.SuspendLayout();
@@ -77,6 +80,9 @@
             // 
             // tabPage_kf
             // 
+            this.tabPage_kf.Controls.Add(this.label4);
+            this.tabPage_kf.Controls.Add(this.button_resetTest);
+            this.tabPage_kf.Controls.Add(this.button_testThis);
             this.tabPage_kf.Controls.Add(this.button_import_kfText);
             this.tabPage_kf.Controls.Add(this.button_export_kfText);
             this.tabPage_kf.Controls.Add(this.button_kfTextApply);
@@ -90,6 +96,27 @@
             this.tabPage_kf.TabIndex = 0;
             this.tabPage_kf.Text = "Kong Family";
             this.tabPage_kf.UseVisualStyleBackColor = true;
+            // 
+            // button_resetTest
+            // 
+            this.button_resetTest.Location = new System.Drawing.Point(412, 336);
+            this.button_resetTest.Name = "button_resetTest";
+            this.button_resetTest.Size = new System.Drawing.Size(75, 23);
+            this.button_resetTest.TabIndex = 8;
+            this.button_resetTest.Text = "Reset Test";
+            this.button_resetTest.UseVisualStyleBackColor = true;
+            this.button_resetTest.Click += new System.EventHandler(this.button_resetTest_Click);
+            // 
+            // button_testThis
+            // 
+            this.button_testThis.BackColor = System.Drawing.Color.Transparent;
+            this.button_testThis.Location = new System.Drawing.Point(409, 288);
+            this.button_testThis.Name = "button_testThis";
+            this.button_testThis.Size = new System.Drawing.Size(75, 23);
+            this.button_testThis.TabIndex = 7;
+            this.button_testThis.Text = "Test Text";
+            this.button_testThis.UseVisualStyleBackColor = false;
+            this.button_testThis.Click += new System.EventHandler(this.button_testThis_Click);
             // 
             // button_import_kfText
             // 
@@ -324,6 +351,28 @@
             this.tabPage_credits.Text = "Credits";
             this.tabPage_credits.UseVisualStyleBackColor = true;
             // 
+            // button_import_credits
+            // 
+            this.button_import_credits.Location = new System.Drawing.Point(537, 253);
+            this.button_import_credits.Name = "button_import_credits";
+            this.button_import_credits.Size = new System.Drawing.Size(75, 23);
+            this.button_import_credits.TabIndex = 5;
+            this.button_import_credits.Text = "Import All";
+            this.button_import_credits.UseVisualStyleBackColor = true;
+            this.button_import_credits.Visible = false;
+            this.button_import_credits.Click += new System.EventHandler(this.button_import_credits_Click);
+            // 
+            // button_export_credits
+            // 
+            this.button_export_credits.Location = new System.Drawing.Point(537, 309);
+            this.button_export_credits.Name = "button_export_credits";
+            this.button_export_credits.Size = new System.Drawing.Size(75, 23);
+            this.button_export_credits.TabIndex = 4;
+            this.button_export_credits.Text = "Export All";
+            this.button_export_credits.UseVisualStyleBackColor = true;
+            this.button_export_credits.Visible = false;
+            this.button_export_credits.Click += new System.EventHandler(this.button_export_credits_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton_real);
@@ -388,25 +437,15 @@
             this.richTextBox_credits.TabIndex = 0;
             this.richTextBox_credits.Text = "";
             // 
-            // button_export_credits
+            // label4
             // 
-            this.button_export_credits.Location = new System.Drawing.Point(537, 309);
-            this.button_export_credits.Name = "button_export_credits";
-            this.button_export_credits.Size = new System.Drawing.Size(75, 23);
-            this.button_export_credits.TabIndex = 4;
-            this.button_export_credits.Text = "Export All";
-            this.button_export_credits.UseVisualStyleBackColor = true;
-            this.button_export_credits.Click += new System.EventHandler(this.button_export_credits_Click);
-            // 
-            // button_import_credits
-            // 
-            this.button_import_credits.Location = new System.Drawing.Point(537, 253);
-            this.button_import_credits.Name = "button_import_credits";
-            this.button_import_credits.Size = new System.Drawing.Size(75, 23);
-            this.button_import_credits.TabIndex = 5;
-            this.button_import_credits.Text = "Import All";
-            this.button_import_credits.UseVisualStyleBackColor = true;
-            this.button_import_credits.Click += new System.EventHandler(this.button_import_credits_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(409, 216);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 65);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Clicking test sets\r\nCranky in-game\r\nto always display\r\nthat text for testing\r\npur" +
+    "poses";
             // 
             // TextEditor
             // 
@@ -419,6 +458,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TextEditor_FormClosing);
             this.tabControl_text.ResumeLayout(false);
             this.tabPage_kf.ResumeLayout(false);
+            this.tabPage_kf.PerformLayout();
             this.tabPage_stage.ResumeLayout(false);
             this.tabPage_stage.PerformLayout();
             this.tabPage_credits.ResumeLayout(false);
@@ -458,5 +498,8 @@
         private System.Windows.Forms.Button button_import_kfText;
         private System.Windows.Forms.Button button_import_credits;
         private System.Windows.Forms.Button button_export_credits;
+        private System.Windows.Forms.Button button_resetTest;
+        private System.Windows.Forms.Button button_testThis;
+        private System.Windows.Forms.Label label4;
     }
 }

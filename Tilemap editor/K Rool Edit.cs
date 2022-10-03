@@ -48,6 +48,7 @@ namespace Tilemap_editor
 
             fakeCreditsToolStripMenuItem.Checked = kkrKredits == 0x0;
 
+            enableToolStripMenuItem.Checked = rom.CheckSignature();
         }
         private void ReadArray(byte[] arr)
         {
@@ -120,13 +121,13 @@ namespace Tilemap_editor
         }
         private void loadFromEOMToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int offset = ReadArrAddressFromROM(); 
+            int offset = ReadArrAddressFromROM();
             var arr = rom.ReadSubArray(offset, 0x1000, rom.rom.ToArray());
             ReadArray(arr);
             SetCombobox();
             comboBox_selectedIndex.SelectedIndex = 0;
         }
-        private int ReadArrAddressFromROM ()
+        private int ReadArrAddressFromROM()
         {
             if (Global.mod)
             {
@@ -138,18 +139,19 @@ namespace Tilemap_editor
 
             return offset;
         }
-        private void WriteArrAddressToROM (int address)
+        private void WriteArrAddressToROM(int address)
         {
 
             int _16bit = address & 0xffff;
             int bank = address >> 16;
             rom.Write16(0xb6e84d, _16bit);
-            rom.Write16(0xb6e852, bank);            
+            rom.Write16(0xb6e852, bank);
         }
-        private void ConvertToArr ()
+        private void ConvertToArr()
         {
             List<byte> converted = new List<byte>();
         }
+
         private void FillListbox()
         {
             var curr = data[comboBox_selectedIndex.SelectedIndex];
@@ -212,23 +214,23 @@ namespace Tilemap_editor
             // Which are we looking at?
             // First select array
             var arr = data[comboBox_selectedIndex.SelectedIndex];
-                // Now select key value pair
-                var keyValue = arr.kvp[listBox_data.SelectedIndex];
+            // Now select key value pair
+            var keyValue = arr.kvp[listBox_data.SelectedIndex];
 
-                keyValue.key = (int)numericUpDown_key.Value;
-                keyValue.value = (int)numericUpDown_value.Value;
+            keyValue.key = (int)numericUpDown_key.Value;
+            keyValue.value = (int)numericUpDown_value.Value;
 
-                var arr2 = GetByteArrayToBeSaved(); //
-                WriteArrAddressToROM(customAddress); //
-                rom.WriteArrToROM(arr2, customAddress); //
-                ReadArray(arr2);
-                //comboBox_selectedIndex.SelectedIndex = 0;
-                var index = comboBox_selectedIndex.SelectedIndex;
-                SetCombobox();
-                comboBox_selectedIndex.SelectedIndex = index;
-                RefreshListbox();
-                //MessageBox.Show("Applied!");
-                RefreshListbox();
+            var arr2 = GetByteArrayToBeSaved(); //
+            WriteArrAddressToROM(customAddress); //
+            rom.WriteArrToROM(arr2, customAddress); //
+            ReadArray(arr2);
+            //comboBox_selectedIndex.SelectedIndex = 0;
+            var index = comboBox_selectedIndex.SelectedIndex;
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = index;
+            RefreshListbox();
+            //MessageBox.Show("Applied!");
+            RefreshListbox();
         }
         private byte[] GetByteArrayToBeSaved()
         {
@@ -282,11 +284,22 @@ namespace Tilemap_editor
         }
 
         private void button_remove_Click(object sender, EventArgs e)
-        {            
+        {
+            if (comboBox_selectedIndex.Items.Count == 1)
+                return;
             var temp = comboBox_selectedIndex.SelectedIndex;
+            var tempItems = comboBox_selectedIndex.Items.Count;
             data.RemoveAt(comboBox_selectedIndex.SelectedIndex);
             SetCombobox();
-            comboBox_selectedIndex.SelectedIndex = temp;
+            if (temp == tempItems - 1)
+            {
+                comboBox_selectedIndex.SelectedIndex = temp - 1;
+                comboBox_selectedIndex.Focus();
+            }
+            else
+            {
+                comboBox_selectedIndex.SelectedIndex = temp;
+            }
         }
 
         private void listBox_data_SelectedIndexChanged(object sender, EventArgs e)
@@ -331,10 +344,10 @@ namespace Tilemap_editor
                     numericUpDown_cballPointer.Value = address;
                     CBallGoto();
                 }
-                else if (curr.GetTypeNum() == 0x8005)
+                else if (curr.GetTypeNum() == 0x8005 || curr.GetTypeNum() == 0x8008)
                 {
                     tabControlkkreditor.SelectedIndex = 3;
-                    listBox_enemyGroup.SelectedIndex = curr.kvp[curr.SearchInList(0x0100)].value; 
+                    listBox_enemyGroup.SelectedIndex = curr.kvp[curr.SearchInList(0x0100)].value;
                 }
             }
 
@@ -425,7 +438,7 @@ namespace Tilemap_editor
             curr.AddKeyValuePair(0x1491, bank);
             var address = (bank << 16) | _16Bit;
             var arrJumps = new int[] { 0, 0, 0x70, 0x400, 0x1ac };
-            var arrCball = new int[] { 1, 0, 0, 0, 0, 0, 0 };
+            var arrCball = new int[] { 0x9, 0xff00, 0x0040, 0xff60, 0x28, 0x28};
             for (int i = 0; i < curr.kvp.Count; i++)
             {
                 if (curr.GetTypeNum() == 9)
@@ -442,6 +455,8 @@ namespace Tilemap_editor
                 }
                 else if (curr.GetTypeNum() == 0xb)
                 {
+                    var zeroes = Enumerable.Repeat((byte)0, 0x40).ToArray();
+                    rom.WriteArrToROM(zeroes, address);
                     rom.WriteArrOfIntsToROM(arrCball, address);
                 }
             }
@@ -479,7 +494,7 @@ namespace Tilemap_editor
         private void button_addKvp_Click(object sender, EventArgs e)
         {
             var curr = data[comboBox_selectedIndex.SelectedIndex];
-            curr.kvp.Insert(listBox_data.SelectedIndex,new keyValuePair(0,0));
+            curr.kvp.Insert(listBox_data.SelectedIndex, new keyValuePair(0, 0));
 
             comboBox_selectedIndex_SelectedIndexChanged(0, new EventArgs());
         }
@@ -496,7 +511,7 @@ namespace Tilemap_editor
             comboBox_selectedIndex_SelectedIndexChanged(0, new EventArgs());
 
         }
-        private void RefreshListbox ()
+        private void RefreshListbox()
         {
             var index = comboBox_selectedIndex.SelectedIndex;
             comboBox_selectedIndex.SelectedIndex = index;
@@ -525,13 +540,20 @@ namespace Tilemap_editor
 
         }
 
+
         private void throwCrownToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            K_Rool_Throw_Options @throw = new K_Rool_Throw_Options();
+            int animationPointer = 0x1a8;
+            @throw.ShowDialog();
+            animationPointer = @throw.pointer;
+
+
             var temp = comboBox_selectedIndex.SelectedIndex;
             var toInsert = new KkrIndex();
             toInsert.AddKeyValuePair(0x130d, 3);
             toInsert.AddKeyValuePair(0x0e89, 0x400);
-            toInsert.AddKeyValuePair(0x10d1, 0x1a8);
+            toInsert.AddKeyValuePair(0x10d1, animationPointer);
 
             data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
             SetCombobox();
@@ -579,7 +601,7 @@ namespace Tilemap_editor
             button_indirect_Click(0, new EventArgs());
 
         }
-        private void AddHotKeyToAll (Control ctrl)
+        private void AddHotKeyToAll(Control ctrl)
         {
             ctrl.KeyDown += new KeyEventHandler(GlobalKeyDown);
             foreach (Control child in ctrl.Controls)
@@ -587,7 +609,7 @@ namespace Tilemap_editor
                 AddHotKeyToAll(child);
             }
         }
-        private void GlobalKeyDown (object sender, KeyEventArgs e)
+        private void GlobalKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.S && ModifierKeys == Keys.Control)
             {
@@ -713,7 +735,7 @@ namespace Tilemap_editor
             Clipboard.SetText(str);
 
         }
-        private string GetStringOfIndex ()
+        private string GetStringOfIndex()
         {
             string @return = "";
             var index = comboBox_selectedIndex.SelectedIndex;
@@ -831,12 +853,12 @@ namespace Tilemap_editor
             var toInsert = new KkrIndex();
             toInsert.AddKeyValuePair(0x130d, 0x8005);
             toInsert.AddKeyValuePair(0x0100, 0x0000);
+            toInsert.AddKeyValuePair(0x1341, 0x0001);
 
             data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
             SetCombobox();
             comboBox_selectedIndex.SelectedIndex = temp;
             button_apply_Click(0, new EventArgs());
-
         }
 
         private void fakeCreditsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -855,6 +877,178 @@ namespace Tilemap_editor
 
             }
         }
+
+        private void winningFanfareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0X12);
+            toInsert.AddKeyValuePair(0x145d, 0x0);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+        }
+
+        private void kreditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0X10);
+            toInsert.AddKeyValuePair(0x145d, 0x1);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void lockScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0X13);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0x10);
+            toInsert.AddKeyValuePair(0x145d, 0x5);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void getUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0xe);
+            toInsert.AddKeyValuePair(0x1561, 0x0);
+            toInsert.AddKeyValuePair(0x10d1, 0x1b0);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void enableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rom.CheckSignature())
+            {
+                MessageBox.Show("Already applied");
+                enableToolStripMenuItem.Checked = true;
+                if (MessageBox.Show("Refresh?", "WARNING!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    form.LoadSch1eyBins();
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Apply?", "WARNING!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    form.LoadSch1eyBins();
+                    enableToolStripMenuItem.Checked = true;
+                }
+            }
+
+        }
+
+        private void unlockScreenToolStripMenuItem_DoubleClick(object sender, EventArgs e)
+        {
+            if (!rom.CheckSignature())
+            {
+                MessageBox.Show("This applies ASM.", "WARNING");
+                if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    form.LoadSch1eyBins();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0x8006);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void neckyTokensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!rom.CheckSignature())
+            {
+                MessageBox.Show("This applies ASM.", "WARNING");
+                if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    form.LoadSch1eyBins();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0x8007);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
+        private void enemiesBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!rom.CheckSignature())
+            {
+                MessageBox.Show("This applies ASM.", "WARNING");
+                if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    form.LoadSch1eyBins();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0x8008);
+            toInsert.AddKeyValuePair(0x0100, 0x0000);
+            toInsert.AddKeyValuePair(0x1341, 0x0001);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+        }
+
     }
     public class KkrIndex
     {
@@ -874,12 +1068,19 @@ namespace Tilemap_editor
             [0xd] = "Stall",
             [0xe] = "Get up",
             [0xf] = "Stand still",
+            [0x12] = "Winning fanfare",
+            [0x10] = "Credits/Kredits",
+            [0x13] = "Lock screen",
+            [0x14] = "Stall 2",
             [0x8000] = "Run + spawn",
             [0x8001] = "Jump + spawn",
             [0x8002] = "Do After Throw",
             [0x8003] = "Spawn DK Barrel",
             [0x8004] = "Checkpoint",
             [0x8005] = "Enemies",
+            [0x8006] = "Unlock screen",
+            [0x8007] = "Necky tokens",
+            [0x8008] = "Enemies (Lower)",
         };
         public int address;
         public string type = "???";

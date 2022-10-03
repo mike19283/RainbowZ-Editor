@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Tilemap_editor
 {
@@ -60,12 +61,14 @@ namespace Tilemap_editor
             var element = cballHeader.ElementAt(listBox_cballHeader.SelectedIndex);
             numericUpDown_cballHeadKey.Value = element.Key;
             numericUpDown_cballHeadValue.Value = element.Value;
+            numericUpDown_cballHeadValue.Focus();
         }
 
         private void listBox_cballData_SelectedIndexChanged(object sender, EventArgs e)
         {
             var element = cballData.ElementAt(listBox_cballData.SelectedIndex);
             numericUpDown_cballDataX.Value = element.Value;
+            numericUpDown_cballDataX.Focus();
 
         }
 
@@ -77,7 +80,11 @@ namespace Tilemap_editor
             cballHeader[curr.Key] = (int)numericUpDown_cballHeadValue.Value;
 
             int address = (int)numericUpDown_cballPointer.Value;
-
+            if (cballHeader.ElementAt(0).Value > (0x40 - 12) / 2)
+            {
+                MessageBox.Show("Error. Too many cannonballs!\nMax is 1a");
+                return;
+            }
             // Write
             for (int i = 0; i < cballHeader.Count; i++)
             {

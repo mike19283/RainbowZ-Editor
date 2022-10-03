@@ -29,6 +29,7 @@ namespace Tilemap_editor
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox_entities = new System.Windows.Forms.ListBox();
             this.numericUpDown_leftCam = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_lowerCamY = new System.Windows.Forms.NumericUpDown();
@@ -43,6 +44,8 @@ namespace Tilemap_editor
             this.radioButton_yT = new System.Windows.Forms.RadioButton();
             this.radioButton_xStart = new System.Windows.Forms.RadioButton();
             this.label_address = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_leftCam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_lowerCamY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_upperCamY)).BeginInit();
@@ -139,11 +142,12 @@ namespace Tilemap_editor
             // 
             // button_setMultiple
             // 
-            this.button_setMultiple.Location = new System.Drawing.Point(360, 405);
+            this.button_setMultiple.Location = new System.Drawing.Point(360, 425);
             this.button_setMultiple.Name = "button_setMultiple";
             this.button_setMultiple.Size = new System.Drawing.Size(111, 23);
             this.button_setMultiple.TabIndex = 20;
             this.button_setMultiple.Text = "Set [Start, end)";
+            this.toolTip1.SetToolTip(this.button_setMultiple, "Set the attribute chosen above\r\nover multiple indices");
             this.button_setMultiple.UseVisualStyleBackColor = true;
             this.button_setMultiple.Click += new System.EventHandler(this.button_setMultiple_Click);
             // 
@@ -152,7 +156,7 @@ namespace Tilemap_editor
             this.groupBox1.Controls.Add(this.radioButton_yB);
             this.groupBox1.Controls.Add(this.radioButton_yT);
             this.groupBox1.Controls.Add(this.radioButton_xStart);
-            this.groupBox1.Location = new System.Drawing.Point(360, 240);
+            this.groupBox1.Location = new System.Drawing.Point(360, 260);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(111, 159);
             this.groupBox1.TabIndex = 21;
@@ -200,12 +204,22 @@ namespace Tilemap_editor
             this.label_address.TabIndex = 22;
             this.label_address.Text = "label4";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(359, 221);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 26);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Uses computer values\r\ne.g. (0,0) is top left";
+            // 
             // CameraEdit
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_setMultiple);
@@ -249,5 +263,7 @@ namespace Tilemap_editor
         private System.Windows.Forms.RadioButton radioButton_yT;
         private System.Windows.Forms.RadioButton radioButton_xStart;
         private System.Windows.Forms.Label label_address;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button_load = new System.Windows.Forms.Button();
             this.button_applySanity = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_levelCode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,11 +185,21 @@
             this.button_applySanity.UseVisualStyleBackColor = true;
             this.button_applySanity.Click += new System.EventHandler(this.button_applySanity_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(594, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 26);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "See the manual\r\nfor more info";
+            // 
             // LevelAttributes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 261);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button_applySanity);
             this.Controls.Add(this.button_load);
             this.Controls.Add(this.label3);
@@ -228,5 +239,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_load;
         private System.Windows.Forms.Button button_applySanity;
+        private System.Windows.Forms.Label label4;
     }
 }

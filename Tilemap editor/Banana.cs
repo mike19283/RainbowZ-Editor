@@ -66,7 +66,7 @@ namespace Tilemap_editor
                 catch { }
                 //g.FillRectangle(new SolidBrush(Color.Black), x_displacement, y_displacement, 50, 50);
                 //g.DrawRectangle(new Pen(Color.Yellow, 3), x_displacement, y_displacement, 50, 50);
-                g.DrawString(local.ToString("X"), form.Font, Brushes.Yellow, x_displacement, y_displacement);
+                g.DrawString(local.ToString("X"), form.Font, Brushes.White, x_displacement, y_displacement);
                 //g.DrawString(str, form.Font, Brushes.Yellow, x_displacement + 3, y_displacement + 10);
 
             }
