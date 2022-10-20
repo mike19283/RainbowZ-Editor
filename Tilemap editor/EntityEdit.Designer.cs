@@ -53,6 +53,7 @@ namespace Tilemap_editor
             this.button_openPalette = new System.Windows.Forms.Button();
             this.label_extrasAvailable = new System.Windows.Forms.Label();
             this.label_address = new System.Windows.Forms.Label();
+            this.button_scriptEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityPointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_entityY)).BeginInit();
@@ -297,9 +298,19 @@ namespace Tilemap_editor
             this.label_address.AutoSize = true;
             this.label_address.Location = new System.Drawing.Point(343, 13);
             this.label_address.Name = "label_address";
-            this.label_address.Size = new System.Drawing.Size(35, 13);
+            this.label_address.Size = new System.Drawing.Size(10, 13);
             this.label_address.TabIndex = 25;
-            this.label_address.Text = "label6";
+            this.label_address.Text = " ";
+            // 
+            // button_scriptEdit
+            // 
+            this.button_scriptEdit.Location = new System.Drawing.Point(346, 208);
+            this.button_scriptEdit.Name = "button_scriptEdit";
+            this.button_scriptEdit.Size = new System.Drawing.Size(42, 23);
+            this.button_scriptEdit.TabIndex = 26;
+            this.button_scriptEdit.Text = "Script";
+            this.button_scriptEdit.UseVisualStyleBackColor = true;
+            this.button_scriptEdit.Click += new System.EventHandler(this.button_scriptEdit_Click);
             // 
             // EntityEdit
             // 
@@ -307,6 +318,7 @@ namespace Tilemap_editor
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 477);
+            this.Controls.Add(this.button_scriptEdit);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.button_openPalette);
             this.Controls.Add(this.label_extrasAvailable);
@@ -368,5 +380,6 @@ namespace Tilemap_editor
         private System.Windows.Forms.Label label_extrasAvailable;
         private System.Windows.Forms.Button button_openPalette;
         private System.Windows.Forms.Label label_address;
+        private System.Windows.Forms.Button button_scriptEdit;
     }
 }

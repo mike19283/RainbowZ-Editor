@@ -61,9 +61,8 @@ namespace Tilemap_editor
             this.listBox_initCodes.FormattingEnabled = true;
             this.listBox_initCodes.ItemHeight = 21;
             this.listBox_initCodes.Location = new System.Drawing.Point(0, 0);
-            this.listBox_initCodes.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBox_initCodes.Name = "listBox_initCodes";
-            this.listBox_initCodes.Size = new System.Drawing.Size(771, 728);
+            this.listBox_initCodes.Size = new System.Drawing.Size(492, 520);
             this.listBox_initCodes.TabIndex = 0;
             this.listBox_initCodes.SelectedIndexChanged += new System.EventHandler(this.listBox_initCodes_SelectedIndexChanged);
             this.listBox_initCodes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_initCodes_MouseDoubleClick);
@@ -72,115 +71,105 @@ namespace Tilemap_editor
             // numericUpDown_key
             // 
             this.numericUpDown_key.Hexadecimal = true;
-            this.numericUpDown_key.Location = new System.Drawing.Point(801, 408);
-            this.numericUpDown_key.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.numericUpDown_key.Location = new System.Drawing.Point(510, 291);
             this.numericUpDown_key.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericUpDown_key.Name = "numericUpDown_key";
-            this.numericUpDown_key.Size = new System.Drawing.Size(220, 29);
+            this.numericUpDown_key.Size = new System.Drawing.Size(140, 21);
             this.numericUpDown_key.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(867, 381);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(552, 272);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 21);
+            this.label1.Size = new System.Drawing.Size(28, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Key";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(867, 450);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(552, 321);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Value";
             // 
             // numericUpDown_value1
             // 
             this.numericUpDown_value1.Hexadecimal = true;
-            this.numericUpDown_value1.Location = new System.Drawing.Point(801, 478);
-            this.numericUpDown_value1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.numericUpDown_value1.Location = new System.Drawing.Point(510, 342);
             this.numericUpDown_value1.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericUpDown_value1.Name = "numericUpDown_value1";
-            this.numericUpDown_value1.Size = new System.Drawing.Size(220, 29);
+            this.numericUpDown_value1.Size = new System.Drawing.Size(140, 21);
             this.numericUpDown_value1.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(867, 524);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(552, 374);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 21);
+            this.label3.Size = new System.Drawing.Size(42, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "Value";
             // 
             // numericUpDown_value2
             // 
             this.numericUpDown_value2.Hexadecimal = true;
-            this.numericUpDown_value2.Location = new System.Drawing.Point(801, 550);
-            this.numericUpDown_value2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.numericUpDown_value2.Location = new System.Drawing.Point(510, 393);
             this.numericUpDown_value2.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericUpDown_value2.Name = "numericUpDown_value2";
-            this.numericUpDown_value2.Size = new System.Drawing.Size(220, 29);
+            this.numericUpDown_value2.Size = new System.Drawing.Size(140, 21);
             this.numericUpDown_value2.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(867, 591);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(552, 422);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 21);
+            this.label4.Size = new System.Drawing.Size(42, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Value";
             // 
             // numericUpDown_value3
             // 
             this.numericUpDown_value3.Hexadecimal = true;
-            this.numericUpDown_value3.Location = new System.Drawing.Point(801, 618);
-            this.numericUpDown_value3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.numericUpDown_value3.Location = new System.Drawing.Point(510, 441);
             this.numericUpDown_value3.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericUpDown_value3.Name = "numericUpDown_value3";
-            this.numericUpDown_value3.Size = new System.Drawing.Size(220, 29);
+            this.numericUpDown_value3.Size = new System.Drawing.Size(140, 21);
             this.numericUpDown_value3.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(856, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(545, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 21);
+            this.label5.Size = new System.Drawing.Size(56, 15);
             this.label5.TabIndex = 9;
             this.label5.Text = "Pointer";
             // 
             // button_apply
             // 
-            this.button_apply.Location = new System.Drawing.Point(825, 670);
-            this.button_apply.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button_apply.Location = new System.Drawing.Point(525, 479);
             this.button_apply.Name = "button_apply";
-            this.button_apply.Size = new System.Drawing.Size(137, 38);
+            this.button_apply.Size = new System.Drawing.Size(87, 27);
             this.button_apply.TabIndex = 10;
             this.button_apply.Text = "Apply";
             this.button_apply.UseVisualStyleBackColor = true;
@@ -189,15 +178,14 @@ namespace Tilemap_editor
             // numericUpDown_pointer
             // 
             this.numericUpDown_pointer.Hexadecimal = true;
-            this.numericUpDown_pointer.Location = new System.Drawing.Point(801, 64);
-            this.numericUpDown_pointer.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.numericUpDown_pointer.Location = new System.Drawing.Point(510, 46);
             this.numericUpDown_pointer.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericUpDown_pointer.Name = "numericUpDown_pointer";
-            this.numericUpDown_pointer.Size = new System.Drawing.Size(220, 29);
+            this.numericUpDown_pointer.Size = new System.Drawing.Size(140, 21);
             this.numericUpDown_pointer.TabIndex = 11;
             this.numericUpDown_pointer.Value = new decimal(new int[] {
             46099,
@@ -208,10 +196,9 @@ namespace Tilemap_editor
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(825, 106);
-            this.button_search.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button_search.Location = new System.Drawing.Point(525, 76);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(137, 38);
+            this.button_search.Size = new System.Drawing.Size(87, 27);
             this.button_search.TabIndex = 12;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
@@ -220,21 +207,19 @@ namespace Tilemap_editor
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(861, 150);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(548, 107);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 21);
+            this.label6.Size = new System.Drawing.Size(56, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "History";
             // 
             // listBox_history
             // 
             this.listBox_history.FormattingEnabled = true;
-            this.listBox_history.ItemHeight = 21;
-            this.listBox_history.Location = new System.Drawing.Point(801, 176);
-            this.listBox_history.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.listBox_history.ItemHeight = 15;
+            this.listBox_history.Location = new System.Drawing.Point(510, 125);
             this.listBox_history.Name = "listBox_history";
-            this.listBox_history.Size = new System.Drawing.Size(216, 193);
+            this.listBox_history.Size = new System.Drawing.Size(139, 139);
             this.listBox_history.TabIndex = 14;
             this.listBox_history.SelectedIndexChanged += new System.EventHandler(this.listBox_history_SelectedIndexChanged);
             this.listBox_history.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_history_MouseDoubleClick);
@@ -243,19 +228,18 @@ namespace Tilemap_editor
             // label_address
             // 
             this.label_address.AutoSize = true;
-            this.label_address.Location = new System.Drawing.Point(819, 36);
-            this.label_address.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label_address.Location = new System.Drawing.Point(521, 26);
             this.label_address.Name = "label_address";
-            this.label_address.Size = new System.Drawing.Size(98, 21);
+            this.label_address.Size = new System.Drawing.Size(63, 15);
             this.label_address.TabIndex = 15;
             this.label_address.Text = "Address:";
             // 
             // EntityEditor
             // 
             this.AcceptButton = this.button_apply;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 728);
+            this.ClientSize = new System.Drawing.Size(674, 520);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.listBox_history);
             this.Controls.Add(this.label6);
@@ -272,10 +256,9 @@ namespace Tilemap_editor
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown_key);
             this.Controls.Add(this.listBox_initCodes);
-            this.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(686, 50);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "EntityEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

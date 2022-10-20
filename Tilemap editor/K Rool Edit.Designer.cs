@@ -53,6 +53,7 @@
             this.unlockScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neckyTokensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customCannonballsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,20 @@
             this.button_addKvp = new System.Windows.Forms.Button();
             this.button_indirect = new System.Windows.Forms.Button();
             this.tabPage_indirect = new System.Windows.Forms.TabPage();
+            this.label44 = new System.Windows.Forms.Label();
+            this.numericUpDown_endingX = new System.Windows.Forms.NumericUpDown();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.button_autofill = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
+            this.numericUpDown_startingX = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton_jumpsFlip = new System.Windows.Forms.RadioButton();
             this.radioButton_jumpsSame = new System.Windows.Forms.RadioButton();
@@ -113,6 +128,9 @@
             this.listBox_cballData = new System.Windows.Forms.ListBox();
             this.listBox_cballHeader = new System.Windows.Forms.ListBox();
             this.tabPag_enemy = new System.Windows.Forms.TabPage();
+            this.button_enemyGroupC = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.numericUpDown_enemyGroupC = new System.Windows.Forms.NumericUpDown();
             this.button_enemyGroupApply = new System.Windows.Forms.Button();
             this.button_enemyGroupB = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -153,15 +171,14 @@
             this.numericUpDown_kkrCrownPal = new System.Windows.Forms.NumericUpDown();
             this.button_kkrCball = new System.Windows.Forms.Button();
             this.button_kkrCrown = new System.Windows.Forms.Button();
-            this.button_enemyGroupC = new System.Windows.Forms.Button();
-            this.label33 = new System.Windows.Forms.Label();
-            this.numericUpDown_enemyGroupC = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_key)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_value)).BeginInit();
             this.tabControlkkreditor.SuspendLayout();
             this.tabPage_kvp.SuspendLayout();
             this.tabPage_indirect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_endingX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_startingX)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_pointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_animationPointer)).BeginInit();
@@ -175,6 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cballHeadKey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cballPointer)).BeginInit();
             this.tabPag_enemy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupA)).BeginInit();
             this.tabPage_miscGFX.SuspendLayout();
@@ -190,7 +208,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownAnim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCballPal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownPal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -283,7 +300,8 @@
             this.lockScreenToolStripMenuItem,
             this.unlockScreenToolStripMenuItem,
             this.creditsToolStripMenuItem,
-            this.neckyTokensToolStripMenuItem});
+            this.neckyTokensToolStripMenuItem,
+            this.customCannonballsToolStripMenuItem});
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.insertToolStripMenuItem.Text = "Insert";
@@ -291,115 +309,123 @@
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // throwCrownToolStripMenuItem
             // 
             this.throwCrownToolStripMenuItem.Name = "throwCrownToolStripMenuItem";
-            this.throwCrownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.throwCrownToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.throwCrownToolStripMenuItem.Text = "Throw crown";
             this.throwCrownToolStripMenuItem.Click += new System.EventHandler(this.throwCrownToolStripMenuItem_Click);
             // 
             // jumpUpToolStripMenuItem
             // 
             this.jumpUpToolStripMenuItem.Name = "jumpUpToolStripMenuItem";
-            this.jumpUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jumpUpToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.jumpUpToolStripMenuItem.Text = "Jump up";
             this.jumpUpToolStripMenuItem.Click += new System.EventHandler(this.jumpUpToolStripMenuItem_Click);
             // 
             // cannonballToolStripMenuItem
             // 
             this.cannonballToolStripMenuItem.Name = "cannonballToolStripMenuItem";
-            this.cannonballToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cannonballToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.cannonballToolStripMenuItem.Text = "Cannonball";
             this.cannonballToolStripMenuItem.Click += new System.EventHandler(this.cannonballToolStripMenuItem_Click);
             // 
             // stallToolStripMenuItem
             // 
             this.stallToolStripMenuItem.Name = "stallToolStripMenuItem";
-            this.stallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stallToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.stallToolStripMenuItem.Text = "Stall";
             this.stallToolStripMenuItem.Click += new System.EventHandler(this.stallToolStripMenuItem_Click);
             // 
             // dKBarrelToolStripMenuItem
             // 
             this.dKBarrelToolStripMenuItem.Name = "dKBarrelToolStripMenuItem";
-            this.dKBarrelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dKBarrelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.dKBarrelToolStripMenuItem.Text = "DK Barrel";
             this.dKBarrelToolStripMenuItem.Click += new System.EventHandler(this.dKBarrelToolStripMenuItem_Click);
             // 
             // checkpointToolStripMenuItem
             // 
             this.checkpointToolStripMenuItem.Name = "checkpointToolStripMenuItem";
-            this.checkpointToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkpointToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.checkpointToolStripMenuItem.Text = "Checkpoint";
             this.checkpointToolStripMenuItem.Click += new System.EventHandler(this.checkpointToolStripMenuItem_Click);
             // 
             // enemiesToolStripMenuItem
             // 
             this.enemiesToolStripMenuItem.Name = "enemiesToolStripMenuItem";
-            this.enemiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enemiesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.enemiesToolStripMenuItem.Text = "Enemies";
             this.enemiesToolStripMenuItem.Click += new System.EventHandler(this.enemiesToolStripMenuItem_Click);
             // 
             // enemiesBToolStripMenuItem
             // 
             this.enemiesBToolStripMenuItem.Name = "enemiesBToolStripMenuItem";
-            this.enemiesBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enemiesBToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.enemiesBToolStripMenuItem.Text = "Enemies (Lower)";
             this.enemiesBToolStripMenuItem.Click += new System.EventHandler(this.enemiesBToolStripMenuItem_Click);
             // 
             // winningFanfareToolStripMenuItem
             // 
             this.winningFanfareToolStripMenuItem.Name = "winningFanfareToolStripMenuItem";
-            this.winningFanfareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.winningFanfareToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.winningFanfareToolStripMenuItem.Text = "Winning Fanfare";
             this.winningFanfareToolStripMenuItem.Click += new System.EventHandler(this.winningFanfareToolStripMenuItem_Click);
             // 
             // kreditsToolStripMenuItem
             // 
             this.kreditsToolStripMenuItem.Name = "kreditsToolStripMenuItem";
-            this.kreditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kreditsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.kreditsToolStripMenuItem.Text = "Kredits";
             this.kreditsToolStripMenuItem.Click += new System.EventHandler(this.kreditsToolStripMenuItem_Click);
             // 
             // getUpToolStripMenuItem
             // 
             this.getUpToolStripMenuItem.Name = "getUpToolStripMenuItem";
-            this.getUpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getUpToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.getUpToolStripMenuItem.Text = "Get Up";
             this.getUpToolStripMenuItem.Click += new System.EventHandler(this.getUpToolStripMenuItem_Click);
             // 
             // lockScreenToolStripMenuItem
             // 
             this.lockScreenToolStripMenuItem.Name = "lockScreenToolStripMenuItem";
-            this.lockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lockScreenToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.lockScreenToolStripMenuItem.Text = "Lock screen";
             this.lockScreenToolStripMenuItem.Click += new System.EventHandler(this.lockScreenToolStripMenuItem_Click);
             // 
             // unlockScreenToolStripMenuItem
             // 
             this.unlockScreenToolStripMenuItem.Name = "unlockScreenToolStripMenuItem";
-            this.unlockScreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unlockScreenToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.unlockScreenToolStripMenuItem.Text = "Unlock screen";
+            this.unlockScreenToolStripMenuItem.Click += new System.EventHandler(this.unlockScreenToolStripMenuItem_DoubleClick);
             this.unlockScreenToolStripMenuItem.DoubleClick += new System.EventHandler(this.unlockScreenToolStripMenuItem_DoubleClick);
             // 
             // creditsToolStripMenuItem
             // 
             this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
-            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.creditsToolStripMenuItem.Text = "Credits";
             this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
             // 
             // neckyTokensToolStripMenuItem
             // 
             this.neckyTokensToolStripMenuItem.Name = "neckyTokensToolStripMenuItem";
-            this.neckyTokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neckyTokensToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.neckyTokensToolStripMenuItem.Text = "Necky Tokens";
             this.neckyTokensToolStripMenuItem.Visible = false;
             this.neckyTokensToolStripMenuItem.Click += new System.EventHandler(this.neckyTokensToolStripMenuItem_Click);
+            // 
+            // customCannonballsToolStripMenuItem
+            // 
+            this.customCannonballsToolStripMenuItem.Name = "customCannonballsToolStripMenuItem";
+            this.customCannonballsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.customCannonballsToolStripMenuItem.Text = "Custom cannonballs";
+            this.customCannonballsToolStripMenuItem.Click += new System.EventHandler(this.customCannonballsToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -415,28 +441,28 @@
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyToolStripMenuItem.Text = "Copy (Ctrl+C)";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pasteToolStripMenuItem.Text = "Paste (Ctrl+V)";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // copyAToBToolStripMenuItem1
             // 
             this.copyAToBToolStripMenuItem1.Name = "copyAToBToolStripMenuItem1";
-            this.copyAToBToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.copyAToBToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.copyAToBToolStripMenuItem1.Text = "Copy A to B";
             this.copyAToBToolStripMenuItem1.Click += new System.EventHandler(this.copyAToBToolStripMenuItem_Click);
             // 
             // fakeCreditsToolStripMenuItem
             // 
             this.fakeCreditsToolStripMenuItem.Name = "fakeCreditsToolStripMenuItem";
-            this.fakeCreditsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.fakeCreditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fakeCreditsToolStripMenuItem.Text = "Fake credits skip";
             this.fakeCreditsToolStripMenuItem.Click += new System.EventHandler(this.fakeCreditsToolStripMenuItem_Click);
             // 
@@ -667,6 +693,20 @@
             // 
             // tabPage_indirect
             // 
+            this.tabPage_indirect.Controls.Add(this.label44);
+            this.tabPage_indirect.Controls.Add(this.numericUpDown_endingX);
+            this.tabPage_indirect.Controls.Add(this.label42);
+            this.tabPage_indirect.Controls.Add(this.label43);
+            this.tabPage_indirect.Controls.Add(this.label41);
+            this.tabPage_indirect.Controls.Add(this.label40);
+            this.tabPage_indirect.Controls.Add(this.label39);
+            this.tabPage_indirect.Controls.Add(this.label38);
+            this.tabPage_indirect.Controls.Add(this.label37);
+            this.tabPage_indirect.Controls.Add(this.label36);
+            this.tabPage_indirect.Controls.Add(this.label35);
+            this.tabPage_indirect.Controls.Add(this.button_autofill);
+            this.tabPage_indirect.Controls.Add(this.label34);
+            this.tabPage_indirect.Controls.Add(this.numericUpDown_startingX);
             this.tabPage_indirect.Controls.Add(this.groupBox1);
             this.tabPage_indirect.Controls.Add(this.button_goto);
             this.tabPage_indirect.Controls.Add(this.button_applyIndirect);
@@ -689,6 +729,143 @@
             this.tabPage_indirect.TabIndex = 1;
             this.tabPage_indirect.Text = "Jumps";
             this.tabPage_indirect.UseVisualStyleBackColor = true;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(379, 89);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(48, 13);
+            this.label44.TabIndex = 42;
+            this.label44.Text = "Ending x";
+            // 
+            // numericUpDown_endingX
+            // 
+            this.numericUpDown_endingX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_endingX.Hexadecimal = true;
+            this.numericUpDown_endingX.Location = new System.Drawing.Point(382, 105);
+            this.numericUpDown_endingX.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_endingX.Name = "numericUpDown_endingX";
+            this.numericUpDown_endingX.Size = new System.Drawing.Size(85, 26);
+            this.numericUpDown_endingX.TabIndex = 41;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(412, 402);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(25, 13);
+            this.label42.TabIndex = 40;
+            this.label42.Text = "1d0";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(412, 371);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(19, 13);
+            this.label43.TabIndex = 39;
+            this.label43.Text = "30";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(312, 402);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(48, 13);
+            this.label41.TabIndex = 38;
+            this.label41.Text = "d0 / 1d0";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(312, 371);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(48, 13);
+            this.label40.TabIndex = 37;
+            this.label40.Text = "30 / 130";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(221, 402);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(70, 13);
+            this.label39.TabIndex = 36;
+            this.label39.Text = "K Rool Right:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(221, 371);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(63, 13);
+            this.label38.TabIndex = 35;
+            this.label38.Text = "K Rool Left:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(412, 350);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(55, 13);
+            this.label37.TabIndex = 34;
+            this.label37.Text = "2 Screens";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(312, 350);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(50, 13);
+            this.label36.TabIndex = 33;
+            this.label36.Text = "1 Screen";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(367, 191);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(122, 26);
+            this.label35.TabIndex = 32;
+            this.label35.Text = "Y speed and y decrease\r\nneed values first!";
+            // 
+            // button_autofill
+            // 
+            this.button_autofill.Location = new System.Drawing.Point(382, 148);
+            this.button_autofill.Name = "button_autofill";
+            this.button_autofill.Size = new System.Drawing.Size(85, 23);
+            this.button_autofill.TabIndex = 31;
+            this.button_autofill.Text = "Auto fill";
+            this.button_autofill.UseVisualStyleBackColor = true;
+            this.button_autofill.Click += new System.EventHandler(this.button_autofill_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(379, 32);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(51, 13);
+            this.label34.TabIndex = 30;
+            this.label34.Text = "Starting x";
+            // 
+            // numericUpDown_startingX
+            // 
+            this.numericUpDown_startingX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_startingX.Hexadecimal = true;
+            this.numericUpDown_startingX.Location = new System.Drawing.Point(382, 48);
+            this.numericUpDown_startingX.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_startingX.Name = "numericUpDown_startingX";
+            this.numericUpDown_startingX.Size = new System.Drawing.Size(85, 26);
+            this.numericUpDown_startingX.TabIndex = 29;
             // 
             // groupBox1
             // 
@@ -725,7 +902,7 @@
             // 
             // button_goto
             // 
-            this.button_goto.Location = new System.Drawing.Point(275, 105);
+            this.button_goto.Location = new System.Drawing.Point(209, 105);
             this.button_goto.Name = "button_goto";
             this.button_goto.Size = new System.Drawing.Size(117, 23);
             this.button_goto.TabIndex = 27;
@@ -746,7 +923,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(310, 32);
+            this.label10.Location = new System.Drawing.Point(244, 32);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 25;
@@ -761,7 +938,7 @@
             0,
             0,
             0});
-            this.numericUpDown_pointer.Location = new System.Drawing.Point(272, 48);
+            this.numericUpDown_pointer.Location = new System.Drawing.Point(206, 48);
             this.numericUpDown_pointer.Maximum = new decimal(new int[] {
             -727379969,
             232,
@@ -1113,6 +1290,38 @@
             this.tabPag_enemy.TabIndex = 4;
             this.tabPag_enemy.Text = "Enemy group";
             this.tabPag_enemy.UseVisualStyleBackColor = true;
+            // 
+            // button_enemyGroupC
+            // 
+            this.button_enemyGroupC.Location = new System.Drawing.Point(204, 131);
+            this.button_enemyGroupC.Name = "button_enemyGroupC";
+            this.button_enemyGroupC.Size = new System.Drawing.Size(23, 23);
+            this.button_enemyGroupC.TabIndex = 27;
+            this.button_enemyGroupC.UseVisualStyleBackColor = true;
+            this.button_enemyGroupC.Click += new System.EventHandler(this.button_enemyGroupC_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(105, 112);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(81, 13);
+            this.label33.TabIndex = 26;
+            this.label33.Text = "Enemy Group C";
+            // 
+            // numericUpDown_enemyGroupC
+            // 
+            this.numericUpDown_enemyGroupC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_enemyGroupC.Hexadecimal = true;
+            this.numericUpDown_enemyGroupC.Location = new System.Drawing.Point(108, 128);
+            this.numericUpDown_enemyGroupC.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_enemyGroupC.Name = "numericUpDown_enemyGroupC";
+            this.numericUpDown_enemyGroupC.Size = new System.Drawing.Size(85, 26);
+            this.numericUpDown_enemyGroupC.TabIndex = 25;
             // 
             // button_enemyGroupApply
             // 
@@ -1610,38 +1819,6 @@
             this.button_kkrCrown.UseVisualStyleBackColor = true;
             this.button_kkrCrown.Click += new System.EventHandler(this.button_kkrCrown_Click);
             // 
-            // button_enemyGroupC
-            // 
-            this.button_enemyGroupC.Location = new System.Drawing.Point(204, 131);
-            this.button_enemyGroupC.Name = "button_enemyGroupC";
-            this.button_enemyGroupC.Size = new System.Drawing.Size(23, 23);
-            this.button_enemyGroupC.TabIndex = 27;
-            this.button_enemyGroupC.UseVisualStyleBackColor = true;
-            this.button_enemyGroupC.Click += new System.EventHandler(this.button_enemyGroupC_Click);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(105, 112);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(81, 13);
-            this.label33.TabIndex = 26;
-            this.label33.Text = "Enemy Group C";
-            // 
-            // numericUpDown_enemyGroupC
-            // 
-            this.numericUpDown_enemyGroupC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown_enemyGroupC.Hexadecimal = true;
-            this.numericUpDown_enemyGroupC.Location = new System.Drawing.Point(108, 128);
-            this.numericUpDown_enemyGroupC.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.numericUpDown_enemyGroupC.Name = "numericUpDown_enemyGroupC";
-            this.numericUpDown_enemyGroupC.Size = new System.Drawing.Size(85, 26);
-            this.numericUpDown_enemyGroupC.TabIndex = 25;
-            // 
             // K_Rool_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1662,6 +1839,8 @@
             this.tabPage_kvp.PerformLayout();
             this.tabPage_indirect.ResumeLayout(false);
             this.tabPage_indirect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_endingX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_startingX)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_pointer)).EndInit();
@@ -1678,6 +1857,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cballPointer)).EndInit();
             this.tabPag_enemy.ResumeLayout(false);
             this.tabPag_enemy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupA)).EndInit();
             this.tabPage_miscGFX.ResumeLayout(false);
@@ -1694,7 +1874,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownAnim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCballPal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_kkrCrownPal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_enemyGroupC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1830,5 +2009,20 @@
         private System.Windows.Forms.Button button_enemyGroupC;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.NumericUpDown numericUpDown_enemyGroupC;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button button_autofill;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.NumericUpDown numericUpDown_startingX;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ToolStripMenuItem customCannonballsToolStripMenuItem;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.NumericUpDown numericUpDown_endingX;
     }
 }

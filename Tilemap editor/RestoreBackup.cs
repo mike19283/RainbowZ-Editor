@@ -15,7 +15,7 @@ namespace Tilemap_editor
     {
         StoredData sd;
         ROM rom;
-        Dictionary<string, string> backups;
+        List<FileBackups> backups;
         public RestoreBackup(StoredData sd, ROM rom)
         {
             this.sd = sd;
@@ -28,9 +28,24 @@ namespace Tilemap_editor
         private void Populate(StoredData sd, ROM rom)
         {
             listBox_backups.Items.Clear();
-            string catName = "ROM Backups - " + rom.backupFileName;
-            backups = sd.ReadCategory(catName);
-            listBox_backups.Items.AddRange(backups.Values.ToArray());
+
+            try
+            {
+                string folderName = "Backup Version\\" + rom.backupFileName + "\\";
+                var fullPaths = Directory.GetFiles(folderName).ToArray();
+                backups = new List<FileBackups>();
+                for (int i = 0; i < fullPaths.Length; i++)
+                {
+                    FileBackups local = new FileBackups(fullPaths[i]);
+                    backups.Add(local);
+                }
+            }
+            catch
+            {
+                backups = new List<FileBackups>();
+            }
+
+            listBox_backups.Items.AddRange(backups.ToArray());
         }
 
         private void button_restore_Click(object sender, EventArgs e)
@@ -39,27 +54,15 @@ namespace Tilemap_editor
                 return;
             try
             {
-                var files = Directory.GetFiles("Backup Version\\" + rom.backupFileName);
                 int index = listBox_backups.SelectedIndex;
-                var file = files[index];
+                var file = backups[index].path;
+                
                 byte[] data = File.ReadAllBytes(file);
                 rom.rom = data.ToList();
                 this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                sd.RemoveAll("ROM Backups - " + rom.backupFileName);
-                sd.Write("ROM Backups - " + rom.backupFileName, rom.backupIndex.ToString(), DateTime.Now.ToString());
-                sd.Write("ROM Backup Index - " + rom.backupFileName, "Index", rom.backupIndex.ToString());
-                rom.backupIndex = 0;
-
-                rom.WriteString(Global.signatureAddress, Global.signatureString);
-                Directory.CreateDirectory("Backup Version\\" + rom.backupFileName);
-                string backPath = $"Backup Version\\" + rom.backupFileName + $"\\{rom.backupIndex}.bac";
-                System.IO.File.WriteAllBytes(backPath, rom.rom.ToArray());
-
-                Populate(sd, rom);
             }
         }
 
@@ -69,6 +72,27 @@ namespace Tilemap_editor
             {
                 button_restore_Click(0, new EventArgs());
             }
+        }
+
+        private void listBox_backups_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            button_restore_Click(0, new EventArgs());
+
+        }
+    }
+    public class FileBackups
+    {
+        public string path;
+        string display;
+
+        public FileBackups(string path)
+        {
+            this.path = path;
+            this.display = Global.FileNameParse(path);
+        }
+        public override string ToString()
+        {
+            return display;
         }
     }
 }

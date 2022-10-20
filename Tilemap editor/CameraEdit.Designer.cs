@@ -46,6 +46,8 @@ namespace Tilemap_editor
             this.label_address = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button_up = new System.Windows.Forms.Button();
+            this.button_down = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_leftCam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_lowerCamY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_upperCamY)).BeginInit();
@@ -60,7 +62,7 @@ namespace Tilemap_editor
             this.listBox_entities.ItemHeight = 24;
             this.listBox_entities.Location = new System.Drawing.Point(0, 0);
             this.listBox_entities.Name = "listBox_entities";
-            this.listBox_entities.Size = new System.Drawing.Size(330, 450);
+            this.listBox_entities.Size = new System.Drawing.Size(330, 529);
             this.listBox_entities.TabIndex = 0;
             this.listBox_entities.SelectedIndexChanged += new System.EventHandler(this.listBox_entities_SelectedIndexChanged);
             // 
@@ -142,7 +144,7 @@ namespace Tilemap_editor
             // 
             // button_setMultiple
             // 
-            this.button_setMultiple.Location = new System.Drawing.Point(360, 425);
+            this.button_setMultiple.Location = new System.Drawing.Point(360, 499);
             this.button_setMultiple.Name = "button_setMultiple";
             this.button_setMultiple.Size = new System.Drawing.Size(111, 23);
             this.button_setMultiple.TabIndex = 20;
@@ -156,7 +158,7 @@ namespace Tilemap_editor
             this.groupBox1.Controls.Add(this.radioButton_yB);
             this.groupBox1.Controls.Add(this.radioButton_yT);
             this.groupBox1.Controls.Add(this.radioButton_xStart);
-            this.groupBox1.Location = new System.Drawing.Point(360, 260);
+            this.groupBox1.Location = new System.Drawing.Point(360, 334);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(111, 159);
             this.groupBox1.TabIndex = 21;
@@ -207,18 +209,40 @@ namespace Tilemap_editor
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(359, 221);
+            this.label4.Location = new System.Drawing.Point(359, 295);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 26);
             this.label4.TabIndex = 23;
             this.label4.Text = "Uses computer values\r\ne.g. (0,0) is top left";
+            // 
+            // button_up
+            // 
+            this.button_up.Location = new System.Drawing.Point(360, 215);
+            this.button_up.Name = "button_up";
+            this.button_up.Size = new System.Drawing.Size(23, 23);
+            this.button_up.TabIndex = 24;
+            this.button_up.Text = "^";
+            this.button_up.UseVisualStyleBackColor = true;
+            this.button_up.Click += new System.EventHandler(this.button_up_Click);
+            // 
+            // button_down
+            // 
+            this.button_down.Location = new System.Drawing.Point(360, 258);
+            this.button_down.Name = "button_down";
+            this.button_down.Size = new System.Drawing.Size(23, 23);
+            this.button_down.TabIndex = 25;
+            this.button_down.Text = "V";
+            this.button_down.UseVisualStyleBackColor = true;
+            this.button_down.Click += new System.EventHandler(this.button_down_Click);
             // 
             // CameraEdit
             // 
             this.AcceptButton = this.button_apply;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 450);
+            this.ClientSize = new System.Drawing.Size(483, 529);
+            this.Controls.Add(this.button_down);
+            this.Controls.Add(this.button_up);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label_address);
             this.Controls.Add(this.groupBox1);
@@ -265,5 +289,7 @@ namespace Tilemap_editor
         private System.Windows.Forms.Label label_address;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button_up;
+        private System.Windows.Forms.Button button_down;
     }
 }

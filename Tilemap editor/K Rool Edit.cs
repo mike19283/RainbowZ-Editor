@@ -483,7 +483,8 @@ namespace Tilemap_editor
             numericUpDown_f8d.Value = f8d;
             numericUpDown_e21.Value = e21;
             numericUpDown_animationPointer.Value = anim;
-
+            numericUpDown_startingX.Value = 0;
+            numericUpDown_endingX.Value = 0;
         }
 
         private void button_goto_Click(object sender, EventArgs e)
@@ -564,7 +565,7 @@ namespace Tilemap_editor
 
         private void jumpUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var numStr = Prompt.ShowDialog("Enter in how many jumps you would like to insert:", "Jumps");
+            var numStr = Prompt.ShowDialog("Enter in how many jumps you would like to insert (in hex):", "Jumps");
             if (numStr == "")
                 return;
             int num = Convert.ToInt32(numStr, 16);
@@ -687,7 +688,7 @@ namespace Tilemap_editor
 
         private void stallToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var numStr = Prompt.ShowDialog("Enter in how many frames you would like to stall:", "Stall");
+            var numStr = Prompt.ShowDialog("Enter in how many frames you would like to stall (in hex):", "Stall");
             if (numStr == "")
                 return;
             int num = Convert.ToInt32(numStr, 16);
@@ -1049,6 +1050,43 @@ namespace Tilemap_editor
 
         }
 
+        private void button_autofill_Click(object sender, EventArgs e)
+        {
+            int D = (int)numericUpDown_endingX.Value - (int)numericUpDown_startingX.Value;
+            int y = (int)numericUpDown_ef1.Value;
+            int yD = (int)numericUpDown_f8d.Value;
+            int newXSpeed = (D * 0x100) / (y / yD * 2);
+            if (newXSpeed < 0)
+            {
+                newXSpeed *= -1;
+                newXSpeed = 0x10000 - newXSpeed;
+            }
+            numericUpDown_e89.Value = newXSpeed;
+        }
+
+        private void customCannonballsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kkr_Cannonball_Options kkr_Cannonball_Options = new Kkr_Cannonball_Options();
+            int selection = 0x16b;
+            if (kkr_Cannonball_Options.ShowDialog() == DialogResult.OK)
+            {
+                selection = kkr_Cannonball_Options.option;
+            }
+
+            var temp = comboBox_selectedIndex.SelectedIndex;
+            var toInsert = new KkrIndex();
+            toInsert.AddKeyValuePair(0x130d, 0xb);
+            toInsert.AddKeyValuePair(0x1341, 1);
+            toInsert.AddKeyValuePair(0x0100, selection);
+
+            data.Insert(comboBox_selectedIndex.SelectedIndex, toInsert);
+            SetCombobox();
+            comboBox_selectedIndex.SelectedIndex = temp;
+            button_apply_Click(0, new EventArgs());
+
+            button_indirect_Click(0, new EventArgs());
+
+        }
     }
     public class KkrIndex
     {

@@ -61,6 +61,7 @@ namespace Tilemap_editor
                 numericUpDown_entityPointer.Value = Math.Abs(entity.pointer);
                 button_openPalette.Enabled = entity.palettePointer != 0;
                 label_address.Text = entity.address.ToString("X6");
+                button_scriptEdit.Enabled = entity.type == 5;
 
             }
             catch (Exception ex)
@@ -85,7 +86,7 @@ namespace Tilemap_editor
                     if (value == 0x23 || (value >= 0x25 && value <= 0x27)
                         || (value >= 0x132 && value <= 0x137)
                         || value == 0x1f || value == 0x21 || value == 0x22
-                        || (index >= 0x31e && index <= 0x33b)
+                        || (value >= 0xe8bd && value <= 0xeabb)
                         || (index >= 0x1 && index <= 0xe6))
                     {
                         numericUpDown_entityType.Value = 2;
@@ -93,6 +94,10 @@ namespace Tilemap_editor
                     if (value == 0xe0ab || value == 0xe0c1 || value == 0xe0d7 || value == 0xe07f || value == 0xe095)
                     {
                         numericUpDown_entityType.Value = 0xd;
+                    }
+                    if (select.Contains("Script"))
+                    {
+                        numericUpDown_entityType.Value = 5;
                     }
                 }
             }
@@ -359,6 +364,21 @@ namespace Tilemap_editor
         private void levelCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_scriptEdit_Click(object sender, EventArgs e)
+        {
+            var temp = Entity.counter;
+            try
+            {
+                var entity = (Entity)listBox_entities.SelectedItem;
+                int address = entity.pointer | 0xbd0000;
+                EntityEdit_ScriptEdi script = new EntityEdit_ScriptEdi(rom, address + 8, thisLevel, form);
+                script.ShowDialog();
+            }
+            catch { }
+
+            Entity.counter = temp;
         }
     }
     class CommonEntities

@@ -111,5 +111,43 @@ namespace Tilemap_editor
 
         }
 
+        private void button_up_Click(object sender, EventArgs e)
+        {
+            var copy = (Camera)listBox_entities.SelectedItem;
+            int index = listBox_entities.SelectedIndex;
+            if (index == 0)
+                return;
+
+            thisLevel.cameraBoxes.RemoveAt(index);
+            thisLevel.cameraBoxes.Insert(index - 1, copy);
+
+            RefreshListbox();
+
+            listBox_entities.SelectedIndex = index - 1;
+
+
+
+        }
+
+        public void RefreshListbox()
+        {
+            listBox_entities.Items.Clear();
+            listBox_entities.Items.AddRange(thisLevel.cameraBoxes.ToArray());
+        }
+
+        private void button_down_Click(object sender, EventArgs e)
+        {
+            var copy = (Camera)listBox_entities.SelectedItem;
+            int index = listBox_entities.SelectedIndex;
+            if (index == listBox_entities.Items.Count - 1)
+                return;
+
+            thisLevel.cameraBoxes.Insert(index + 2, copy);
+            thisLevel.cameraBoxes.RemoveAt(index);
+
+            RefreshListbox();
+
+            listBox_entities.SelectedIndex = index + 1;
+        }
     }
 }

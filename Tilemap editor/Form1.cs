@@ -160,7 +160,7 @@ namespace Tilemap_editor
                 int count;
                 if (countStr == "")
                 {
-                    count = 3;
+                    count = 2;
                 }
                 else
                 {
@@ -203,6 +203,8 @@ namespace Tilemap_editor
 
             rom = new ROM(sd);
             rom.LoadROM(path);
+            if (!rom.loadROMSuccess)
+                return;
             this.Text = Version.GetVersion() + " - " + path;
             string emu = sd.Read("Connect", "EmuTest");
             ROM.emuPath = emu;
@@ -338,6 +340,10 @@ namespace Tilemap_editor
             quickFakeCreditsToolStripMenuItem.Checked = kkrKredits == 0x0;
 
             order = orderEntitiesToolStripMenuItem.Checked;
+
+            if (comboBox_stages.SelectedIndex < 0)
+                comboBox_stages.SelectedIndex = 0;
+            Level_select_Click(0, new EventArgs());
         }
 
 
@@ -358,7 +364,7 @@ namespace Tilemap_editor
             thisLevel = null;
             saveTilemapToolStripMenuItem.Enabled = false;
             pictureBox_tilemap.Image = new Bitmap(1, 1);
-            Init();
+            Init();       
         }
 
         public void Level_select_Click(object sender, EventArgs e)
@@ -392,6 +398,7 @@ namespace Tilemap_editor
             {
 
                 thisLevel.OrderEntityList();
+                thisLevel.OrderCameraList();
                 thisLevel.OrderBananaList();
                 //OrderReload();
 
@@ -2383,29 +2390,10 @@ namespace Tilemap_editor
 
         private void renameBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var str = Prompt.ShowDialog("Enter in new backup:", "Enter", rom.backupFileName);
+            var str = Prompt.ShowDialog("Enter in new backup name:", "Enter", rom.backupFileName);
             if (str != "")
             {
-                string existStr = sd.Read("ROM Backup Index - " + str, "Index");
-                if (existStr == "")
-                {
-                    rom.backupFileName = str;
-                    rom.backupIndex = 0;
-
-                    Directory.CreateDirectory("Backup Version\\" + rom.backupFileName);
-                    string backPath = $"Backup Version\\" + rom.backupFileName + $"\\{rom.backupIndex}.bac";
-                    System.IO.File.WriteAllBytes(backPath, rom.rom.ToArray());
-
-                    sd.Write("ROM Backups - " + rom.backupFileName, $"{rom.backupIndex}", DateTime.Now.ToString());
-                    sd.Write("ROM Backup Index - " + rom.backupFileName, "Index", rom.backupIndex.ToString());
-                }
-                else
-                {
-                    rom.backupFileName = str;
-                    rom.backupIndex = Convert.ToInt32(existStr);
-                }
-
-
+                rom.backupFileName = str;
             }
         }
         public bool CursorInBounds(int x, int y)

@@ -14,14 +14,14 @@ namespace Tilemap_editor
         public List<byte> rom = new List<byte>();
         public List<byte> tryCatch = new List<byte>();
         public byte[] backupRom;
-        public string fileName;
+        public string fileName = "";
         public bool loadROMSuccess = false;
         public bool saved = false;
         public static int seed = 0;
         public StoredData sd;
         public int maxFileNameLength = 80;
         public static string gameTitleAsString;
-        public string path;
+        public string path = "";
         public Stack<byte[]> backedupList = new Stack<byte[]>();
         public static string emuPath;
         public static string romPath = "test.smc";
@@ -33,7 +33,7 @@ namespace Tilemap_editor
         public int romVersion = 0;
         public int backupIndex = 0;
         public string backupFileName = "";
-        private int maxBackupCount = 10;
+        private int maxBackupCount = 50;
 
         public ROM(StoredData sd)
         {
@@ -48,15 +48,13 @@ namespace Tilemap_editor
 
             while (d.ShowDialog() == DialogResult.OK)
             {
-                fileName = d.FileName;
                 if (LoadROM(d.FileName, category))
                     break;
             }
         }
         public  bool LoadROM (string path, string category = "Path", bool  notHex = true)
         {
-            this.path = path;
-            this.fileName = path;
+
 
             // Refresh Ini
             sd.RefreshRbs();
@@ -76,6 +74,9 @@ namespace Tilemap_editor
                 // Copy backup to main
                 RestoreFromBackup();
                 loadROMSuccess = true;
+
+                this.path = path;
+                this.fileName = path;
 
                 fileName = path;
                 // Add to recents
@@ -101,7 +102,8 @@ namespace Tilemap_editor
 
                 System.IO.File.WriteAllBytes("Backup-Start.smc", rom.ToArray());
 
-                ReadBackup();
+                backupFileName = Global.FileNameParse(path);
+                //ReadBackup();
                 return true;
             }
             else
@@ -538,21 +540,40 @@ namespace Tilemap_editor
             WriteString(Global.signatureAddress, Global.signatureString);
             backupIndex++;
             backupIndex %= maxBackupCount;
+            backupFileName = Global.FileNameParse(path);
 
             //var backupString = Global.FileNameParse(fileName);
             //var backupFolder = fileName.Substring(0, fileName.Length - 4);
-            WriteString(Global.signatureAddress + 8, backupFileName);
+            //WriteString(Global.signatureAddress + 8, backupFileName);
             Directory.CreateDirectory("Backup Version\\" + backupFileName);
 
             string dateTime = DateTime.Today.ToLongDateString();
             dateTime = DateTime.Now.ToString();
-            sd.Write("ROM Backups - " + backupFileName, $"{backupIndex}", dateTime);
-            sd.Write("ROM Backup Index - " + backupFileName, "Index", backupIndex.ToString());
+            dateTime = dateTime.Replace('/', '-');
+            dateTime = dateTime.Replace(':', ' ');
+            //sd.Write("ROM Backups - " + backupFileName, $"{backupIndex}", dateTime);
+            //sd.Write("ROM Backup Index - " + backupFileName, "Index", backupIndex.ToString());
 
 
-            string backPath = $"Backup Version\\" + backupFileName + $"\\{backupIndex}.bac";
+            string backPath = $"Backup Version\\" + backupFileName + $"\\{dateTime}.bac";
             System.IO.File.WriteAllBytes(backPath, rom.ToArray());
+
+            RemoveTooMany();
         }
+
+        private void RemoveTooMany()
+        {
+            var files = Directory.GetFiles("Backup Version\\" + backupFileName);
+            while (files.Length >  Convert.ToInt32(Properties.Resources.BackupSize))
+            {
+                var oldestFile = new DirectoryInfo("Backup Version\\" + backupFileName).GetFiles()
+                .OrderBy(f => f.CreationTime).First();
+                File.Delete("Backup Version\\" + backupFileName + "\\" + oldestFile.ToString());
+                files = Directory.GetFiles("Backup Version\\" + backupFileName);
+            }
+        }
+
+
 
         public void SaveBackup()
         {

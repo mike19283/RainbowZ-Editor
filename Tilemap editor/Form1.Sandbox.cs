@@ -201,6 +201,10 @@ namespace Tilemap_editor
                         }
                         else
                         {
+                            if (pastedImg == null)
+                            {
+                                return;
+                            }
                             //Bitmap bmp;
                             //bmp = thisLevel.ReDrawTilemap(checkBox_grid.Checked);
                             pictureBox_tilemap.Image.Dispose();
@@ -479,10 +483,20 @@ namespace Tilemap_editor
         }
         private void WriteCopiedTilemap()
         {
-            // Loop through copied
-            for (int y = 0; y < copiedTilemap.Count; y++)
+            int copyX = copiedTilemap[0].Count;
+            int copyY = copiedTilemap.Count;
+            if (startY + copyY > thisLevel.tilemap.GetLength(1))
             {
-                for (int x = 0; x < copiedTilemap[y].Count; x++)
+                copyY = thisLevel.tilemap.GetLength(1) - startY;                
+            }
+            if (startX + copyX > thisLevel.tilemap.GetLength(0))
+            {
+                copyX = thisLevel.tilemap.GetLength(0) - startX;
+            }
+            // Loop through copied
+            for (int y = 0; y < copyY; y++)
+            {
+                for (int x = 0; x < copyX; x++)
                 {
                     var val = copiedTilemap[y][x];
                     thisLevel.tilemap[startX + x, startY + y] = val;

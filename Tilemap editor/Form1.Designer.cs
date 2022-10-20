@@ -120,6 +120,7 @@
             this.customLevelAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startingKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startingWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.worldTerminatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kongAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.worldStartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,7 +174,6 @@
             this.label_lvlName = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer_save = new System.Windows.Forms.Timer(this.components);
-            this.startingWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_playground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_tilemap)).BeginInit();
@@ -481,6 +481,7 @@
             this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
             this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
+            this.checkForUpdateToolStripMenuItem.Visible = false;
             this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
             // 
             // modToolStripMenuItem
@@ -638,6 +639,7 @@
             this.arrayEditorToolStripMenuItem.Name = "arrayEditorToolStripMenuItem";
             this.arrayEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.arrayEditorToolStripMenuItem.Text = "Array editor";
+            this.arrayEditorToolStripMenuItem.Visible = false;
             this.arrayEditorToolStripMenuItem.Click += new System.EventHandler(this.arrayEditorToolStripMenuItem_Click);
             // 
             // copyAllEntitiesToolStripMenuItem
@@ -768,6 +770,7 @@
             this.reAddBananasToolStripMenuItem.Name = "reAddBananasToolStripMenuItem";
             this.reAddBananasToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.reAddBananasToolStripMenuItem.Text = "ReAdd Bananas";
+            this.reAddBananasToolStripMenuItem.Visible = false;
             this.reAddBananasToolStripMenuItem.Click += new System.EventHandler(this.reAddBananasToolStripMenuItem_Click);
             // 
             // worldToolStripMenuItem
@@ -883,6 +886,7 @@
             this.customModsSchleyToolStripMenuItem.Name = "customModsSchleyToolStripMenuItem";
             this.customModsSchleyToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.customModsSchleyToolStripMenuItem.Text = "Custom Mods Schley (celeste)";
+            this.customModsSchleyToolStripMenuItem.Visible = false;
             this.customModsSchleyToolStripMenuItem.Click += new System.EventHandler(this.customModsSchleyToolStripMenuItem_Click);
             // 
             // copyrightEditToolStripMenuItem
@@ -941,6 +945,13 @@
             this.startingKongToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.startingKongToolStripMenuItem.Text = "Starting Kong";
             this.startingKongToolStripMenuItem.Click += new System.EventHandler(this.startingKongToolStripMenuItem_Click);
+            // 
+            // startingWorldToolStripMenuItem
+            // 
+            this.startingWorldToolStripMenuItem.Name = "startingWorldToolStripMenuItem";
+            this.startingWorldToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.startingWorldToolStripMenuItem.Text = "Starting World";
+            this.startingWorldToolStripMenuItem.Click += new System.EventHandler(this.startingWorldToolStripMenuItem_Click);
             // 
             // worldTerminatorToolStripMenuItem1
             // 
@@ -1567,13 +1578,6 @@
             // 
             this.timer_save.Enabled = true;
             this.timer_save.Tick += new System.EventHandler(this.timer_save_Tick);
-            // 
-            // startingWorldToolStripMenuItem
-            // 
-            this.startingWorldToolStripMenuItem.Name = "startingWorldToolStripMenuItem";
-            this.startingWorldToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.startingWorldToolStripMenuItem.Text = "Starting World";
-            this.startingWorldToolStripMenuItem.Click += new System.EventHandler(this.startingWorldToolStripMenuItem_Click);
             // 
             // Form1
             // 

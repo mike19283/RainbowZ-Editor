@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -117,6 +132,12 @@
     <Compile Include="EntityEditVertical.Designer.cs">
       <DependentUpon>EntityEditVertical.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntityEdit_ScriptEdi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntityEdit_ScriptEdi.Designer.cs">
+      <DependentUpon>EntityEdit_ScriptEdi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entrance.cs" />
     <Compile Include="Entrances.cs">
       <SubType>Form</SubType>
@@ -199,6 +220,12 @@
     </Compile>
     <Compile Include="K Rool Throw Options.Designer.cs">
       <DependentUpon>K Rool Throw Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kkr Cannonball Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kkr Cannonball Options.Designer.cs">
+      <DependentUpon>Kkr Cannonball Options.cs</DependentUpon>
     </Compile>
     <Compile Include="KongAttributes.cs">
       <SubType>Form</SubType>
@@ -401,6 +428,9 @@
     <EmbeddedResource Include="EntityEditVertical.resx">
       <DependentUpon>EntityEditVertical.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EntityEdit_ScriptEdi.resx">
+      <DependentUpon>EntityEdit_ScriptEdi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entrances.resx">
       <DependentUpon>Entrances.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="K Rool Throw Options.resx">
       <DependentUpon>K Rool Throw Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kkr Cannonball Options.resx">
+      <DependentUpon>Kkr Cannonball Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KongAttributes.resx">
       <DependentUpon>KongAttributes.cs</DependentUpon>
@@ -466,6 +499,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>
@@ -498,7 +532,7 @@
       <DependentUpon>WorldTerminator.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -517,6 +551,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolderStuff\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

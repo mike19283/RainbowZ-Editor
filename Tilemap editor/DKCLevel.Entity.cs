@@ -148,6 +148,11 @@ namespace Tilemap_editor
             }
             return;
         }
+        public void OrderCameraList ()
+        {
+            cameraBoxes = cameraBoxes.OrderBy(e => e.xLeft).ToList();
+            return;
+        }
         public void OrderBananaList ()
         {
             bananas = bananas.OrderBy(e => e.x).ToList();

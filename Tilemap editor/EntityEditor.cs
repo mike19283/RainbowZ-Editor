@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.Linq; 
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -217,7 +217,7 @@ namespace Tilemap_editor
                     button_search_Click(0, new EventArgs());
                     break;
                 default:
-                    if (selected.values[0] >= 0x8000)
+                    if (selected.values[0] < 0x8000)
                     {
                         MessageBox.Show("Error. Invalid");
                         return;

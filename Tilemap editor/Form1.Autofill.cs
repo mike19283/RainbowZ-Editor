@@ -17,6 +17,8 @@ namespace Tilemap_editor
         {
             if (thisLevel == null || pictureBox_tilemap.Image == null || thisLevel.te.autofill != "autofill")
                 return;
+            if (!radioButton_editterrain.Checked)
+                return;
             //if (!thisLevel.te.scanned)
             //{
             //    return;

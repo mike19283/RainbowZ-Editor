@@ -79,6 +79,7 @@ namespace Tilemap_editor
         private Dictionary<int, List<Entity>> relatedEntities = new Dictionary<int, List<Entity>>();
         public bool trackBool = true;
         public List<int> pathAddresses = new List<int>();
+        public int cameraOffset;
 
         public DKCLevel(string lvlName, ROM rom, Form1 form, bool entityLayers)
         {            
@@ -246,7 +247,21 @@ namespace Tilemap_editor
             }
 			// ==============================================================
 			chars = ReadEveryChar();
+            var tempChars = new List<byte[]>();
+            tempChars.AddRange(chars);
+            byte[] testZero = Enumerable.Repeat((byte)0, 0x20).ToArray();
+            for (int i = chars.Count - 1; i > 0; i--)
+            {
+                if (chars[i].SequenceEqual(testZero))
+                {
+                    // Ends up breaking 4-1 and 4-3. had to remove
+                    //chars.RemoveAt(i);
+                } else
+                {
+                    break;
+                }
 
+            }
 
 			FindStartAndEnd();
 
@@ -339,6 +354,7 @@ namespace Tilemap_editor
 			}
 
             // Kingizor test compression
+            decompressedChars = decompressedChars.Take(chars.Count * 0x20).ToArray();
             //Global.SaveArray(decompressedChars, "chars");
 			te = new Tile_display(this, rom, form);
 
@@ -372,12 +388,6 @@ namespace Tilemap_editor
 
             // Save level code so we can scan the object maps of related levels
             int tempLvlCode = levelCode;
-            foreach (var relatedLevel in relatedLevels)
-            {
-                levelCode = relatedLevel.code;
-                var tempEntities = ScanObjectMap();
-                relatedEntities[levelCode] = tempEntities;
-            }
 
             if (platformPaths != null)
             {
@@ -1095,6 +1105,7 @@ namespace Tilemap_editor
 			{
 				int address, index = 0;
 				address = rom.Read16(0xbc8000 | levelCode * 2) | 0xbc0000;
+                cameraOffset = address;
 
 				while (rom.Read16(address) != 0xffff)
 				{
@@ -1113,7 +1124,14 @@ namespace Tilemap_editor
 		// Croc and slipslide do manual
 		public void WriteCamerasToROM()
         {
-			foreach (var cam in cameraBoxes)
+            // Write addresses
+            for (int i = 0; i < cameraBoxes.Count; i++)
+            {
+                var cam = cameraBoxes[i];
+                cam.address = cameraOffset + i * 8;
+            }
+
+            foreach (var cam in cameraBoxes)
             {
 				cam.WriteCamToROM();
             }

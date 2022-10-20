@@ -41,13 +41,14 @@
             this.listBox_backups.ItemHeight = 25;
             this.listBox_backups.Location = new System.Drawing.Point(0, 0);
             this.listBox_backups.Name = "listBox_backups";
-            this.listBox_backups.Size = new System.Drawing.Size(227, 293);
+            this.listBox_backups.Size = new System.Drawing.Size(296, 293);
             this.listBox_backups.TabIndex = 0;
+            this.listBox_backups.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_backups_MouseDoubleClick);
             this.listBox_backups.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBox_backups_MouseDown);
             // 
             // button_restore
             // 
-            this.button_restore.Location = new System.Drawing.Point(232, 12);
+            this.button_restore.Location = new System.Drawing.Point(302, 9);
             this.button_restore.Name = "button_restore";
             this.button_restore.Size = new System.Drawing.Size(75, 23);
             this.button_restore.TabIndex = 1;
@@ -58,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(232, 42);
+            this.label1.Location = new System.Drawing.Point(302, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 52);
             this.label1.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 293);
+            this.ClientSize = new System.Drawing.Size(389, 293);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_restore);
             this.Controls.Add(this.listBox_backups);
