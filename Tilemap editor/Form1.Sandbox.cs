@@ -483,6 +483,8 @@ namespace Tilemap_editor
         }
         private void WriteCopiedTilemap()
         {
+            if (copiedTilemap.Count == 0)
+                return;
             int copyX = copiedTilemap[0].Count;
             int copyY = copiedTilemap.Count;
             if (startY + copyY > thisLevel.tilemap.GetLength(1))
@@ -493,10 +495,13 @@ namespace Tilemap_editor
             {
                 copyX = thisLevel.tilemap.GetLength(0) - startX;
             }
+            int localStartY = startY < 0 ? startY * -1 : 0;
+            int localStartX = startX < 0 ? startX * -1 : 0;
+
             // Loop through copied
-            for (int y = 0; y < copyY; y++)
+            for (int y = localStartY; y < copyY; y++)
             {
-                for (int x = 0; x < copyX; x++)
+                for (int x = localStartX; x < copyX; x++)
                 {
                     var val = copiedTilemap[y][x];
                     thisLevel.tilemap[startX + x, startY + y] = val;

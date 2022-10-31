@@ -60,6 +60,8 @@ namespace Tilemap_editor
             Global.mapChipX = pictureBox_tiles.Image.Width / 0x20;
             Global.mapChipY = pictureBox_tiles.Image.Height / 0x20;
 
+            label_height_width.Text = form.autoWaterSize.ToString("X2");
+
         }
 
 
@@ -356,6 +358,8 @@ namespace Tilemap_editor
 
         private void button_delete_Click(object sender, EventArgs e)
         {
+            if (radioButton_paste.Checked)
+                return;
             DeleteHighlight();
         }
 
@@ -401,6 +405,8 @@ namespace Tilemap_editor
 
         private void button_cut_Click(object sender, EventArgs e)
         {
+            if (radioButton_paste.Checked)
+                return;
             checkBox_highlightX.Checked = false;
             checkBox_highlightY.Checked = false;
 
@@ -412,6 +418,8 @@ namespace Tilemap_editor
 
         private void button_copy_Click(object sender, EventArgs e)
         {
+            if (radioButton_paste.Checked)
+                return;
             checkBox_highlightX.Checked = false;
             checkBox_highlightY.Checked = false;
  
@@ -458,20 +466,16 @@ namespace Tilemap_editor
 
         private void button_yFlipPaste_Click(object sender, EventArgs e)
         {
-            if (form.copiedTilemap.Count != form.copiedTilemap[0].Count)
-            {
-                MessageBox.Show("Not a perfect square. Vertical flip not implemented yet.");
-                return;
-            }
             checkBox_highlightY.Checked = !checkBox_highlightY.Checked;
 
             List<List<int>> @return = new List<List<int>>();
-            for (int y = form.copiedTilemap.Count - 1, i = 0; y >= 0; y--, i++)
+            for (int y = 0, i = 0; y < form.copiedTilemap.Count; y++, i++)
             {
+                int tempY = form.copiedTilemap.Count - y - 1;
                 @return.Add(new List<int>());
-                for (int x = 0; x < form.copiedTilemap.Count; x++)
+                for (int x = 0; x < form.copiedTilemap[0].Count; x++)
                 {
-                    var value = form.copiedTilemap[y][x];
+                    var value = form.copiedTilemap[tempY][x];
                     @return[i].Add(value ^ 0x8000);
                 }
             }
@@ -727,7 +731,6 @@ namespace Tilemap_editor
 
             return @return;
         }
-
 
     }
     public class CopyHistory

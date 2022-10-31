@@ -309,7 +309,7 @@ namespace Tilemap_editor
             listBox_entities.Items.AddRange(thisLevel.entities.ToArray());
 
             listBox_entities.SelectedIndex = 0;
-            //form.Level_select_Click(0, new EventArgs());
+            form.Level_select_Click(0, new EventArgs());
 
         }
 
@@ -326,6 +326,7 @@ namespace Tilemap_editor
             for (int i = 0; i < count; i++)
             {
                 Entity ent = CreateNullEntity(i);
+                ent.pointer = 0xa51f;
                 listBox_entities.Items.Add(ent);
                 thisLevel.entities.Add(ent);
 

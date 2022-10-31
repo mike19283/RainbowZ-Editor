@@ -86,10 +86,10 @@ namespace Tilemap_editor
         };
         public Dictionary<int, int> verticalCameraEnd = new Dictionary<int, int>()
         {
-            [0xbf] = 0x120,
+            [0xbf] = 0x122,
             [0xde] = 0x186,
             [0x3e] = 0xdc,
-            [0x22] = 0x50,
+            [0x22] = 0x54,
             [0x6d] = 0x24,
             [0xca] = 0x24,
             [0xc5] = 0x24,
@@ -929,6 +929,12 @@ namespace Tilemap_editor
             // 4 18 21 23 30 - combo box indexes
             return lvlCode == 0xbf || lvlCode == 0xde || lvlCode == 0x6d || lvlCode == 0x3e || lvlCode == 0x22 || lvlCode == 0xca || lvlCode == 0xc5 || lvlCode == 0xc6 ? true : false;
         }
+        public bool IsWater (int lvlCode)
+        {
+            // 4 18 21 23 30 - combo box indexes
+            return lvlCode == 0xbf || lvlCode == 0xde || lvlCode == 0x3e || lvlCode == 0x22 ? true : false;
+        }
+
         public Dictionary<int, int> startHeight = new Dictionary<int, int>()
         {
             [0xbf] = 0x48c5,

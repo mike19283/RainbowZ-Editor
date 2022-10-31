@@ -324,6 +324,18 @@ namespace Tilemap_editor
             pictureBox_tilemap.MouseMove += new MouseEventHandler(EntranceMouseMove);
             pictureBox_tilemap.MouseUp += new MouseEventHandler(EntranceMouseUp);
 
+            // V camera
+            pictureBox_tilemap.MouseDown += new MouseEventHandler(VCameraMouseDown);
+            pictureBox_tilemap.MouseLeave += new EventHandler(VCameraMouseLeave);
+            pictureBox_tilemap.MouseMove += new MouseEventHandler(VCameraMouseMove);
+            pictureBox_tilemap.MouseUp += new MouseEventHandler(VCameraMouseUp);
+
+            // Water auto
+            pictureBox_tilemap.MouseDown += new MouseEventHandler(WaterMouseDown);
+            pictureBox_tilemap.MouseLeave += new EventHandler(WaterMouseLeave);
+            pictureBox_tilemap.MouseMove += new MouseEventHandler(WaterMouseMove);
+            pictureBox_tilemap.MouseUp += new MouseEventHandler(WaterMouseUp);
+
             pictureBox_tilemap.MouseMove += new MouseEventHandler(CursorMove);
 
             pictureBox_tilemap.MouseClick += new MouseEventHandler(AF_MouseClick);
@@ -976,14 +988,20 @@ namespace Tilemap_editor
 
         private void clearCameraMaphorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < thisLevel.cameraBoxes.Count; i++)
+            if (!rom.IsVertical(thisLevel.levelCode))
             {
-                // Now we are at the cam level
-                var cam = thisLevel.cameraBoxes[i];
-                cam.yTop = 0;
-                cam.yBottom = 0xff;
+                for (int i = 0; i < thisLevel.cameraBoxes.Count; i++)
+                {
+                    // Now we are at the cam level
+                    var cam = thisLevel.cameraBoxes[i];
+                    cam.yTop = 0;
+                    cam.yBottom = 0xff;
+                }
+                DrawScreen();
             }
-            DrawScreen();
+            else
+            {
+            }
         }
 
         private void clearDefaultEntitiesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2455,6 +2473,19 @@ namespace Tilemap_editor
             pictureBox_tilemap.MouseMove -= new MouseEventHandler(EntranceMouseMove);
             pictureBox_tilemap.MouseUp -= new MouseEventHandler(EntranceMouseUp);
 
+            // VCamera
+            pictureBox_tilemap.MouseDown -= new MouseEventHandler(VCameraMouseDown);
+            pictureBox_tilemap.MouseLeave -= new EventHandler(VCameraMouseLeave);
+            pictureBox_tilemap.MouseMove -= new MouseEventHandler(VCameraMouseMove);
+            pictureBox_tilemap.MouseUp -= new MouseEventHandler(VCameraMouseUp);
+
+            // Water autodraw
+            pictureBox_tilemap.MouseDown -= new MouseEventHandler(WaterMouseDown);
+            pictureBox_tilemap.MouseLeave -= new EventHandler(WaterMouseLeave);
+            pictureBox_tilemap.MouseMove -= new MouseEventHandler(WaterMouseMove);
+            pictureBox_tilemap.MouseUp -= new MouseEventHandler(WaterMouseUp);
+
+
             pictureBox_tilemap.MouseMove -= new MouseEventHandler(CursorMove);
 
             pictureBox_tilemap.MouseClick -= new MouseEventHandler(AF_MouseClick);
@@ -2931,6 +2962,26 @@ namespace Tilemap_editor
         {
             StartingWorld sw = new StartingWorld(rom);
             sw.ShowDialog();
+        }
+        public void ConnectAllVCams()
+        {
+            Level_select_Click(0, new EventArgs());
+            thisLevel.ConnectAllVerticalCameras();
+            Level_select_Click(0, new EventArgs());
+        }
+
+        private void entranceStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EntranceStyle es = new EntranceStyle(rom, thisLevel);
+
+            es.ShowDialog();
+        }
+
+        private void colorMathControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color_Math_Control color_Math_Control = new Color_Math_Control(rom, thisLevel);
+
+            color_Math_Control.ShowDialog();
         }
     }
 }

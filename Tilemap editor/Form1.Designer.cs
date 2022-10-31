@@ -99,7 +99,12 @@
             this.verticalEntityMapLayerCoordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadVerticalMapsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteExtraEntitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.levelAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customLevelAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musicEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reAddBananasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entranceStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorMathControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.worldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aSMModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overwoldEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,9 +121,6 @@
             this.textEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reverseSqwuaksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quickFakeCreditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.levelAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customLevelAttributesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.musicEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startingKongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startingWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.worldTerminatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -587,7 +589,7 @@
             this.keepCtrlRToolStripMenuItem,
             this.restoreToolStripMenuItem1});
             this.tilemapToolStripMenuItem.Name = "tilemapToolStripMenuItem";
-            this.tilemapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tilemapToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.tilemapToolStripMenuItem.Text = "Tilemap";
             // 
             // undoCtrlZToolStripMenuItem
@@ -615,14 +617,14 @@
             // avancedToolStripMenuItem
             // 
             this.avancedToolStripMenuItem.Name = "avancedToolStripMenuItem";
-            this.avancedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avancedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.avancedToolStripMenuItem.Text = "Entity Init Editor";
             this.avancedToolStripMenuItem.Click += new System.EventHandler(this.entityEditorToolStripMenuItem1_Click);
             // 
             // globalUndoToolStripMenuItem
             // 
             this.globalUndoToolStripMenuItem.Name = "globalUndoToolStripMenuItem";
-            this.globalUndoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.globalUndoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.globalUndoToolStripMenuItem.Text = "Global undo";
             this.globalUndoToolStripMenuItem.Visible = false;
             this.globalUndoToolStripMenuItem.Click += new System.EventHandler(this.globalUndoToolStripMenuItem_Click);
@@ -630,14 +632,14 @@
             // paletteEditToolStripMenuItem
             // 
             this.paletteEditToolStripMenuItem.Name = "paletteEditToolStripMenuItem";
-            this.paletteEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paletteEditToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.paletteEditToolStripMenuItem.Text = "Palette Edit";
             this.paletteEditToolStripMenuItem.Click += new System.EventHandler(this.paletteEditToolStripMenuItem_Click);
             // 
             // arrayEditorToolStripMenuItem
             // 
             this.arrayEditorToolStripMenuItem.Name = "arrayEditorToolStripMenuItem";
-            this.arrayEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.arrayEditorToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.arrayEditorToolStripMenuItem.Text = "Array editor";
             this.arrayEditorToolStripMenuItem.Visible = false;
             this.arrayEditorToolStripMenuItem.Click += new System.EventHandler(this.arrayEditorToolStripMenuItem_Click);
@@ -645,7 +647,7 @@
             // copyAllEntitiesToolStripMenuItem
             // 
             this.copyAllEntitiesToolStripMenuItem.Name = "copyAllEntitiesToolStripMenuItem";
-            this.copyAllEntitiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyAllEntitiesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.copyAllEntitiesToolStripMenuItem.Text = "Copy all entities";
             this.copyAllEntitiesToolStripMenuItem.Visible = false;
             this.copyAllEntitiesToolStripMenuItem.Click += new System.EventHandler(this.copyAllEntitiesToolStripMenuItem_Click);
@@ -653,7 +655,7 @@
             // pasteAllEntitiesToolStripMenuItem
             // 
             this.pasteAllEntitiesToolStripMenuItem.Name = "pasteAllEntitiesToolStripMenuItem";
-            this.pasteAllEntitiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteAllEntitiesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.pasteAllEntitiesToolStripMenuItem.Text = "Paste all entities";
             this.pasteAllEntitiesToolStripMenuItem.Visible = false;
             this.pasteAllEntitiesToolStripMenuItem.Click += new System.EventHandler(this.pasteAllEntitiesToolStripMenuItem_Click);
@@ -663,14 +665,14 @@
             this.snapToolStripMenuItem.Checked = true;
             this.snapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.snapToolStripMenuItem.Name = "snapToolStripMenuItem";
-            this.snapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.snapToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.snapToolStripMenuItem.Text = "Snap";
             this.snapToolStripMenuItem.Click += new System.EventHandler(this.snapToolStripMenuItem_Click);
             // 
             // transparentToolStripMenuItem
             // 
             this.transparentToolStripMenuItem.Name = "transparentToolStripMenuItem";
-            this.transparentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.transparentToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.transparentToolStripMenuItem.Text = "Transparent";
             this.transparentToolStripMenuItem.Click += new System.EventHandler(this.transparentToolStripMenuItem_Click);
             // 
@@ -687,7 +689,12 @@
             this.verticalEntityMapLayerCoordsToolStripMenuItem,
             this.loadVerticalMapsToolStripMenuItem,
             this.deleteExtraEntitiesToolStripMenuItem,
-            this.reAddBananasToolStripMenuItem});
+            this.levelAttributesToolStripMenuItem,
+            this.customLevelAttributesToolStripMenuItem,
+            this.musicEditorToolStripMenuItem,
+            this.reAddBananasToolStripMenuItem,
+            this.entranceStyleToolStripMenuItem,
+            this.colorMathControlToolStripMenuItem});
             this.levelToolStripMenuItem.Name = "levelToolStripMenuItem";
             this.levelToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.levelToolStripMenuItem.Text = "Level";
@@ -703,7 +710,7 @@
             // 
             this.clearCameraMaphorizontalToolStripMenuItem.Name = "clearCameraMaphorizontalToolStripMenuItem";
             this.clearCameraMaphorizontalToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.clearCameraMaphorizontalToolStripMenuItem.Text = "Clear Camera Map (horizontal)";
+            this.clearCameraMaphorizontalToolStripMenuItem.Text = "Clear Camera Map (Horizontal)";
             this.clearCameraMaphorizontalToolStripMenuItem.Click += new System.EventHandler(this.clearCameraMaphorizontalToolStripMenuItem_Click);
             // 
             // clearDefaultEntitiesToolStripMenuItem
@@ -747,7 +754,6 @@
             this.verticalEntityMapLayerCoordsToolStripMenuItem.Name = "verticalEntityMapLayerCoordsToolStripMenuItem";
             this.verticalEntityMapLayerCoordsToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.verticalEntityMapLayerCoordsToolStripMenuItem.Text = "Vertical Entity Map Layer Coords";
-            this.verticalEntityMapLayerCoordsToolStripMenuItem.Visible = false;
             this.verticalEntityMapLayerCoordsToolStripMenuItem.Click += new System.EventHandler(this.verticalEntityMapLayerCoordsToolStripMenuItem_Click);
             // 
             // loadVerticalMapsToolStripMenuItem
@@ -763,7 +769,29 @@
             this.deleteExtraEntitiesToolStripMenuItem.Name = "deleteExtraEntitiesToolStripMenuItem";
             this.deleteExtraEntitiesToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
             this.deleteExtraEntitiesToolStripMenuItem.Text = "Delete Extra Entities";
+            this.deleteExtraEntitiesToolStripMenuItem.Visible = false;
             this.deleteExtraEntitiesToolStripMenuItem.Click += new System.EventHandler(this.deleteExtraEntitiesToolStripMenuItem_Click);
+            // 
+            // levelAttributesToolStripMenuItem
+            // 
+            this.levelAttributesToolStripMenuItem.Name = "levelAttributesToolStripMenuItem";
+            this.levelAttributesToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.levelAttributesToolStripMenuItem.Text = "Level Attributes";
+            this.levelAttributesToolStripMenuItem.Click += new System.EventHandler(this.levelAttributesToolStripMenuItem_Click);
+            // 
+            // customLevelAttributesToolStripMenuItem
+            // 
+            this.customLevelAttributesToolStripMenuItem.Name = "customLevelAttributesToolStripMenuItem";
+            this.customLevelAttributesToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.customLevelAttributesToolStripMenuItem.Text = "Custom Level Attributes";
+            this.customLevelAttributesToolStripMenuItem.Click += new System.EventHandler(this.customLevelAttributesToolStripMenuItem_Click);
+            // 
+            // musicEditorToolStripMenuItem
+            // 
+            this.musicEditorToolStripMenuItem.Name = "musicEditorToolStripMenuItem";
+            this.musicEditorToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.musicEditorToolStripMenuItem.Text = "Music Picker";
+            this.musicEditorToolStripMenuItem.Click += new System.EventHandler(this.musicEditorToolStripMenuItem_Click);
             // 
             // reAddBananasToolStripMenuItem
             // 
@@ -772,6 +800,20 @@
             this.reAddBananasToolStripMenuItem.Text = "ReAdd Bananas";
             this.reAddBananasToolStripMenuItem.Visible = false;
             this.reAddBananasToolStripMenuItem.Click += new System.EventHandler(this.reAddBananasToolStripMenuItem_Click);
+            // 
+            // entranceStyleToolStripMenuItem
+            // 
+            this.entranceStyleToolStripMenuItem.Name = "entranceStyleToolStripMenuItem";
+            this.entranceStyleToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.entranceStyleToolStripMenuItem.Text = "Entrance Style";
+            this.entranceStyleToolStripMenuItem.Click += new System.EventHandler(this.entranceStyleToolStripMenuItem_Click);
+            // 
+            // colorMathControlToolStripMenuItem
+            // 
+            this.colorMathControlToolStripMenuItem.Name = "colorMathControlToolStripMenuItem";
+            this.colorMathControlToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.colorMathControlToolStripMenuItem.Text = "Color Math Control";
+            this.colorMathControlToolStripMenuItem.Click += new System.EventHandler(this.colorMathControlToolStripMenuItem_Click);
             // 
             // worldToolStripMenuItem
             // 
@@ -789,9 +831,6 @@
             this.textEditorToolStripMenuItem,
             this.reverseSqwuaksToolStripMenuItem,
             this.quickFakeCreditsToolStripMenuItem,
-            this.levelAttributesToolStripMenuItem,
-            this.customLevelAttributesToolStripMenuItem,
-            this.musicEditorToolStripMenuItem,
             this.startingKongToolStripMenuItem,
             this.startingWorldToolStripMenuItem,
             this.worldTerminatorToolStripMenuItem1,
@@ -917,27 +956,6 @@
             this.quickFakeCreditsToolStripMenuItem.Text = "Quick fake credits";
             this.quickFakeCreditsToolStripMenuItem.Visible = false;
             this.quickFakeCreditsToolStripMenuItem.Click += new System.EventHandler(this.quickFakeCreditsToolStripMenuItem_Click);
-            // 
-            // levelAttributesToolStripMenuItem
-            // 
-            this.levelAttributesToolStripMenuItem.Name = "levelAttributesToolStripMenuItem";
-            this.levelAttributesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.levelAttributesToolStripMenuItem.Text = "Level Attributes";
-            this.levelAttributesToolStripMenuItem.Click += new System.EventHandler(this.levelAttributesToolStripMenuItem_Click);
-            // 
-            // customLevelAttributesToolStripMenuItem
-            // 
-            this.customLevelAttributesToolStripMenuItem.Name = "customLevelAttributesToolStripMenuItem";
-            this.customLevelAttributesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.customLevelAttributesToolStripMenuItem.Text = "Custom Level Attributes";
-            this.customLevelAttributesToolStripMenuItem.Click += new System.EventHandler(this.customLevelAttributesToolStripMenuItem_Click);
-            // 
-            // musicEditorToolStripMenuItem
-            // 
-            this.musicEditorToolStripMenuItem.Name = "musicEditorToolStripMenuItem";
-            this.musicEditorToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.musicEditorToolStripMenuItem.Text = "Music Picker";
-            this.musicEditorToolStripMenuItem.Click += new System.EventHandler(this.musicEditorToolStripMenuItem_Click);
             // 
             // startingKongToolStripMenuItem
             // 
@@ -1767,6 +1785,8 @@
         private System.Windows.Forms.ToolStripMenuItem deleteExtraEntitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reAddBananasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startingWorldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entranceStyleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorMathControlToolStripMenuItem;
     }
 }
 

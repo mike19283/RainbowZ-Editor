@@ -29,7 +29,7 @@ namespace Tilemap_editor
                 }
                 else
                 {
-                    MessageBox.Show("WARNING! This is not fully featured yet.\nThese don't work as expected.\nEdit at your own risk...");
+                    //MessageBox.Show("WARNING! This is not fully featured yet.\nThese don't work as expected.\nThis will be updated in the future.\nEdit at your own risk...");
                     if (VerticalCameraEdit != null)
                         VerticalCameraEdit.Close();
                     VerticalCameraEdit = new VerticalCameraEdit(thisLevel, rom, this);

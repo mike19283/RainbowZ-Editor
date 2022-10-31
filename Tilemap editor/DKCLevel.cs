@@ -82,17 +82,17 @@ namespace Tilemap_editor
         public int cameraOffset;
 
         public DKCLevel(string lvlName, ROM rom, Form1 form, bool entityLayers)
-        {            
-			this.form = form;
-			this.lvlName = lvlName;
-			this.rom = rom;
+        {
+            this.form = form;
+            this.lvlName = lvlName;
+            this.rom = rom;
 
 
             relatedLevels = rom.GetRelatedLevels(lvlName);
 
 
             Entity.counter = 0;
-			rom.tile_vram = new List<byte[]>();
+            rom.tile_vram = new List<byte[]>();
             entities = new List<Entity>();
             cameraBoxes = new List<Camera>();
             entrances = new List<Entrance>();
@@ -100,7 +100,7 @@ namespace Tilemap_editor
             platformPaths = new List<List<PlatformPath>>();
 
 
-			levelCode = rom.levelCodeByString[lvlName];
+            levelCode = rom.levelCodeByString[lvlName];
             // Forest BG
             if (levelCode == 0xf0)
             {
@@ -188,101 +188,96 @@ namespace Tilemap_editor
             paletteOffset = rom.paletteOffset[lvlName];
             palette = rom.ReadPalette(rom.paletteOffset[lvlName], 8, 16);
 
-            // Modify palettes
-            foreach (var row in palette)
-            {
-                row[0] = Global.transparentClr;
-            }
+            ModifyPalettes();
 
+            tilesetIndex = rom.tilesetIndexByStage[lvlName];
+            tilesetOffset = rom.TilesetIndex(tilesetIndex, levelCode);
+            //lvlInfoC += $"[\"{lvlName}\"] = 0x{tilesetOffset.ToString("X")},\n";
 
-			tilesetIndex = rom.tilesetIndexByStage[lvlName];
-			tilesetOffset = rom.TilesetIndex(tilesetIndex,levelCode);
-			//lvlInfoC += $"[\"{lvlName}\"] = 0x{tilesetOffset.ToString("X")},\n";
-
-			var tempDecompressed = rom.GetDecompressedTiles(tilesetOffset);
+            var tempDecompressed = rom.GetDecompressedTiles(tilesetOffset);
             if (levelCode == 0x68)
             {
                 tempDecompressed = rom.ReadSubArray(0x0f0000, 0x8500, rom.rom.ToArray());
             }
-			//decompressedChars = rom.GetDecompressedTiles(tilesetOffset);
+            //decompressedChars = rom.GetDecompressedTiles(tilesetOffset);
 
-			headerIndex = rom.headerIndex[lvlName];
-			GetInfo(headerIndex);
+            headerIndex = rom.headerIndex[lvlName];
+            GetInfo(headerIndex);
             levelTheme = rom.levelThemes[headerIndex];
 
-			theme = lower16Offset | ((upper16Offset & 0xff) << 16);
+            theme = lower16Offset | ((upper16Offset & 0xff) << 16);
 
-			if (levelCode == 0x42 || levelCode == 0x43 || (new List<byte>() { 0x55, 0x56, 0x57, 0x52, 0x53 }).Contains((byte)levelCode))
+            if (levelCode == 0x42 || levelCode == 0x43 || (new List<byte>() { 0x55, 0x56, 0x57, 0x52, 0x53 }).Contains((byte)levelCode))
             {
-				// Remove first 20 bytes
-				tempDecompressed = tempDecompressed.Skip(0x20).ToArray();
+                // Remove first 20 bytes
+                tempDecompressed = tempDecompressed.Skip(0x20).ToArray();
 
 
-				// Wheel gnawties use bg 2
-				var sub = rom.ReadSubArray(0xDBCCD2, 0x22c0, rom.rom.ToArray());
-				var tempArr = new byte[0xf20];
-				tempArr = Enumerable.Repeat((byte)0, 0xf20).ToArray();
-			
-				decompressedChars = new byte[sub.Length + tempDecompressed.Length + tempArr.Length];
+                // Wheel gnawties use bg 2
+                var sub = rom.ReadSubArray(0xDBCCD2, 0x22c0, rom.rom.ToArray());
+                var tempArr = new byte[0xf20];
+                tempArr = Enumerable.Repeat((byte)0, 0xf20).ToArray();
 
-				sub.CopyTo(decompressedChars, 0);
-				tempDecompressed.CopyTo(decompressedChars, sub.Length);
-				tempArr.CopyTo(decompressedChars, sub.Length + tempDecompressed.Length);
-			}
-			else
-            {
-				decompressedChars = new byte[tempDecompressed.Length];
-				tempDecompressed.CopyTo(decompressedChars, 0);
+                decompressedChars = new byte[sub.Length + tempDecompressed.Length + tempArr.Length];
+
+                sub.CopyTo(decompressedChars, 0);
+                tempDecompressed.CopyTo(decompressedChars, sub.Length);
+                tempArr.CopyTo(decompressedChars, sub.Length + tempDecompressed.Length);
             }
-			if (levelCode == 0x24 || levelCode == 0xa7 || (new List<byte>() { 0x67, 0x66, 0x69, 0x6a, 0x6b }).Contains((byte)levelCode))
+            else
             {
-				var tempD = new List<byte>();
-				tempD.AddRange(Enumerable.Repeat((byte)0, 0x20));
-				tempD.AddRange(decompressedChars.Skip(0x20).ToArray());
-				tempD.AddRange(Enumerable.Repeat((byte)0, 0x2000));
-				//tempD.AddRange(arrSnow);
-
-				decompressedChars = tempD.ToArray();
-				//decompressedChars = arrSnow;
+                decompressedChars = new byte[tempDecompressed.Length];
+                tempDecompressed.CopyTo(decompressedChars, 0);
             }
-			// ==============================================================
-			chars = ReadEveryChar();
+            if (levelCode == 0x24 || levelCode == 0xa7 || (new List<byte>() { 0x67, 0x66, 0x69, 0x6a, 0x6b }).Contains((byte)levelCode))
+            {
+                var tempD = new List<byte>();
+                tempD.AddRange(Enumerable.Repeat((byte)0, 0x20));
+                tempD.AddRange(decompressedChars.Skip(0x20).ToArray());
+                tempD.AddRange(Enumerable.Repeat((byte)0, 0x2000));
+                //tempD.AddRange(arrSnow);
+
+                decompressedChars = tempD.ToArray();
+                //decompressedChars = arrSnow;
+            }
+            // ==============================================================
+            chars = ReadEveryChar();
             var tempChars = new List<byte[]>();
             tempChars.AddRange(chars);
             byte[] testZero = Enumerable.Repeat((byte)0, 0x20).ToArray();
-            for (int i = chars.Count - 1; i > 0; i--)
-            {
-                if (chars[i].SequenceEqual(testZero))
-                {
-                    // Ends up breaking 4-1 and 4-3. had to remove
-                    //chars.RemoveAt(i);
-                } else
-                {
-                    break;
-                }
+            //for (int i = chars.Count - 1; i > 0; i--)
+            //{
+            //    if (chars[i].SequenceEqual(testZero))
+            //    {
+            //        // Ends up breaking 4-1 and 4-3. had to remove
+            //        //chars.RemoveAt(i);
+            //    } else
+            //    {
+            //        break;
+            //    }
 
-            }
+            //}
 
-			FindStartAndEnd();
+            FindStartAndEnd();
 
-			metaSize = rom.metatilesetSize[headerIndex];
+            metaSize = rom.metatilesetSize[headerIndex];
             if (levelCode == 0x68)
             {
                 //metaSize = 0x180;
             }
-			//metaSize = 0x800;
-			List<byte> wtrcode = new List<byte> { 0xbf, 0xde, 0x3e, 0x22 };
-			if (wtrcode.Contains((byte)levelCode))
-				metatilesetBank = 0x10;
-			else
-				metatilesetBank = upper16Offset & 0xff;
+            //metaSize = 0x800;
+            List<byte> wtrcode = new List<byte> { 0xbf, 0xde, 0x3e, 0x22 };
+            if (wtrcode.Contains((byte)levelCode))
+                metatilesetBank = 0x10;
+            else
+                metatilesetBank = upper16Offset & 0xff;
 
-			var metaOffset = (metatilesetBank << 16) | (lower16Meta << 0);
-			meta = rom.ReadSubArray(metaOffset, metaSize * 0x20, rom.rom.ToArray()).ToList();
-			//lvlInfoM += $"[\"{lvlName}\"] = 0x{metaOffset.ToString("X")},\n";
-			//lvlInfoMS += $"[\"{lvlName}\"] = 0x{metaSize.ToString("X")},\n";
+            var metaOffset = (metatilesetBank << 16) | (lower16Meta << 0);
+            meta = rom.ReadSubArray(metaOffset, metaSize * 0x20, rom.rom.ToArray()).ToList();
+            //lvlInfoM += $"[\"{lvlName}\"] = 0x{metaOffset.ToString("X")},\n";
+            //lvlInfoMS += $"[\"{lvlName}\"] = 0x{metaSize.ToString("X")},\n";
 
-			tiles = ReadTileFromMeta();
+            tiles = ReadTileFromMeta();
 
             if (Global.mod && levelCode == 0xc)
             {
@@ -291,7 +286,7 @@ namespace Tilemap_editor
                 decompressedChars = rom.GetDecompressedTiles(0x452000);
                 chars = ReadEveryChar();
                 lvlXBoundStart = 0x450000;
-                lvlXBoundEnd =   0x452000;
+                lvlXBoundEnd = 0x452000;
                 meta = rom.ReadSubArray(0x45b000, 0x24a0, rom.rom.ToArray()).ToList();
                 tiles = ReadTileFromMeta();
 
@@ -307,7 +302,7 @@ namespace Tilemap_editor
                 decompressedChars = rom.GetDecompressedTiles(0x468000);
                 chars = ReadEveryChar();
                 lvlXBoundStart = 0x460000;
-                lvlXBoundEnd =   0x4629e0;
+                lvlXBoundEnd = 0x4629e0;
                 meta = rom.ReadSubArray(0x463000, 0x3da0, rom.rom.ToArray()).ToList();
                 tiles = ReadTileFromMeta();
 
@@ -323,7 +318,7 @@ namespace Tilemap_editor
                 decompressedChars = rom.GetDecompressedTiles(0x478000);
                 chars = ReadEveryChar();
                 lvlXBoundStart = 0x470000;
-                lvlXBoundEnd =   0x4718c0;
+                lvlXBoundEnd = 0x4718c0;
                 meta = rom.ReadSubArray(0x473000, 0x3300, rom.rom.ToArray()).ToList();
                 tiles = ReadTileFromMeta();
 
@@ -349,16 +344,16 @@ namespace Tilemap_editor
             }
             if (te != null)
             {
-				te.Close();
-				te.DialogResult = DialogResult.OK;
-			}
+                te.Close();
+                te.DialogResult = DialogResult.OK;
+            }
 
             // Kingizor test compression
             decompressedChars = decompressedChars.Take(chars.Count * 0x20).ToArray();
             //Global.SaveArray(decompressedChars, "chars");
-			te = new Tile_display(this, rom, form);
+            te = new Tile_display(this, rom, form);
 
-			te.Show();
+            te.Show();
 
             if (entityLayers && rom.IsVertical(levelCode))
             {
@@ -379,9 +374,9 @@ namespace Tilemap_editor
 
             rom.ObjectParse();
             entities = ScanObjectMap();
-			entrances = GetEntrancesByLevel();
-			//Clipboard.SetText($"{lvlInfoP}" + "}" + $"\n{lvlInfoC}" + "}" + $"\n{lvlInfoM}" + "}" + $"\n{lvlInfoMS}" + "}" + $"\n");
-			cameraBoxes = ScanCameraMap();
+            entrances = GetEntrancesByLevel();
+            //Clipboard.SetText($"{lvlInfoP}" + "}" + $"\n{lvlInfoC}" + "}" + $"\n{lvlInfoM}" + "}" + $"\n{lvlInfoMS}" + "}" + $"\n");
+            cameraBoxes = ScanCameraMap();
             bananas = ReadBananaMap();
             platformPaths = GetTrackPaths();
             verticalCameras = GetVerticalCameras();
@@ -395,7 +390,17 @@ namespace Tilemap_editor
             }
 
             levelCode = tempLvlCode;
-		}
+        }
+
+        private void ModifyPalettes()
+        {
+            // Modify palettes
+            foreach (var row in palette)
+            {
+                row[0] = Global.transparentClr;
+            }
+        }
+
         public void ShowTileEdit()
         {
             te.Show();
@@ -1176,7 +1181,7 @@ namespace Tilemap_editor
             WritePathsToROM();
             //WriteLayersToROM();
             WriteObjectsToROM();
-
+            WriteVcamsToROM();
 
             // Reset static vars
             Entity.counter = 0;

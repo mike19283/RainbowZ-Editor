@@ -11,6 +11,7 @@ namespace Tilemap_editor
 {
     public static class Global
     {
+        public static int editThisVerticalCam = -1;
         public static Color transparentClr = Color.Black;
         public static string emuPath = "C:\\Users\\mikem\\OneDrive\\TASwork\\snes9x-1.60-win32\\snes9x.exe";
         public static string romPath = "test.smc";

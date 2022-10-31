@@ -67,6 +67,37 @@ namespace Tilemap_editor
             0xb8846b, 0xb88470, 0xb88475, 0xb8847a, 0xb8847f, 0xb88484,
         };
 
+        public Dictionary<string, int> ENTRANCESTYLESBYSTRING = new Dictionary<string, int>()
+        {
+            ["nothing"] = 0x86CF,
+            ["run to the left"] = 0x8725,
+            ["run to the right as Rambi"] = 0x8733,
+            ["run to the left as Winky"] = 0x873F,
+            ["run to the right as Expresso"] = 0x874B,
+            ["start as Enguarde"] = 0x8757,
+            ["run to the right"] = 0x877B,
+            ["barrel roulette style"] = 0x8810,
+            ["walk to the right"] = 0x8818,
+            ["start at entrance"] = 0x88E2,
+            ["swimming"] = 0x8915,
+        };
+        public Dictionary<int, string> ENTRANCESTYLEBYCODE = new Dictionary<int, string>()
+        {
+            [0x86CF] = "nothing",
+            [0x8725] = "run to the left",
+            [0x8733] = "run to the right as Rambi",
+            [0x873F] = "run to the left as Winky",
+            [0x874B] = "run to the right as Expresso",
+            [0x8757] = "start as Enguarde",
+            [0x877B] = "run to the right",
+            [0x8810] = "barrel roulette style",
+            [0x8818] = "walk to the right",
+            [0x88E2] = "start at entrance",
+            [0x8915] = "swimming",
+        };
+
+        public int COLORMATHBYLEVEL = 0xB9D7AE;
+        public int ENTRANCESTYLE = 0xBFFD60;
         public int LEVELCOORDSZ = 0xBCF44B,
                    LEVELCOORDSX = 0xBCF54B,
                    LEVELCOORDSY = 0xBCF64B;

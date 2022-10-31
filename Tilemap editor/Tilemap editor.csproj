@@ -86,6 +86,12 @@
       <DependentUpon>CameraEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="CameraVertical.cs" />
+    <Compile Include="Color Math Control.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Color Math Control.Designer.cs">
+      <DependentUpon>Color Math Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColumnLinks.cs" />
     <Compile Include="CopyrightEdit.cs">
       <SubType>Form</SubType>
@@ -145,6 +151,12 @@
     <Compile Include="Entrances.Designer.cs">
       <DependentUpon>Entrances.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntranceStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntranceStyle.Designer.cs">
+      <DependentUpon>EntranceStyle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.Autofill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Sandbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.VerticalCameras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Water.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Global.cs" />
@@ -379,9 +397,11 @@
     <Compile Include="Tile_display.Designer.cs">
       <DependentUpon>Tile_display.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tile_display.Water.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Version.cs" />
     <Compile Include="VerticalCamera.cs" />
-    <Compile Include="VerticalCamera.Type.cs" />
     <Compile Include="VerticalCameraEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +430,9 @@
     <EmbeddedResource Include="CameraEdit.resx">
       <DependentUpon>CameraEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Color Math Control.resx">
+      <DependentUpon>Color Math Control.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CopyrightEdit.resx">
       <DependentUpon>CopyrightEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Entrances.resx">
       <DependentUpon>Entrances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntranceStyle.resx">
+      <DependentUpon>EntranceStyle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

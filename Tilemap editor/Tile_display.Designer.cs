@@ -34,12 +34,14 @@ namespace Tilemap_editor
             this.components = new System.ComponentModel.Container();
             this.tabControl_modes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.button_exportMapchip = new System.Windows.Forms.Button();
             this.checkBox_yFlip = new System.Windows.Forms.CheckBox();
             this.checkBox_xFlip = new System.Windows.Forms.CheckBox();
             this.panel_tiles = new System.Windows.Forms.Panel();
             this.pictureBox_tiles = new System.Windows.Forms.PictureBox();
             this.tabPage_trail = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.button_r = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
             this.button_l = new System.Windows.Forms.Button();
@@ -50,6 +52,7 @@ namespace Tilemap_editor
             this.panel_customDraw = new System.Windows.Forms.Panel();
             this.pictureBox_tiles1 = new System.Windows.Forms.PictureBox();
             this.tabPage_stamp = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.button_mirrorY = new System.Windows.Forms.Button();
             this.button_mirrorX = new System.Windows.Forms.Button();
             this.button_stampClipboard = new System.Windows.Forms.Button();
@@ -62,6 +65,8 @@ namespace Tilemap_editor
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox_tiles2 = new System.Windows.Forms.PictureBox();
             this.tabPage_highlight = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox_copyHistory = new System.Windows.Forms.ListBox();
             this.checkBox_highlightY = new System.Windows.Forms.CheckBox();
@@ -83,13 +88,14 @@ namespace Tilemap_editor
             this.radioButton_autoUp = new System.Windows.Forms.RadioButton();
             this.button_getLinks = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage_water = new System.Windows.Forms.TabPage();
+            this.label_height_width = new System.Windows.Forms.Label();
+            this.button_waterSet = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown_size = new System.Windows.Forms.NumericUpDown();
             this.timer_previewTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl_modes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel_tiles.SuspendLayout();
@@ -106,6 +112,8 @@ namespace Tilemap_editor
             this.groupBox1.SuspendLayout();
             this.tabPage_autofill.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage_water.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_modes
@@ -115,6 +123,7 @@ namespace Tilemap_editor
             this.tabControl_modes.Controls.Add(this.tabPage_stamp);
             this.tabControl_modes.Controls.Add(this.tabPage_highlight);
             this.tabControl_modes.Controls.Add(this.tabPage_autofill);
+            this.tabControl_modes.Controls.Add(this.tabPage_water);
             this.tabControl_modes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_modes.Location = new System.Drawing.Point(0, 0);
             this.tabControl_modes.Name = "tabControl_modes";
@@ -137,6 +146,15 @@ namespace Tilemap_editor
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Regular";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(71, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 26);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Press Ctrl+Z to undo\r\nany tilemap changes";
             // 
             // button_exportMapchip
             // 
@@ -210,6 +228,15 @@ namespace Tilemap_editor
             this.tabPage_trail.TabIndex = 1;
             this.tabPage_trail.Text = "Trail";
             this.tabPage_trail.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(231, 26);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Select a pattern you want to repeat. Then, drag\r\nin the main window to place";
             // 
             // button_r
             // 
@@ -319,6 +346,16 @@ namespace Tilemap_editor
             this.tabPage_stamp.TabIndex = 2;
             this.tabPage_stamp.Text = "Stamp";
             this.tabPage_stamp.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(292, 39);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Click a stamp spot, then click a tile and assemble your stamp\r\nLeft-click = Previ" +
+    "ew stamp in that location\r\nRight-click = Place stamp";
             // 
             // button_mirrorY
             // 
@@ -446,6 +483,24 @@ namespace Tilemap_editor
             this.tabPage_highlight.TabIndex = 3;
             this.tabPage_highlight.Text = "Highlight";
             this.tabPage_highlight.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(45, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(201, 26);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Left-click = Preview paste in that location\r\nRight-click = Place paste";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(48, 303);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Holds your past copies by index";
             // 
             // label2
             // 
@@ -676,56 +731,88 @@ namespace Tilemap_editor
             this.label1.Text = "WARNING! All links  are based off of \r\nwhat is seen in ROM, so if you have \r\na ti" +
     "le placed poorly, the program thinks \r\nit is ok to place more tiles like that.";
             // 
+            // tabPage_water
+            // 
+            this.tabPage_water.Controls.Add(this.label10);
+            this.tabPage_water.Controls.Add(this.label_height_width);
+            this.tabPage_water.Controls.Add(this.button_waterSet);
+            this.tabPage_water.Controls.Add(this.label9);
+            this.tabPage_water.Controls.Add(this.numericUpDown_size);
+            this.tabPage_water.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_water.Name = "tabPage_water";
+            this.tabPage_water.Size = new System.Drawing.Size(307, 470);
+            this.tabPage_water.TabIndex = 5;
+            this.tabPage_water.Text = "Water";
+            this.tabPage_water.UseVisualStyleBackColor = true;
+            // 
+            // label_height_width
+            // 
+            this.label_height_width.AutoSize = true;
+            this.label_height_width.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_height_width.Location = new System.Drawing.Point(225, 114);
+            this.label_height_width.Name = "label_height_width";
+            this.label_height_width.Size = new System.Drawing.Size(20, 24);
+            this.label_height_width.TabIndex = 3;
+            this.label_height_width.Text = "0";
+            // 
+            // button_waterSet
+            // 
+            this.button_waterSet.Location = new System.Drawing.Point(200, 141);
+            this.button_waterSet.Name = "button_waterSet";
+            this.button_waterSet.Size = new System.Drawing.Size(75, 23);
+            this.button_waterSet.TabIndex = 2;
+            this.button_waterSet.Text = "Set";
+            this.button_waterSet.UseVisualStyleBackColor = true;
+            this.button_waterSet.Click += new System.EventHandler(this.button_waterSet_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(31, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Height/Width";
+            // 
+            // numericUpDown_size
+            // 
+            this.numericUpDown_size.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_size.Hexadecimal = true;
+            this.numericUpDown_size.Location = new System.Drawing.Point(31, 135);
+            this.numericUpDown_size.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numericUpDown_size.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_size.Name = "numericUpDown_size";
+            this.numericUpDown_size.Size = new System.Drawing.Size(71, 29);
+            this.numericUpDown_size.TabIndex = 0;
+            this.numericUpDown_size.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // timer_previewTimer
             // 
             this.timer_previewTimer.Interval = 1000;
             this.timer_previewTimer.Tick += new System.EventHandler(this.timer_previewTimer_Tick);
             // 
-            // label4
+            // label10
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(231, 26);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Select a pattern you want to repeat. Then, drag\r\nin the main window to place";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 26);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Press Ctrl+Z to undo\r\nany tilemap changes";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(292, 39);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Click a stamp spot, then click a tile and assemble your stamp\r\nLeft-click = Previ" +
-    "ew stamp in that location\r\nRight-click = Place stamp";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 303);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Holds your past copies by index";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(45, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(201, 26);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Left-click = Preview paste in that location\r\nRight-click = Place paste";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(31, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(246, 52);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "This will auto draw a coral passageway for you\r\nbased on where you click and drag" +
+    " your mouse.\r\nSetting the height/width changes the size of the\r\npassageway. This" +
+    " is only available in water stages.\r\n";
             // 
             // Tile_display
             // 
@@ -765,6 +852,9 @@ namespace Tilemap_editor
             this.tabPage_autofill.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage_water.ResumeLayout(false);
+            this.tabPage_water.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -829,5 +919,11 @@ namespace Tilemap_editor
         private Label label6;
         private Label label8;
         private Label label7;
+        private TabPage tabPage_water;
+        private NumericUpDown numericUpDown_size;
+        private Label label9;
+        private Label label_height_width;
+        private Button button_waterSet;
+        private Label label10;
     }
 }
