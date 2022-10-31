@@ -11,6 +11,10 @@ namespace Tilemap_editor
 {
     public static class Global
     {
+        public static bool editCheckpoint = false;
+        public static bool edit1_1 = false;
+        public static bool bindCheckpoints = true;
+        public static bool bind1_1 = true;
         public static int editThisVerticalCam = -1;
         public static Color transparentClr = Color.Black;
         public static string emuPath = "C:\\Users\\mikem\\OneDrive\\TASwork\\snes9x-1.60-win32\\snes9x.exe";

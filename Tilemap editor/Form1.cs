@@ -107,7 +107,6 @@ namespace Tilemap_editor
                 //sch1eyToolStripMenuItem2.Checked = Convert.ToBoolean(sch1ey);
             }
 
-            comboBox_stages.SelectedIndex = 0;
             //comboBox_stages.SelectedIndex = 33;
             //comboBox_stages.SelectedIndex = 3;
             var update = sd.Read("Connect", "Update");
@@ -556,6 +555,10 @@ namespace Tilemap_editor
             if (radioButton_editCameras.Checked)
             {
                 radioButton_editCameras_CheckedChanged(0, new EventArgs());
+            }
+            if (radioButton_editEntrances.Checked)
+            {
+                radioButton_editEntrances_CheckedChanged(0, new EventArgs());
             }
         }
 

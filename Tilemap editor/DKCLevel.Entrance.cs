@@ -21,7 +21,12 @@ namespace Tilemap_editor
                 var entrance = rom.levelNameByCode[i];
                 var index = i * 4;
                 var offset = 0xBCBEF0 + index;
-                if (entrance.Contains("- Bonus") || entrance.Contains("Kong's Cabin") || entrance.Contains("empty") || entrance.Contains("empty") || entrance.Contains("full") || i == 0x16 || entrance.Contains("Save"))
+                bool checkpoint = entrance.Contains("Save");
+                if (checkpoint && Global.bindCheckpoints)
+                    continue;
+                if (i == 0x16 && Global.bind1_1)
+                    continue;
+                if (entrance.Contains("- Bonus") || entrance.Contains("Kong's Cabin") || entrance.Contains("empty") || entrance.Contains("empty") || entrance.Contains("full"))
                     continue;
                 if (entrance.Contains(lvlName))
                 {
@@ -48,7 +53,7 @@ namespace Tilemap_editor
             {
                 verticalCameras = new List<VerticalCamera>();
                 // FIXME
-                //WriteLayersToROM();
+                WriteLayersToROM();
 
 
                 int offset;

@@ -525,19 +525,23 @@ namespace Tilemap_editor
         }
         public void WriteToROM()
         {
+
             if (rom.CheckSignature())
             {
-                // 6f Kong entrance
-                if (wram[0xd45] == 0x6f)
+                // 6f Kong entrance 
+                if (wram[0xd45] == 0x6f && Global.bind1_1)
                 {
+                    Global.edit1_1 = false;
                     var entAddr = 0xbcbef0 + wram[0x1375] * 4;
                     rom.Write16(entAddr + 0, x);
                     rom.Write16(entAddr + 2, y);
 
                 }
                 // 4a save entrance
-                if (idCode == 0x4a)
+                if (idCode == 0x4a && Global.bindCheckpoints)
                 {
+                    Global.editCheckpoint = false;
+
                     // Entrance
                     // 3CBEF0
                     var entAddr = 0xbcbef0 + _1375 * 4;

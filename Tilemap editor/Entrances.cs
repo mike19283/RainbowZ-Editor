@@ -27,6 +27,9 @@ namespace Tilemap_editor
 
             listBox_entities.Items.AddRange(arr.ToArray());
             listBox_entities.SelectedIndex = 0;
+
+            bindCheckpointsToolStripMenuItem.Checked = Global.bindCheckpoints && rom.CheckSignature();
+            bind11ToolStripMenuItem.Checked = Global.bind1_1 && rom.CheckSignature();
         }
 
         private void listBox_entities_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,5 +68,47 @@ namespace Tilemap_editor
 
         }
 
+        private void bindCheckpointsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!rom.CheckSignature())
+            {
+                MessageBox.Show("This applies ASM.", "WARNING");
+                if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    form.LoadSch1eyBins();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+            Global.bindCheckpoints = !Global.bindCheckpoints;
+            bindCheckpointsToolStripMenuItem.Checked = Global.bindCheckpoints;
+            form.Level_select_Click(0, new EventArgs());
+        }
+
+        private void bind11ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!rom.CheckSignature())
+            {
+                MessageBox.Show("This applies ASM.", "WARNING");
+                if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    form.LoadSch1eyBins();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+            Global.bind1_1 = !Global.bind1_1;
+            bind11ToolStripMenuItem.Checked = Global.bind1_1;
+            form.Level_select_Click(0, new EventArgs());
+
+        }
     }
 }

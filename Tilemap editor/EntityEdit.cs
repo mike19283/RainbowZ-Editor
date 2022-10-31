@@ -137,6 +137,16 @@ namespace Tilemap_editor
             int pointer = (int)numericUpDown_entityPointer.Value;
 
             form.DrawScreen();
+            // 1-1
+            if (entity.wram[0xd45] == 0x6f)
+            {
+                Global.edit1_1 = true;
+            }
+            // Checkpoints
+            if (entity.wram[0xd45] == 0x4a)
+            {
+                Global.editCheckpoint = true;
+            }
             int index = listBox_entities.SelectedIndex;
             listBox_entities.Items.Clear();
             listBox_entities.Items.AddRange(thisLevel.entities.ToArray());
