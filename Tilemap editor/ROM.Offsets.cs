@@ -32,6 +32,9 @@ namespace Tilemap_editor
             ["Cranky's Theme"] = 0x9015,
             ["The Credits Concerto"] = 0x901c,
 
+            ["Candy's Love Song"] = 0xff65,
+            ["Funky's Fugue"] = 0xff6c
+
         };
         public int[] WORLDCODES = new int[] 
         {
@@ -106,7 +109,7 @@ namespace Tilemap_editor
         public int[] CREDITSSTARTLDA = new int[] { 0x81d5b6, 0x81eeb1 };
         public int[] CREDITSENDLDA = new int[] { 0x81d5c8, 0x81eebf };
         public int DKBARRELONBOSS = 0xb6ca49;
-
+        public int LOADTRACKINA = 0xb99036;
 
     }
 }

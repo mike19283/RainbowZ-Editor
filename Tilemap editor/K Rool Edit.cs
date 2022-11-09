@@ -867,13 +867,13 @@ namespace Tilemap_editor
             fakeCreditsToolStripMenuItem.Checked = !fakeCreditsToolStripMenuItem.Checked;
             if (fakeCreditsToolStripMenuItem.Checked)
             {
-                rom.Write16LDA(0xb6d150, 0x0000);
+                rom.Write16Skip1(0xb6d150, 0x0000);
                 // Don't reserve vram for kkr
                 rom.Write8(0x81d323, 0xa9);
             }
             else
             {
-                rom.Write16LDA(0xb6d150, 0x0001);
+                rom.Write16Skip1(0xb6d150, 0x0001);
                 rom.Write8(0x81d323, 0xa9);
 
             }

@@ -47,7 +47,7 @@ namespace Tilemap_editor
             int start = rom.Read16LDA(rom.CREDITSSTARTLDA[creditsType]) | 0x810000;
             int end = start + arr.Length | 0x810000;
 
-            rom.Write16LDA(rom.CREDITSENDLDA[creditsType], (end & 0xffff) - 1);
+            rom.Write16Skip1(rom.CREDITSENDLDA[creditsType], (end & 0xffff) - 1);
             rom.WriteArrToROM(arr, start);
 
             CreditsInit();

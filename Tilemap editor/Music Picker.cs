@@ -47,6 +47,21 @@ namespace Tilemap_editor
             rom.Write16(rom.MUSICTRACK + levelCode * 2, (int)numericUpDown_musicPointer.Value);
             applied += '!';
             button1.Text = applied;
+            int address = 0xb90000 + (int)numericUpDown_musicPointer.Value;
+            switch (numericUpDown_musicPointer.Value)
+            {
+                case 0xff65:
+                    rom.Write16LDAConstant(address + 0, 0x16);
+                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
+                    break;
+                case 0xff6c:
+                    rom.Write16LDAConstant(address + 0, 0x14);
+                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
+                    break;
+
+                default:
+                    break;
+            } 
         }
 
         private void listBox_musicTracks_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +93,22 @@ namespace Tilemap_editor
         {
             int lvl = (int)numericUpDown_levelCode.Value;
             rom.Write16(rom.MUSICTRACK + lvl * 2, (int)numericUpDown_musicPointer.Value);
+            int address = 0xb90000 + (int)numericUpDown_musicPointer.Value;
+            switch (numericUpDown_musicPointer.Value)
+            {
+                case 0xff65:
+                    rom.Write16LDAConstant(address + 0, 0x16);
+                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
+                    break;
+                case 0xff6c:
+                    rom.Write16LDAConstant(address + 0, 0x14);
+                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
+                    break;
+
+                default:
+                    break;
+            }
+
 
             string name = rom.levelNameByCode[lvl];
             if (!name.Contains("level start"))

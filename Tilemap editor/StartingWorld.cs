@@ -25,7 +25,7 @@ namespace Tilemap_editor
         private void button1_Click(object sender, EventArgs e)
         {
             int code = (int)numericUpDown1.Value;
-            rom.Write16LDA(0xb882ce, code);
+            rom.Write16Skip1(0xb882ce, code);
             button1.Text = "Applied!";
         }
 

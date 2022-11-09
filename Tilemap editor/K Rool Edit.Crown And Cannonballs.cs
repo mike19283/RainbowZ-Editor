@@ -66,8 +66,8 @@ namespace Tilemap_editor
             ushort rightBoundsROM = rom.Read16LDA(kkrRightBounds);
             rom.Write8(kkrLeftBounds, 0xa9);
             rom.Write8(kkrRightBounds, 0xa9);
-            rom.Write16LDA(kkrLeftBounds, (int)numericUpDown_miscLeftBounds.Value);
-            rom.Write16LDA(kkrRightBounds, (int)numericUpDown_miscRightBounds.Value);
+            rom.Write16Skip1(kkrLeftBounds, (int)numericUpDown_miscLeftBounds.Value);
+            rom.Write16Skip1(kkrRightBounds, (int)numericUpDown_miscRightBounds.Value);
 
             rom.Write16(0xb5fc69, (int)numericUpDown_miscKkrStartX.Value);
             rom.Write16(0xb5fc6b, (int)numericUpDown_miscKkrStartY.Value);

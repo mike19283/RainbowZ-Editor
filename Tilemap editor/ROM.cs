@@ -67,7 +67,7 @@ namespace Tilemap_editor
             gameTitleAsString = GetTitleFromHeader(gameTitle);
             // Verify checksum
             //if (GetChecksum(backupRom) == 0x163e1202.ToString("x"))
-            if (backupRom[0xffdb] == 0 && (VerifyROM(gameTitle, "DONKEY KONG COUNTRY  ") || VerifyROM(gameTitle, "DKC Hack   [DKC v1.0]")))
+            if (backupRom[0xffdb] == 0/* && (VerifyROM(gameTitle, "DONKEY KONG COUNTRY  ") || VerifyROM(gameTitle, "DKC Hack   [DKC v1.0]"))*/)
             {
                 AddToLevel();
 
@@ -355,13 +355,21 @@ namespace Tilemap_editor
             // Actually write
             Write16(address, value);
         }
-        public void Write16LDA(Int32 address, Int32 value)
+        public void Write16Skip1(Int32 address, Int32 value)
         {
             address &= (address > 0x7fffff ? 0x3fffff : 0xffffff);
             address++;
             // Actually write
             rom[address++] = (byte)(value >> 0);
             rom[address++] = (byte)(value >> 8);
+        }
+        public void Write16LDAConstant(Int32 address, Int32 value)
+        {
+            address &= (address > 0x7fffff ? 0x3fffff : 0xffffff);
+
+            // Actually write
+            Write8(address + 0, 0xa9);
+            Write16(address + 1, value);
         }
         public void Write16(ref Int32 address, Int32 value)
         {
@@ -388,6 +396,14 @@ namespace Tilemap_editor
             rom[address++] = (byte)(value >> 8);
             rom[address++] = (byte)(value >> 16);
             rom[address++] = (byte)(value >> 24);
+        }
+        public void WriteJmp(Int32 address, Int32 value)
+        {
+            address &= (address > 0x7fffff ? 0x3fffff : 0xffffff);
+            // Actually write
+            Write8(address + 0, 0x5c);
+            Write24(address + 1, value);
+
         }
 
         public void WriteString(Int32 address, string str)

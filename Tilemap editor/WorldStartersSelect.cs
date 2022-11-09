@@ -41,7 +41,7 @@ namespace Tilemap_editor
         {
             var lvl = allLevels[listBox_levelList.SelectedIndex];
             int worldStartAddress = rom.WORLDSTARTSLDA[listBox_world.SelectedIndex];
-            rom.Write16LDA(worldStartAddress, lvl.code);
+            rom.Write16Skip1(worldStartAddress, lvl.code);
             MessageBox.Show("Applied");
         }
     }

@@ -60,7 +60,7 @@ namespace Tilemap_editor
             }
             int address = rom.WORLDTERMINATORS[listBox_world.SelectedIndex];
             int val = (int)numericUpDown_levelCode.Value;
-            rom.Write16LDA(address, val);
+            rom.Write16Skip1(address, val);
             MessageBox.Show("Applied");
             listBox_world_SelectedIndexChanged(0, new EventArgs());
         }

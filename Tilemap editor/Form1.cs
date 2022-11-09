@@ -226,16 +226,19 @@ namespace Tilemap_editor
         private void Init()
         {
             // Credit fix
-            rom.Write8(0x81d323, 0xa9);
+            // FIXME
+            //rom.Write8(0x81d323, 0xa9);
 
 
             // Multi hit old code overwrite
             byte[] bf849f = new byte[] { 0xa9, 0x02, 0x00, 0x85, 0x84 };
             byte[] bfd060 = new byte[] { 0x22, 0x76, 0xf4, 0xbd };
             byte[] be9dca = new byte[] { 0x5c, 0xa4, 0x80, 0xbe };
-            rom.WriteArrToROM(bf849f, 0xbf849f);
+            // FIXME
+            //rom.WriteArrToROM(bf849f, 0xbf849f);
             //rom.WriteArrToROM(bfd060, 0xbfd060);
-            rom.WriteArrToROM(be9dca, 0xbe9dca);
+            // FIXME
+            //rom.WriteArrToROM(be9dca, 0xbe9dca);
 
             saveAfterEachLevelToolStripMenuItem.Checked = rom.Read16(0xc4ff00) == 1;
 
@@ -380,6 +383,7 @@ namespace Tilemap_editor
 
         public void Level_select_Click(object sender, EventArgs e)
         {
+            Global.firstError = true;
             if (thisLevel != null)
             {
                 if (thisLevel.CheckSizeOfPath() == false)
@@ -2540,11 +2544,11 @@ namespace Tilemap_editor
             reverseSqwuaksToolStripMenuItem.Checked = !reverseSqwuaksToolStripMenuItem.Checked;
             if (reverseSqwuaksToolStripMenuItem.Checked)
             {
-                rom.Write16LDA(0xb987ed, 0x200);
+                rom.Write16Skip1(0xb987ed, 0x200);
             }
             else
             {
-                rom.Write16LDA(0xb987ed, 0x300);
+                rom.Write16Skip1(0xb987ed, 0x300);
             }
         }
 
@@ -2553,11 +2557,11 @@ namespace Tilemap_editor
             quickFakeCreditsToolStripMenuItem.Checked = !quickFakeCreditsToolStripMenuItem.Checked;
             if (quickFakeCreditsToolStripMenuItem.Checked)
             {
-                rom.Write16LDA(0xb6d150, 0x0000);
+                rom.Write16Skip1(0xb6d150, 0x0000);
             }
             else
             {
-                rom.Write16LDA(0xb6d150, 0x0001);
+                rom.Write16Skip1(0xb6d150, 0x0001);
             }
 
         }
@@ -2655,12 +2659,12 @@ namespace Tilemap_editor
             var kong = Prompt.ShowRadioBox("Select Donkey or Diddy to start", "Kong on game start", "Donkey", "Diddy", start, !start);
             if (kong == 0)
             {
-                rom.Write16LDA(address, 0x1);
+                rom.Write16Skip1(address, 0x1);
                 MessageBox.Show("Set Donkey to start");
             }
             else if (kong == 1)
             {
-                rom.Write16LDA(address, 0x2);
+                rom.Write16Skip1(address, 0x2);
                 MessageBox.Show("Set Diddy to start");
 
             }
@@ -2985,6 +2989,52 @@ namespace Tilemap_editor
             Color_Math_Control color_Math_Control = new Color_Math_Control(rom, thisLevel);
 
             color_Math_Control.ShowDialog();
+        }
+
+        private void tilemapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            tilemapToolStripMenuItem1.Checked = !tilemapToolStripMenuItem1.Checked;
+            Global.writeTm = tilemapToolStripMenuItem1.Checked;
+        }
+
+        private void entitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            entitiesToolStripMenuItem.Checked = !entitiesToolStripMenuItem.Checked;
+            Global.writeEntities = entitiesToolStripMenuItem.Checked;
+        }
+
+        private void camerasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            camerasToolStripMenuItem.Checked = !camerasToolStripMenuItem.Checked;
+            Global.writeCameras = camerasToolStripMenuItem.Checked;
+        }
+
+        private void entrancesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            entrancesToolStripMenuItem.Checked = !entrancesToolStripMenuItem.Checked;
+            Global.writeEntrances = entrancesToolStripMenuItem.Checked;
+        }
+
+        private void pathsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pathsToolStripMenuItem.Checked = !pathsToolStripMenuItem.Checked;
+            Global.writePaths = pathsToolStripMenuItem.Checked;
+        }
+
+        private void bananasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bananasToolStripMenuItem.Checked = !bananasToolStripMenuItem.Checked;
+            Global.writeBananas = bananasToolStripMenuItem.Checked;
+        }
+
+        private void toggleAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tilemapToolStripMenuItem1_Click(0, new EventArgs());
+            entitiesToolStripMenuItem_Click(0, new EventArgs());
+            entrancesToolStripMenuItem_Click(0, new EventArgs());
+            camerasToolStripMenuItem_Click(0, new EventArgs());
+            pathsToolStripMenuItem_Click(0, new EventArgs());
+            bananasToolStripMenuItem_Click(0, new EventArgs());
         }
     }
 }

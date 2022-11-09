@@ -74,10 +74,10 @@ namespace Tilemap_editor
         {
             int address = ATTRIBUTEADDRESSESLDA[listBox_attribute.SelectedIndex];
             int value = (int)numericUpDown_attrValue.Value;
-            rom.Write16LDA(address, value);
+            rom.Write16Skip1(address, value);
             if (listBox_attribute.SelectedItem.ToString() == "Max roll speed")
             {
-                rom.Write16LDA(0xbfbe02, value);
+                rom.Write16Skip1(0xbfbe02, value);
             }
             button_apply.Text = applied;
             applied += '!';
