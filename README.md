@@ -2,6 +2,6 @@
  
 [Download Here](https://github.com/mike19283/RainbowZ-Editor/blob/main/Tilemap%20editor/bin/Debug/RainbowZ%20Editor.zip)
 
-Version 0.421
+Version 0.422
 
 All rights reserved
