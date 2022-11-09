@@ -58,6 +58,10 @@ namespace Tilemap_editor
                     rom.Write16LDAConstant(address + 0, 0x14);
                     rom.WriteJmp(address + 3, rom.LOADTRACKINA);
                     break;
+                case 0xff73:
+                    rom.Write16LDAConstant(address + 0, 0xf);
+                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
+                    break;
 
                 default:
                     break;
@@ -92,23 +96,7 @@ namespace Tilemap_editor
         private void button_applySanity_Click(object sender, EventArgs e)
         {
             int lvl = (int)numericUpDown_levelCode.Value;
-            rom.Write16(rom.MUSICTRACK + lvl * 2, (int)numericUpDown_musicPointer.Value);
-            int address = 0xb90000 + (int)numericUpDown_musicPointer.Value;
-            switch (numericUpDown_musicPointer.Value)
-            {
-                case 0xff65:
-                    rom.Write16LDAConstant(address + 0, 0x16);
-                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
-                    break;
-                case 0xff6c:
-                    rom.Write16LDAConstant(address + 0, 0x14);
-                    rom.WriteJmp(address + 3, rom.LOADTRACKINA);
-                    break;
-
-                default:
-                    break;
-            }
-
+            button1_Click(0, new EventArgs());
 
             string name = rom.levelNameByCode[lvl];
             if (!name.Contains("level start"))

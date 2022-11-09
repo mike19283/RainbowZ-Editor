@@ -33,7 +33,8 @@ namespace Tilemap_editor
             ["The Credits Concerto"] = 0x901c,
 
             ["Candy's Love Song"] = 0xff65,
-            ["Funky's Fugue"] = 0xff6c
+            ["Funky's Fugue"] = 0xff6c,
+            ["Game over"] = 0xff73,
 
         };
         public int[] WORLDCODES = new int[] 
