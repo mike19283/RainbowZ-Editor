@@ -2593,7 +2593,7 @@ namespace Tilemap_editor
             {
                 return;
             }
-            Music_Picker mp = new Music_Picker(rom, thisLevel.levelCode);
+            Music_Picker mp = new Music_Picker(rom, thisLevel.levelCode, thisLevel);
             mp.ShowDialog();
         }
 

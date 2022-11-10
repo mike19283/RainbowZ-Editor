@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button_applySanity = new System.Windows.Forms.Button();
+            this.radioButton_sanity = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_levelCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_musicPointer)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             this.numericUpDown_musicPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown_musicPointer.Hexadecimal = true;
-            this.numericUpDown_musicPointer.Location = new System.Drawing.Point(12, 98);
+            this.numericUpDown_musicPointer.Location = new System.Drawing.Point(12, 81);
             this.numericUpDown_musicPointer.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -83,7 +84,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 133);
+            this.button1.Location = new System.Drawing.Point(12, 116);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -104,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 82);
+            this.label2.Location = new System.Drawing.Point(9, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 5;
@@ -112,7 +113,7 @@
             // 
             // button_applySanity
             // 
-            this.button_applySanity.Location = new System.Drawing.Point(13, 162);
+            this.button_applySanity.Location = new System.Drawing.Point(13, 145);
             this.button_applySanity.Name = "button_applySanity";
             this.button_applySanity.Size = new System.Drawing.Size(75, 42);
             this.button_applySanity.TabIndex = 6;
@@ -121,11 +122,23 @@
             this.button_applySanity.UseVisualStyleBackColor = true;
             this.button_applySanity.Click += new System.EventHandler(this.button_applySanity_Click);
             // 
+            // radioButton_sanity
+            // 
+            this.radioButton_sanity.AutoSize = true;
+            this.radioButton_sanity.Location = new System.Drawing.Point(17, 193);
+            this.radioButton_sanity.Name = "radioButton_sanity";
+            this.radioButton_sanity.Size = new System.Drawing.Size(54, 17);
+            this.radioButton_sanity.TabIndex = 7;
+            this.radioButton_sanity.TabStop = true;
+            this.radioButton_sanity.Text = "Sanity";
+            this.radioButton_sanity.UseVisualStyleBackColor = true;
+            // 
             // Music_Picker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 216);
+            this.Controls.Add(this.radioButton_sanity);
             this.Controls.Add(this.button_applySanity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -152,5 +165,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button_applySanity;
+        private System.Windows.Forms.RadioButton radioButton_sanity;
     }
 }

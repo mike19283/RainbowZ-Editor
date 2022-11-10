@@ -15,11 +15,13 @@ namespace Tilemap_editor
         string applied = "Applied";
         ROM rom;
         int levelCode;
-        public Music_Picker(ROM rom, int levelCode)
+        DKCLevel thisLevel;
+        public Music_Picker(ROM rom, int levelCode, DKCLevel thisLevel)
         {
             InitializeComponent();
             this.rom = rom;
             this.levelCode = levelCode;
+            this.thisLevel = thisLevel;
 
             listBox_musicTracks.Items.AddRange(rom.musicPointersByString.Keys.ToArray());
             numericUpDown_levelCode.Value = levelCode;
@@ -37,6 +39,8 @@ namespace Tilemap_editor
                     break;
                 }
             }
+
+            radioButton_sanity.Checked = CheckSanity();
 
         }
 
@@ -118,6 +122,22 @@ namespace Tilemap_editor
                 }
             }
             MessageBox.Show("Done.");
+        }
+        private int GetMusicPointer (int code)
+        {
+            return rom.Read16(rom.MUSICTRACK + code * 2);
+        }
+        private bool CheckSanity ()
+        {
+            int search = GetMusicPointer(levelCode);
+            foreach (var lvl in thisLevel.relatedLevels)
+            {
+                if (search != GetMusicPointer(lvl.code))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
