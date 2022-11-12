@@ -4,4 +4,6 @@
 
 Version 0.423
 
+This program assumes it will be used properly! It is very easy to break things!
+
 All rights reserved
