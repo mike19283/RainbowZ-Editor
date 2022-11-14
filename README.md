@@ -6,4 +6,13 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.426
+Fixed highlight
+
+Version 0.425
+Added copy/paste hotkeys
+
+Version 0.424
+Fixed MCC music sanity
+
 Version 0.423
