@@ -6,6 +6,9 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.427
+Fixed small common ntities bug
+
 Version 0.426
 Fixed highlight
 
