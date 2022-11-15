@@ -132,6 +132,7 @@
             this.radioButton_sanity.TabStop = true;
             this.radioButton_sanity.Text = "Sanity";
             this.radioButton_sanity.UseVisualStyleBackColor = true;
+            this.radioButton_sanity.Click += new System.EventHandler(this.radioButton_sanity_Click);
             // 
             // Music_Picker
             // 

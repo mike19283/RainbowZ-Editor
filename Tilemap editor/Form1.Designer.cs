@@ -88,6 +88,14 @@
             this.pasteAllEntitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transparentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tilemapToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.entitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.camerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entrancesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bananasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.levelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearTilemapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearCameraMaphorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,6 +184,7 @@
             this.label_lvlName = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer_save = new System.Windows.Forms.Timer(this.components);
+            this.timer_drag = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel_playground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_tilemap)).BeginInit();
@@ -483,7 +492,6 @@
             this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
             this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
-            this.checkForUpdateToolStripMenuItem.Visible = false;
             this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
             // 
             // modToolStripMenuItem
@@ -577,7 +585,8 @@
             this.copyAllEntitiesToolStripMenuItem,
             this.pasteAllEntitiesToolStripMenuItem,
             this.snapToolStripMenuItem,
-            this.transparentToolStripMenuItem});
+            this.transparentToolStripMenuItem,
+            this.updateToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -675,6 +684,81 @@
             this.transparentToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.transparentToolStripMenuItem.Text = "Transparent";
             this.transparentToolStripMenuItem.Click += new System.EventHandler(this.transparentToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tilemapToolStripMenuItem1,
+            this.entitiesToolStripMenuItem,
+            this.camerasToolStripMenuItem,
+            this.entrancesToolStripMenuItem,
+            this.bananasToolStripMenuItem,
+            this.pathsToolStripMenuItem,
+            this.toggleAllToolStripMenuItem});
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            // 
+            // tilemapToolStripMenuItem1
+            // 
+            this.tilemapToolStripMenuItem1.Checked = true;
+            this.tilemapToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tilemapToolStripMenuItem1.Name = "tilemapToolStripMenuItem1";
+            this.tilemapToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.tilemapToolStripMenuItem1.Text = "Tilemap";
+            this.tilemapToolStripMenuItem1.Click += new System.EventHandler(this.tilemapToolStripMenuItem1_Click);
+            // 
+            // entitiesToolStripMenuItem
+            // 
+            this.entitiesToolStripMenuItem.Checked = true;
+            this.entitiesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.entitiesToolStripMenuItem.Name = "entitiesToolStripMenuItem";
+            this.entitiesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.entitiesToolStripMenuItem.Text = "Entities";
+            this.entitiesToolStripMenuItem.Click += new System.EventHandler(this.entitiesToolStripMenuItem_Click);
+            // 
+            // camerasToolStripMenuItem
+            // 
+            this.camerasToolStripMenuItem.Checked = true;
+            this.camerasToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.camerasToolStripMenuItem.Name = "camerasToolStripMenuItem";
+            this.camerasToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.camerasToolStripMenuItem.Text = "Cameras";
+            this.camerasToolStripMenuItem.Click += new System.EventHandler(this.camerasToolStripMenuItem_Click);
+            // 
+            // entrancesToolStripMenuItem
+            // 
+            this.entrancesToolStripMenuItem.Checked = true;
+            this.entrancesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.entrancesToolStripMenuItem.Name = "entrancesToolStripMenuItem";
+            this.entrancesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.entrancesToolStripMenuItem.Text = "Entrances";
+            this.entrancesToolStripMenuItem.Click += new System.EventHandler(this.entrancesToolStripMenuItem_Click);
+            // 
+            // bananasToolStripMenuItem
+            // 
+            this.bananasToolStripMenuItem.Checked = true;
+            this.bananasToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.bananasToolStripMenuItem.Name = "bananasToolStripMenuItem";
+            this.bananasToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.bananasToolStripMenuItem.Text = "Bananas";
+            this.bananasToolStripMenuItem.Click += new System.EventHandler(this.bananasToolStripMenuItem_Click);
+            // 
+            // pathsToolStripMenuItem
+            // 
+            this.pathsToolStripMenuItem.Checked = true;
+            this.pathsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.pathsToolStripMenuItem.Name = "pathsToolStripMenuItem";
+            this.pathsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.pathsToolStripMenuItem.Text = "Paths";
+            this.pathsToolStripMenuItem.Click += new System.EventHandler(this.pathsToolStripMenuItem_Click);
+            // 
+            // toggleAllToolStripMenuItem
+            // 
+            this.toggleAllToolStripMenuItem.Name = "toggleAllToolStripMenuItem";
+            this.toggleAllToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.toggleAllToolStripMenuItem.Text = "Toggle All";
+            this.toggleAllToolStripMenuItem.Click += new System.EventHandler(this.toggleAllToolStripMenuItem_Click);
             // 
             // levelToolStripMenuItem
             // 
@@ -1262,7 +1346,7 @@
             this.comboBox_stages.Location = new System.Drawing.Point(0, 109);
             this.comboBox_stages.Name = "comboBox_stages";
             this.comboBox_stages.Size = new System.Drawing.Size(140, 21);
-            this.comboBox_stages.TabIndex = 1;
+            this.comboBox_stages.TabIndex = 99;
             // 
             // button_select
             // 
@@ -1597,6 +1681,10 @@
             this.timer_save.Enabled = true;
             this.timer_save.Tick += new System.EventHandler(this.timer_save_Tick);
             // 
+            // timer_drag
+            // 
+            this.timer_drag.Tick += new System.EventHandler(this.timer_drag_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1787,6 +1875,15 @@
         private System.Windows.Forms.ToolStripMenuItem startingWorldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entranceStyleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorMathControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tilemapToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem entitiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem camerasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entrancesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bananasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pathsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleAllToolStripMenuItem;
+        private System.Windows.Forms.Timer timer_drag;
     }
 }
 

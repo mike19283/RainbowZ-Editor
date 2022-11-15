@@ -225,8 +225,9 @@ namespace Tilemap_editor
 
         private void Init()
         {
+            timer_drag.Enabled = true;
             // Credit fix
-            // FIXME
+            // FIXME j fix
             //rom.Write8(0x81d323, 0xa9);
 
 
@@ -234,10 +235,10 @@ namespace Tilemap_editor
             byte[] bf849f = new byte[] { 0xa9, 0x02, 0x00, 0x85, 0x84 };
             byte[] bfd060 = new byte[] { 0x22, 0x76, 0xf4, 0xbd };
             byte[] be9dca = new byte[] { 0x5c, 0xa4, 0x80, 0xbe };
-            // FIXME
+            // FIXME j fix
             //rom.WriteArrToROM(bf849f, 0xbf849f);
             //rom.WriteArrToROM(bfd060, 0xbfd060);
-            // FIXME
+            // FIXME j fix
             //rom.WriteArrToROM(be9dca, 0xbe9dca);
 
             saveAfterEachLevelToolStripMenuItem.Checked = rom.Read16(0xc4ff00) == 1;
@@ -363,22 +364,16 @@ namespace Tilemap_editor
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (thisLevel != null)
-            //{
-            //    thisLevel.entities = new List<Entity>();
-            //    thisLevel.cameraBoxes = new List<Camera>();
-            //    thisLevel.platformPaths = new List<List<PlatformPath>>();
-            //    thisLevel.entrances = new List<Entrance>();
-            //    thisLevel.bananas = new List<Banana>();
-
-            //}
             CloseAll();
             rom.Load();
-            this.Text = Version.GetVersion() + " - " + rom.path;
-            thisLevel = null;
-            saveTilemapToolStripMenuItem.Enabled = false;
-            pictureBox_tilemap.Image = new Bitmap(1, 1);
-            Init();       
+            if (rom.loadROMSuccess)
+            {
+                this.Text = Version.GetVersion() + " - " + rom.path;
+                thisLevel = null;
+                saveTilemapToolStripMenuItem.Enabled = false;
+                pictureBox_tilemap.Image = new Bitmap(1, 1);
+                Init();
+            }
         }
 
         public void Level_select_Click(object sender, EventArgs e)
@@ -679,7 +674,9 @@ namespace Tilemap_editor
         private void AddUndoToAll (Control parent)
         {
             parent.KeyDown += new KeyEventHandler(UndoHotkey);
-
+            parent.KeyDown += new KeyEventHandler(CopyPasteHotkey);
+            parent.KeyDown += new KeyEventHandler(DragTile);
+            parent.KeyUp += new KeyEventHandler(DragTileUp);
             foreach (Control child in parent.Controls)
             {
                 AddUndoToAll(child);
@@ -2440,7 +2437,7 @@ namespace Tilemap_editor
 
         private void checkForUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Please go to my twitch for the most current: https://www.twitch.tv/rainbowsprinklez");
+            Version.ManualCheck();
         }
 
         private void textEditorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3035,6 +3032,10 @@ namespace Tilemap_editor
             camerasToolStripMenuItem_Click(0, new EventArgs());
             pathsToolStripMenuItem_Click(0, new EventArgs());
             bananasToolStripMenuItem_Click(0, new EventArgs());
+        }
+
+        private void timer_drag_Tick(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -356,7 +356,7 @@ namespace Tilemap_editor
             highlightOrPaste = "paste";
         }
 
-        private void button_delete_Click(object sender, EventArgs e)
+        public void button_delete_Click(object sender, EventArgs e)
         {
             if (radioButton_paste.Checked)
                 return;
@@ -403,7 +403,7 @@ namespace Tilemap_editor
             listBox_copyHistory.Items.AddRange(form.hist.ToArray());
         }
 
-        private void button_cut_Click(object sender, EventArgs e)
+        public void button_cut_Click(object sender, EventArgs e)
         {
             if (radioButton_paste.Checked)
                 return;
@@ -416,7 +416,7 @@ namespace Tilemap_editor
             
         }
 
-        private void button_copy_Click(object sender, EventArgs e)
+        public void button_copy_Click(object sender, EventArgs e)
         {
             if (radioButton_paste.Checked)
                 return;
@@ -445,7 +445,7 @@ namespace Tilemap_editor
             return bmp;
         }
 
-        private void button_xFlipPaste_Click(object sender, EventArgs e)
+        public void button_xFlipPaste_Click(object sender, EventArgs e)
         {
             checkBox_highlightX.Checked = !checkBox_highlightX.Checked;
 
@@ -464,7 +464,7 @@ namespace Tilemap_editor
             form.pastedImg = BuildPaste(form.copiedTilemap);
         }
 
-        private void button_yFlipPaste_Click(object sender, EventArgs e)
+        public void button_yFlipPaste_Click(object sender, EventArgs e)
         {
             checkBox_highlightY.Checked = !checkBox_highlightY.Checked;
 
@@ -731,7 +731,19 @@ namespace Tilemap_editor
 
             return @return;
         }
-
+        public void SetHighlight()
+        {
+            radioButton_highlight.Checked = true;
+        }
+        public void SetPaste()
+        {
+            radioButton_paste.Checked = true;
+        }
+        public void ChangeTab(int tab)
+        {
+            tabControl_modes.SelectedIndex = tab;
+            tabControl_modes_Click(0, new EventArgs());
+        }
     }
     public class CopyHistory
     {

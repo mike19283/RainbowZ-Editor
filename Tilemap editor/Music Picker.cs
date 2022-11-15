@@ -112,15 +112,12 @@ namespace Tilemap_editor
             //var dict = rom.levelNameByCode.Where(kvp => kvp.Value.Contains(name) && kvp.Value.Contains("from"));
             List<int> musicSanityArr = new List<int>();
             // Loop through all stages, selecting 'sane' ones
-            foreach (var kvp in rom.levelNameByCode)
+            foreach (var rel in thisLevel.relatedLevels)
             {
-                int key = kvp.Key;
-                string value = kvp.Value;
-                if (value.Contains(name) && value.Contains("from"))
-                {
-                    rom.Write16(rom.MUSICTRACK + key * 2, (int)numericUpDown_musicPointer.Value);
-                }
+                int key = rel.code;
+                rom.Write16(rom.MUSICTRACK + key * 2, (int)numericUpDown_musicPointer.Value);
             }
+            radioButton_sanity.Checked = true;
             MessageBox.Show("Done.");
         }
         private int GetMusicPointer (int code)
@@ -138,6 +135,11 @@ namespace Tilemap_editor
                 }
             }
             return true;
+        }
+
+        private void radioButton_sanity_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

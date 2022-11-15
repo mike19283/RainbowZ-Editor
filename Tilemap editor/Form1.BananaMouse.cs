@@ -93,8 +93,7 @@ namespace Tilemap_editor
 
                         Bitmap tempCopy = (Bitmap)screenCopy.Clone();
                         Bitmap tempBmp = bananaMouse.DrawEntity(tempCopy, this);
-                        pictureBox_tilemap.Image = tempBmp;
-
+                        SetImage(tempBmp);
                     }
                 }
             }

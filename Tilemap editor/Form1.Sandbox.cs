@@ -19,6 +19,10 @@ namespace Tilemap_editor
         public Bitmap pastedImg;
         Bitmap ogImage;
         public List<CopyHistory> hist = new List<CopyHistory>();
+        public bool drag = false;
+        public int dragTile = 0;
+        public int highLightTimer = 0;
+        public int highLightTimerMax = 100;
 
         private void pictureBox_tilemap_MouseDown(object sender, MouseEventArgs e)
         {
@@ -36,7 +40,17 @@ namespace Tilemap_editor
                 switch (thisLevel.te.selectionMode)
                 {
                     case 0:
-                        Regular(e);
+                        if (!drag)
+                        {
+                            Regular(e);
+                        }
+                        else
+                        {
+                            int x = e.X / 32, y = e.Y / 32;
+                            dragTile = thisLevel.tilemap[x, y];
+                            startX = e.X / 32;
+                            startY = e.Y / 32;
+                        }
                         break;
                     case 1:
                         tempTilemap = thisLevel.TilemapDeepCopy();
@@ -118,6 +132,19 @@ namespace Tilemap_editor
                 switch (thisLevel.te.selectionMode)
                 {
                     case 0:
+                        if (drag && dragTile != 0)
+                        {
+                            if (e.X % 0x20 == 0 || e.Y % 0x20 == 0)
+                            {
+                                tempTilemap = thisLevel.TilemapDeepCopy();
+                                int x = e.X / 0x20,
+                                    y = e.Y / 0x20;
+                                tempTilemap[x, y] = dragTile;
+
+                                pictureBox_tilemap.Image.Dispose();
+                                pictureBox_tilemap.Image = thisLevel.ReDrawGivenTilemap(checkBox_grid.Checked, tempTilemap);
+                            }
+                        }
                         break;
                     case 1:
                         if (thisLevel == null)
@@ -184,9 +211,8 @@ namespace Tilemap_editor
                             //Bitmap bmp;
                             //bmp = thisLevel.ReDrawTilemap(checkBox_grid.Checked);
                             int x = e.X / 32, y = e.Y / 32;
-                            if (lastXH == x && lastYH == y)
+                            if ((lastXH == x && lastYH == y))
                             {
-
                                 return;
                             }
                             lastYH = y;
@@ -196,6 +222,14 @@ namespace Tilemap_editor
                             var bmp = (Bitmap)ogImage.Clone();
                             x *= 32;
                             y *= 32;
+                            if (x == startX)
+                            {
+                                x += 32;
+                            }
+                            if (y == startY)
+                            {
+                                y += 32;
+                            }
                             bmp = DrawCopy(bmp, x, y);
                             pictureBox_tilemap.Image = bmp;
                         }
@@ -243,6 +277,15 @@ namespace Tilemap_editor
                 switch (thisLevel.te.selectionMode)
                 {
                     case 0:
+                        if (drag && dragTile != 0)
+                        {
+                            thisLevel.tilemap[startX, startY] = 0;
+                            int x = e.X / 32, y = e.Y / 32;
+                            thisLevel.tilemap[x, y] = dragTile;
+                            DrawScreen();
+                            drag = false;
+                            dragTile = 0;
+                        }
                         break;
                     case 1:
                         if (thisLevel.te.selectionMode == 0)
@@ -275,6 +318,14 @@ namespace Tilemap_editor
                                 int x = e.X / 32, y = e.Y / 32;
                                 x *= 32;
                                 y *= 32;
+                                if (x == startX)
+                                {
+                                    x += 32;
+                                }
+                                if (y == startY)
+                                {
+                                    y += 32;
+                                }
                                 var maxX = thisLevel.tilemap.GetLength(0) * 32;
                                 var maxY = thisLevel.tilemap.GetLength(1) * 32;
                                 if (x >= maxX)
@@ -334,6 +385,8 @@ namespace Tilemap_editor
                 switch (thisLevel.te.selectionMode)
                 {
                     case 0:
+                        drag = false;
+                        dragTile = 0;
                         break;
                     case 1:
 
@@ -361,7 +414,7 @@ namespace Tilemap_editor
 
         }
 
-        private void Regular (MouseEventArgs e)
+        private void Regular(MouseEventArgs e)
         {
             int x = e.X / 32, y = e.Y / 32;
             int selection = thisLevel.te.selectedTileIndex;
@@ -369,7 +422,7 @@ namespace Tilemap_editor
 
             DrawScreen();
         }
-        private void Stamp (MouseEventArgs e)
+        private void Stamp(MouseEventArgs e)
         {
             startX = e.X / 32;
             startY = e.Y / 32;
@@ -386,7 +439,7 @@ namespace Tilemap_editor
                             continue;
 
                         thisLevel.tilemap[startX + x, startY + y] = pointer;
-                        
+
                     }
                     catch { }
                 }
@@ -394,7 +447,7 @@ namespace Tilemap_editor
             DrawScreen();
 
         }
-        private bool DrawMode ()
+        private bool DrawMode()
         {
             return checkBox_viewEntrances.Checked || checkBox_viewEntities.Checked ||
                 checkBox_viewCam.Checked || checkBox_viewBananas.Checked;
@@ -431,7 +484,7 @@ namespace Tilemap_editor
             {
 
             }
-            
+
 
             return bmp;
         }
@@ -489,7 +542,7 @@ namespace Tilemap_editor
             int copyY = copiedTilemap.Count;
             if (startY + copyY > thisLevel.tilemap.GetLength(1))
             {
-                copyY = thisLevel.tilemap.GetLength(1) - startY;                
+                copyY = thisLevel.tilemap.GetLength(1) - startY;
             }
             if (startX + copyX > thisLevel.tilemap.GetLength(0))
             {
@@ -504,11 +557,12 @@ namespace Tilemap_editor
                 for (int x = localStartX; x < copyX; x++)
                 {
                     var val = copiedTilemap[y][x];
-                    thisLevel.tilemap[startX + x, startY + y] = val;
+                    if (val != 0)
+                        thisLevel.tilemap[startX + x, startY + y] = val;
                 }
             }
         }
-        private void CursorMove (object sender, MouseEventArgs e)
+        private void CursorMove(object sender, MouseEventArgs e)
         {
             if (thisLevel == null)
                 return;
@@ -540,7 +594,98 @@ namespace Tilemap_editor
 
             return displacement;
         }
+        public void CopyPasteHotkey(object sender, KeyEventArgs e)
+        {
+            if (radioButton_editterrain.Checked)
+            {
+                // Set up paste hotkeys
+                if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+                {
+                    thisLevel.te.ChangeTab(3);
+                }
+                else if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+                {
+                    thisLevel.te.ChangeTab(3);
+                }
 
 
+            }
+            if (radioButton_editterrain.Checked &&
+                thisLevel.te.selectionMode == 3)
+            {
+                // Set up paste hotkeys
+                if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+                {
+                    e.Handled = true;
+                    if (thisLevel.te.highlightOrPaste == "highlight")
+                    {
+                        thisLevel.te.button_copy_Click(0, new EventArgs());
+                    }
+                    else
+                    {
+                        thisLevel.te.SetHighlight();
+                    }
+                }
+                else if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+                {
+                    e.Handled = true;
+                    if (thisLevel.te.highlightOrPaste == "highlight")
+                    {
+                        thisLevel.te.SetPaste();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else if (e.KeyCode == Keys.X && e.Modifiers == Keys.Control && thisLevel.te.highlightOrPaste == "highlight")
+                {
+                    e.Handled = true;
+                    thisLevel.te.button_cut_Click(0, new EventArgs());
+                }
+                else if (e.KeyCode == Keys.Delete && thisLevel.te.highlightOrPaste == "highlight")
+                {
+                    e.Handled = true;
+                    thisLevel.te.button_delete_Click(0, new EventArgs());
+                }
+                else if (e.KeyCode == Keys.Q && e.Modifiers == Keys.Control)
+                {
+                    e.Handled = true;
+                    thisLevel.te.button_xFlipPaste_Click(0, new EventArgs());
+                }
+                else if (e.KeyCode == Keys.W && e.Modifiers == Keys.Control)
+                {
+                    e.Handled = true;
+                    thisLevel.te.button_yFlipPaste_Click(0, new EventArgs());
+                }
+            }
+        }
+        public void DragTile(object sender, KeyEventArgs e)
+        {
+            if (radioButton_editterrain.Checked &&
+                thisLevel.te.selectionMode == 0)
+            {
+                if (!drag)
+                {
+                    if (e.KeyCode == Keys.ControlKey)
+                    {
+                        drag = true;
+                    }
+                    else
+                    {
+                        drag = false;
+                    }
+                }
+            }
+
+        }
+        public void DragTileUp (object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ControlKey)
+            {
+                drag = false;
+                dragTile = 0;
+            }
+        }
     }
 }

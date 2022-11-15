@@ -19,7 +19,9 @@ namespace Tilemap_editor
 			_1b13,
 			_1b0f,
 			_db;
-		public int levelCode;
+        int physicsOffset;
+        int physicsUpUntil;
+        public int levelCode;
 		public ROM rom;
 		public string lvlName;
 		public int headerIndex,
@@ -698,10 +700,11 @@ namespace Tilemap_editor
 			a = rom.Read16(0x818c4a + y);
 			//				__STA $1b0f            // PC[818cab]={8d 0f 1b   }  s1
 			_1b0f = a;
-			//				__PLB                  // PC[818cae]={ab         }  s0
-			//				__RTL                  // PC[818caf]={6b         }  s0
+            //				__PLB                  // PC[818cae]={ab         }  s0
+            //				__RTL                  // PC[818caf]={6b         }  s0
 
-
+            physicsOffset = ((_d9 & 0xff) << 16) | (_d7 << 0);
+            physicsUpUntil = _db;
 		}
 		private void FindStartAndEnd()
 		{
@@ -890,16 +893,28 @@ namespace Tilemap_editor
         }
 		public Bitmap GetTileByIndex(int index)
 		{
-			// Bits 14 and 15 are flips
-			bool xFlip = (index & 0x4000) > 0,
-				 yFlip = (index & 0x8000) > 0;
-			// Clone so we leave our array untouched
-			Bitmap bmp = (Bitmap)tiles[index & 0x3ff].Clone();
-			if (xFlip)
-				bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
-			if (yFlip)
-				bmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
-			return bmp;
+            try
+            {
+                // Bits 14 and 15 are flips
+                bool xFlip = (index & 0x4000) > 0,
+                     yFlip = (index & 0x8000) > 0;
+                // Clone so we leave our array untouched
+                Bitmap bmp = (Bitmap)tiles[index & 0x3ff].Clone();
+                if (xFlip)
+                    bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                if (yFlip)
+                    bmp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                return bmp;
+            }
+            catch
+            {
+                if (Global.firstError)
+                {
+                    MessageBox.Show("Error", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Global.firstError = false;
+                }
+                return new Bitmap(32, 32);
+            }
 		}
 
 		public byte[] GameTilemap()
@@ -1167,22 +1182,39 @@ namespace Tilemap_editor
         }
 		public void WriteAll()
         {
-            WriteTilemapToROM();
-
+            if (Global.writeTm)
+            {
+                WriteTilemapToROM();
+                WriteTilemapToROM();
+            }
             if (levelCode > 0xe5)
             {
                 return;
             }
 
-			WriteTilemapToROM();
-            WriteEntrancesToROM();
-			WriteCamerasToROM();
-            WriteBananasToROM();
-            WritePathsToROM();
+            if (Global.writeEntrances)
+            {
+                WriteEntrancesToROM();
+            }
+            if (Global.writeCameras)
+            {
+                WriteCamerasToROM();
+                WriteVcamsToROM();
+            }
+            if (Global.writeBananas)
+            {
+                WriteBananasToROM();
+            }
+            if (Global.writePaths)
+            {
+                WritePathsToROM();
+            }
             //WriteLayersToROM();
-            WriteObjectsToROM();
-            WriteVcamsToROM();
 
+            if (Global.writeEntities)
+            {
+                WriteObjectsToROM();
+            }
             // Reset static vars
             Entity.counter = 0;
 			Entrance.counter = 0;

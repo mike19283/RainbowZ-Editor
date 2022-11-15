@@ -111,7 +111,7 @@ namespace Tilemap_editor
 
         private void button_apply_Click(object sender, EventArgs e)
         {
-            if (numericUpDown_entityPointer.Value < 0x8000)
+            if (numericUpDown_entityPointer.Value < 0x8000 && !rom.CheckSignature())
             {
                 MessageBox.Show("This applies ASM.", "WARNING");
                 if (MessageBox.Show("Continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -153,7 +153,7 @@ namespace Tilemap_editor
             listBox_entities.SelectedIndex = index;
 
             int type = (int)numericUpDown_entityType.Value;
-            if (commonEntities.Contains(pointer) || entity.type == 2)
+            if (commonEntities.Contains(pointer)/* || entity.type == 2*/)
             {
                 return;
             }

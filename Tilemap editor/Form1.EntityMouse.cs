@@ -175,9 +175,7 @@ namespace Tilemap_editor
                 {
                     Bitmap tempCopy = (Bitmap)screenCopy.Clone();
                     Bitmap tempBmp = entityMouse.DrawEntity(tempCopy, this);
-                    if (pictureBox_tilemap.Image != null)
-                        pictureBox_tilemap.Image.Dispose();
-                    pictureBox_tilemap.Image = tempBmp;
+                    SetImage(tempBmp);
                 }
 
 
@@ -190,6 +188,14 @@ namespace Tilemap_editor
                 //}
             }
         }
+
+        private void SetImage(Bitmap tempBmp)
+        {
+            if (pictureBox_tilemap.Image != null)
+                pictureBox_tilemap.Image.Dispose();
+            pictureBox_tilemap.Image = tempBmp;
+        }
+
         public void MouseUpEntity (object sender, MouseEventArgs e)
         {
             if (thisLevel == null || pictureBox_tilemap.Image == null || !radioButton_editEntities.Checked)
