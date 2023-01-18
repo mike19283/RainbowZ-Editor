@@ -7,6 +7,9 @@ Make sure you download the assets FIRST. Then, download the RainbowZ Editor prog
 This is the latest ASM folder. I'll often push more. If you already have all of the above, you only need to unzip and replace this folder.
 [ASM](https://github.com/mike19283/RainbowZ-Editor/blob/main/ASM.zip)
 
+And finally here is the program.
+[RainbowZ Editor](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor.exe)
+
 This program assumes it will be used properly! It is very easy to break things!
 
 
