@@ -10,6 +10,9 @@ This is the latest ASM folder. I'll often push more. If you already have all of 
 And finally here is the program.
 [RainbowZ Editor](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor.exe)
 
+NOTE!
+You do not need to download the assets after you have them once! The only thing you need to update is ASM and the editor!
+
 This program assumes it will be used properly! It is very easy to break things!
 
 
