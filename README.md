@@ -1,6 +1,10 @@
 # RainbowZ Editor
  
-Here you can find the most up-to-date version of this.
+ IMPORTANT
+ This requires a 1.0 U version of DKC1 to work properly.
+ 
+ 
+Here you can find the most up-to-date version of this. 
 Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder 
 [Assets](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ_Editor_Assets.zip)
 
