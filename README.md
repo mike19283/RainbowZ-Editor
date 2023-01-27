@@ -22,6 +22,8 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.442 Up to date as of 01/27/23
+
 Version 0.435 Up to date as of 01/18/23
 
 Version 0.427
