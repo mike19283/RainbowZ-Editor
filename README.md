@@ -5,7 +5,7 @@
  
  
 Here you can find the most up-to-date version of this. 
-Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder 
+Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder. 
 [Assets](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ_Editor_Assets.zip)
 
 This is the latest ASM folder. I'll often push more. If you already have all of the above, you only need to unzip and replace this folder.
