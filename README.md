@@ -3,6 +3,8 @@
  IMPORTANT
  This requires a 1.0 U version of DKC1 to work properly.
  
+ For a quick download, go [here](https://www.romhacking.net/utilities/1720/). Just make sure you update here after.
+ 
  
 Here you can find the most up-to-date version of this. 
 Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder. 
