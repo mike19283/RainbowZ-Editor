@@ -24,6 +24,8 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.459 up to date as of 04/09/23, addressed Dixie softlock
+
 Version 0.457 up to date as of 03/18/23
 
 Version 0.456 up to date as of 03/18/23
