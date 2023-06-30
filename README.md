@@ -5,6 +5,7 @@
  
  For a quick download, go [here](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor%20Quick%20Start.zip). No need to update after.
  
+For archival's sake, I will keep the following here, but you should never worry about this!
  
 Here you can find the most up-to-date version of this. 
 Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder. 
