@@ -3,7 +3,7 @@
  IMPORTANT
  This requires a 1.0 U version of DKC1 to work properly.
  
- For a quick download, go [here](https://www.romhacking.net/utilities/1720/). Just make sure you update here after.
+ For a quick download, go [here](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor%20Quick%20Start.zip). No need to update after.
  
  
 Here you can find the most up-to-date version of this. 
