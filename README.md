@@ -4,6 +4,10 @@
  This requires a 1.0 U version of DKC1 to work properly.
  
  For a quick download, go [here](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor%20Quick%20Start.zip). No need to update after.
+
+***IF YOU UPDATE***
+Make sure you copy over your backups as well as your stamps!
+
  
 For archival's sake, I will keep the following here, but you should never worry about this!
 
