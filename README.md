@@ -32,8 +32,11 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.471 up to date as of 07/15/23, Fixed chaos
+
 Version 0.470 up to date as of 07/14/23, Added set compatibility.
 Added the ability to edit starting lives
+Added chaos mode
 
 Version 0.459 up to date as of 04/09/23, addressed Dixie softlock
 
