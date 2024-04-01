@@ -3,7 +3,7 @@
  IMPORTANT
  This requires a 1.0 U version of DKC1 to work properly.
  
- For a quick download, go [here]([https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor.zip](https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor%20Quickstart.zip)). No need to update after.
+ For a quick download, go [here]([https://github.com/mike19283/RainbowZ-Editor/blob/main/RainbowZ%20Editor.zip]). No need to update after.
 
 ***IF YOU UPDATE***
 Make sure you copy over your backups as well as your stamps!
