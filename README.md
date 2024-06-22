@@ -32,6 +32,8 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.546 up to date as of 6/22/24. Added a bunch including a fix to the anti piracy check.
+
 Version 0.526 up to date as of 4/3/24. V0.526 fixes a pretty bad bug with import, but also a niche one
 
 Version 0.525 up to date as of 04/1/24. Added a TON
