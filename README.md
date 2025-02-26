@@ -11,7 +11,7 @@ Make sure you copy over your backups as well as your stamps!
  
 For archival's sake, I will keep the following here, but you should never worry about this!
 
-
+"
 
 Here you can find the most up-to-date version of this. 
 Make sure you download the assets FIRST. Then, download the RainbowZ Editor program and put it in the deepmost 'RainbowZ Editor' folder. 
@@ -26,6 +26,7 @@ And finally here is the program.
 NOTE!
 You do not need to download the assets after you have them once! The only thing you need to update is ASM and the editor! The backing code may not be up to date. But the program should be!
 
+"
 
 This program assumes it will be used properly! It is very easy to break things!
 
