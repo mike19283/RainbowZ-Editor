@@ -32,6 +32,8 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.556 up to date as of 2/26/25. Added stuff to copyright edit, added a display tiles button, fixed annoying gfx bug
+
 Version 0.550 up to date as of 11/16/24. Fixed Gnawty Wheel bug.
 
 Version 0.546 up to date as of 6/22/24. Added a bunch including a fix to the anti piracy check.
