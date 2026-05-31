@@ -33,6 +33,8 @@ This program assumes it will be used properly! It is very easy to break things!
 
 All rights reserved
 
+Version 0.574 up to date as of 5/30/26. Pushed update for troll contest
+
 Version 0.557 up to date as of 2/28/25. Fixed some Mario stuff and added a link to here.
 
 Version 0.556 up to date as of 2/26/25. Added stuff to copyright edit, added a display tiles button, fixed annoying gfx bug
